@@ -1,8 +1,8 @@
 # from PIL import ImageGrab
 import pyscreenshot as ImageGrab
 from fastai.vision import load_learner, open_image
-from ..utils.mp3_player import play
-
+from ..utils.mp3_player import play_opening_game
+import time
 import os
 BASE = (os.path.dirname(os.path.realpath(__file__)))
 
@@ -19,16 +19,22 @@ def __split_hero_icon__(img):
 
 
 def call_heros_on_team(screen_width, screen_height, learn=model, ):
-
     # calculate const for crop from screenshot
     if screen_width*9 > screen_height*21:
-        delta_timer = 0.556
+        delta_timer = 0.54
+        wide = 1
+        print(1)
     else:
         delta_timer = 0.556
+        wide = 0
+        print(0)
+
+    print("get image")
+    start_time = time.time()
 
     # grab radiant heros
     left = ImageGrab.grab(bbox=(
-        int(screen_width * 0.28),
+        int(screen_width * 0.28 + wide * screen_width * 0.056),
         4,
         int(screen_width - screen_width * delta_timer),
         int(screen_height - screen_height * 0.965-3)))
@@ -37,9 +43,13 @@ def call_heros_on_team(screen_width, screen_height, learn=model, ):
     right = ImageGrab.grab(bbox=(
         int(screen_width * delta_timer),
         4,
-        int(screen_width - screen_width * 0.28),
+        int(screen_width - screen_width * 0.28 - wide * screen_width * 0.056),
         int(screen_height - screen_height * 0.965-3)))
 
+    print("--- %s seconds ---" % (time.time() - start_time))
+    start_time = time.time()
+
+    print("resize and split")
     # resize img
     left = left.resize((210, 18))
     right = right.resize((210, 18))
@@ -48,12 +58,19 @@ def call_heros_on_team(screen_width, screen_height, learn=model, ):
     radiant_icon = __split_hero_icon__(left)
     dire_icon = __split_hero_icon__(right)
 
+    print("--- %s seconds ---" % (time.time() - start_time))
+    start_time = time.time()
+
     # set array for heros name
     radiant_heros = []
     dire_heros = []
 
     # temp img from model pred
     temp_file = BASE + "/../temp/header_hero.png"
+
+    print("predict hero")
+    print("--- %s seconds ---" % (time.time() - start_time))
+    start_time = time.time()
 
     # get all radiant heros name
     for hero in radiant_icon:
@@ -67,12 +84,5 @@ def call_heros_on_team(screen_width, screen_height, learn=model, ):
         hero_name = (str(learn.predict(open_image(temp_file))[0]))
         dire_heros.append(hero_name)
 
-    # for hero in radiant_heros:
-    #     play(hero.lower(), voice_type="hero")
-
-    # for hero in dire_heros:
-    #     play(hero.lower(), voice_type="hero")
-
-    # play("lina", voice_type="hero")
-
-    return radiant_heros, dire_heros
+    play_opening_game(radiant_heros, dire_heros)
+    print("--- %s seconds ---" % (time.time() - start_time))
