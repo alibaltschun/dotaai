@@ -1,5 +1,6 @@
-from PIL import ImageGrab
+# from PIL import ImageGrab
 import numpy as np
+import pyscreenshot as ImageGrab
 
 from ..utils.mp3_player import play
 
@@ -15,15 +16,16 @@ def check_teleport(screen_width, screen_height):
         delta_teleport.append(screen_width*0.695)
 
     # get image from screen
-    img = ImageGrab.grab((
-            delta_teleport[0],
-            screen_height*.97,
-            delta_teleport[1],
-            screen_height*.985))
+    img = ImageGrab.grab(bbox=(
+            int(delta_teleport[0]),
+            int(screen_height*.97),
+            int(delta_teleport[1]),
+            int(screen_height*.985)))
 
     # count avg
     avg_teleport = np.max(np.array(img))
 
+    print('check user bring teleport')
     # check user bring teleport
     if avg_teleport < 100:
 
