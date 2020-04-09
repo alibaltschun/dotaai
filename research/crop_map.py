@@ -1,45 +1,22 @@
 import os
-import numpy as np
-for root, dirs, files in os.walk("./dataset/screen_map/"):
-    print(files)
-    
 from PIL import ImageOps, Image
 
-w,h = 1366,768
-folder = "./dataset/screen_map/"
+folder = "./research/dataset/dataset/team/train_ori/dire/"
+folder_output = "./research/dataset/dataset/team/train_crop/dire/"
+
+for root, dirs, files in os.walk(folder):
+    print(files)    
+
+
 for file in files:
+#    file = files[0] # 0 , 10, 96
     img = Image.open(folder+file)
-    img.show()
-    the_map = img.crop((0,h-h*0.26,h*0.26,h))
-    the_map.show()
-    w,h = the_map.size
-    mid = the_map.crop((h*0.30,h*0.35,h*0.65,h*0.7))
-    mid.show()
+#    img.show()
     
-#    size = map(int,file.replace(".png","").split("x"))
-#    w,h = size
-    w,h = 1366,768
+    _, h = img.size
     
-    player_color = [
-            [67,56,233,255],
-            [87,211,165,255], 
-            [180,0,162,255],
-            [210,207,8,255],
-            [231,174,0,255],
-            [255,97,185,255],
-            [146,188,68,255],
-            [60,197,228],
-            [0,132,38,255],
-            [164,104,0]
-            ]
     
-    mid_player = [0 for i in range(10)]
+    img = the_map = img.crop((0,h-h*0.225,h*0.225,h))
     
-    pix = np.array(mid).tolist()
-    for i in range(len(pix)):
-        for j in range(len(pix)):
-            for k in range(len(player_color)):
-                if pix[i][j] == player_color[k]:
-                    mid_player[k] = 1
-        
-    
+    img.save(folder_output+file)
+#    img.show()
