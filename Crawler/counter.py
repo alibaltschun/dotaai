@@ -9,6 +9,7 @@ counters
 from bs4 import BeautifulSoup
 import requests
 import pandas as pd
+import urllib
 
 def __heros_counter__(name):
     url = "https://dota2.gamepedia.com/{}/Counters".format(name)
@@ -36,8 +37,11 @@ def __heros_counter__(name):
                 continue
             result[target].append(value)
     
-    return result
-
+    return name, result[0], result[1], result[2]
+    
+    save_to = "./"+name+".png"
+    urllib.request.urlretrieve(url, save_to)
+    
 def __get_heros_name__():
     url = "https://dota2.gamepedia.com/Dota_2_Wiki"
     res = requests.get(url)
@@ -51,10 +55,12 @@ def __get_heros_name__():
     
     return heros_name
 
-heros_name = __get_heros_name__()
-counters = [[hero, __heros_counter__(hero)] for hero in heros_name]
+def __download_heros_counters__():
+    heros_name = __get_heros_name__()
+    counters = [[__heros_counter__(hero)] for hero in heros_name]
 
-c = [[c[0], c[1][0], c[1][1], c[1][2] ]  for c in counters]
+    df = pd.DataFrame(counters, columns=['Hero','Bad against', 'Good against', 'Works well with'])
+    df.to_csv("./hero_counters.csv", index=False)
 
-df = pd.DataFrame(c, columns=['Hero','Bad against', 'Good against', 'Works well with'])
-df.to_csv("./hero_counters.csv", index=False)
+
+
