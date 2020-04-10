@@ -7,8 +7,8 @@ BASE = (os.path.dirname(os.path.realpath(__file__)))
 data = pd.read_csv(BASE + "/../../assets/csv/hero.csv")
 
 def __hero_icon__(hero_name):
-    ui = """<li class="list-inline-item "><a href="#" ><img class="icon" src="./../../assets/img/hero_icon/{}_minimap_icon.png"><img></a></li>
-""".format(hero_name)
+    ui = """
+                                    <li class="list-inline-item "><a href="#" ><img class="icon" src="./../../assets/img/hero_icon/{}_minimap_icon.png"><img></a></li>""".format(hero_name)
     return ui
 
 def __hero_icon_ui__(heros):
@@ -115,4 +115,4 @@ def generate_ui():
             file.write(u)
         file.write(bottom)
 
-    
+generate_ui()

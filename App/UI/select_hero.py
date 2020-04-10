@@ -2,7 +2,7 @@ import win32api, win32con, win32gui
 from cefpython3 import cefpython as cef
 import sys
 
-URL = "file:///C:/Users/baltschun/Desktop/project/Portfolio-Template-Bootstrap-master/index.html"
+URL = "file:///C:/Users/baltschun/Desktop/project/dotaai/dotaai/App/UI/select_hero/index.html"
 
 class MyWindow:
 

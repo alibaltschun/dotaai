@@ -2,8 +2,12 @@
 
 import pandas as pd
 
-hero_counter = pd.read_csv("./hero_counters.csv")
-hero_atribute = pd.read_csv("./atribut.tsv", sep="\t")
+import os
+
+BASE = (os.path.dirname(os.path.realpath(__file__)))
+
+hero_counter = pd.read_csv(BASE + "/hero_counters.csv")
+hero_atribute = pd.read_csv(BASE + "/atribut.tsv", sep="\t")
 
 hero = hero_counter.merge(hero_atribute, on="Hero", how = 'inner')
-hero.to_csv("./hero.csv", index=False)
+hero.to_csv(BASE + "/../App/assets/csv/hero.csv", index=False)

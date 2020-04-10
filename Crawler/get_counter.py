@@ -10,8 +10,12 @@ from bs4 import BeautifulSoup
 import requests
 import pandas as pd
 import urllib
+import os
+
+BASE = (os.path.dirname(os.path.realpath(__file__)))
 
 def __heros_counter__(name):
+    print(name)
     url = "https://dota2.gamepedia.com/{}/Counters".format(name)
     res = requests.get(url)
     text = res.text
@@ -39,9 +43,6 @@ def __heros_counter__(name):
     
     return name, result[0], result[1], result[2]
     
-    save_to = "./"+name+".png"
-    urllib.request.urlretrieve(url, save_to)
-    
 def __get_heros_name__():
     url = "https://dota2.gamepedia.com/Dota_2_Wiki"
     res = requests.get(url)
@@ -57,10 +58,10 @@ def __get_heros_name__():
 
 def __download_heros_counters__():
     heros_name = __get_heros_name__()
-    counters = [[__heros_counter__(hero)] for hero in heros_name]
+    counters = [__heros_counter__(hero) for hero in heros_name]
+    
+    df = pd.DataFrame(counters, columns=['Hero', 'Bad against', 'Good against', 'Works well with'])
+    df.to_csv(BASE +"/hero_counters.csv", index=False)
 
-    df = pd.DataFrame(counters, columns=['Hero','Bad against', 'Good against', 'Works well with'])
-    df.to_csv("./hero_counters.csv", index=False)
 
-
-
+__download_heros_counters__()
