@@ -15,7 +15,7 @@ def check_teleport(screen_width, screen_height, learn=model):
     delta_teleport = []
     if screen_width*9 > screen_height*21:
         delta_teleport.append(screen_width*.625)
-        delta_teleport.append(screen_width*.665)
+        delta_teleport.append(screen_width*.666)
     else:
         delta_teleport.append(screen_width*0.66)
         delta_teleport.append(screen_width*0.74)

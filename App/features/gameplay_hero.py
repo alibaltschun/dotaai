@@ -1,5 +1,5 @@
-# from PIL import ImageGrab
-import pyscreenshot as ImageGrab
+from PIL import ImageGrab
+# import pyscreenshot as ImageGrab
 from fastai.vision import load_learner, open_image
 from ..utils.mp3_player import play_opening_game
 import time
@@ -9,10 +9,6 @@ BASE = (os.path.dirname(os.path.realpath(__file__)))
 MODEL_PATH = BASE + '/../model/list_hero'
 model = load_learner(MODEL_PATH)
 
-import pandas as pd
-
-hero_attr = pd.read_csv((BASE + '/../../research/dataset/atribut.tsv'), sep='\t')
-
 
 def __split_hero_icon__(img):
     w, h = img.size
@@ -20,12 +16,6 @@ def __split_hero_icon__(img):
     for i in range(5):
         r.append(img.crop((i * w / 5, 0, (i+1) * w / 5, h)))
     return r
-
-
-def __get_hero_attr__(hero_names, df=hero_attr):
-    hero = df.loc[df['HERO'].str.lower().isin(hero_names)]
-    return hero[['HERO', 'STR', 'AGI', 'INT', 'MS', 'AR', 'DMG (MIN)', 'DMG (MAX)', 'RG']]
-
 
 def call_heros_on_team(screen_width, screen_height, learn=model, ):
     # calculate const for crop from screenshot
@@ -42,14 +32,14 @@ def call_heros_on_team(screen_width, screen_height, learn=model, ):
     start_time = time.time()
 
     # grab radiant heros
-    left = ImageGrab.grab(bbox=(
+    left = ImageGrab.grab((
         int(screen_width * 0.28 + wide * screen_width * 0.056),
         4,
         int(screen_width - screen_width * delta_timer),
         int(screen_height - screen_height * 0.965-3)))
 
     # grab dire heros
-    right = ImageGrab.grab(bbox=(
+    right = ImageGrab.grab((
         int(screen_width * delta_timer),
         4,
         int(screen_width - screen_width * 0.28 - wide * screen_width * 0.056),
@@ -92,9 +82,6 @@ def call_heros_on_team(screen_width, screen_height, learn=model, ):
         hero.save(temp_file)
         hero_name = (str(learn.predict(open_image(temp_file))[0]))
         dire_heros.append(hero_name.lower().replace("_", " "))
-
-    print(__get_hero_attr__(radiant_heros))
-    print(__get_hero_attr__(dire_heros))
 
     play_opening_game(radiant_heros, dire_heros)
     print("--- %s seconds ---" % (time.time() - start_time))

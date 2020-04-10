@@ -11,7 +11,7 @@ import time
 
 def create_app():
     screen_width, screen_height = get_screen_information()
-    # call_heros_on_team(screen_width, screen_height)
+    call_heros_on_team(screen_width, screen_height)
     # check_teleport(screen_width, screen_height)
 
     # start_asistent = True
@@ -26,4 +26,4 @@ def create_app():
     #     time.sleep(0.65)
 
     # pred_team(screen_width, screen_height)
-    get_heros_name(screen_width, screen_height)
+    # get_heros_name(screen_width, screen_height)
