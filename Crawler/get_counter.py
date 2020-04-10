@@ -24,7 +24,7 @@ def __heros_counter__(name):
     result = [[],[],[]]
     target = 0
     for h in heros:
-        value = h.text.replace("...[edit]","")
+        value = h.text.replace("...[edit]","").replace("...","")
         if value != "" and value != "Contents":
             if value == "Bad against":
                 target = 0
