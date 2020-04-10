@@ -21,85 +21,93 @@ def __hero_icon_ui__(heros):
     return ui
 
 def __hero__(hero_name, index, data=data):
-    hero_data = data.loc[data['Hero'] == hero_name]
-    
-    ui = """
-                <div class="d-flex flex-column" style="max-width: 300px;">
-                    <button class="text-uppercase mt-2 font-weight-bold btn grey lighten-5 custom-no-shadows font-weight-bold indigo-text" data-toggle="collapse" data-target="#collapseExample{}">
-                        {}
-                    </button>
-    
-                    <div class="collapse pl-2 pr-2 " id="collapseExample{}" >
-                        <div class="media grey lighten-3 rounded m-0">
-                            <i class="fas fa-user-cog pl-2 pt-2 pr-1 grey-text"></i>
-                            <div class="media-body ">
-                                <div class="container mb-1 mt-1 text-center" data-toggle="tooltip" data-placement="left" title="Hero Attribute">
-                                    <li class="list-inline-item pt-1"><a ><img class="icon" src="./../../assets/img/attribute/icon_strength.png">{}<img></a></li>
-                                    <li class="list-inline-item pt-1"><a ><img class="icon" src="./../../assets/img/attribute/icon_agility.png">{}<img></a></li>
-                                    <li class="list-inline-item pt-1"><a ><img class="icon" src="./../../assets/img/attribute/icon_intelligence.png">{}<img></a></li>
-                                    <br>
-                                    <li class="list-inline-item pt-1"><a ><img class="icon" src="./../../assets/img/attribute/attack.png"></li>{}-{}<img></a></li>
-                                    <li class="list-inline-item pt-1"><a ><img class="icon" src="./../../assets/img/attribute/defend.png">{}<img></a></li>
-                                    <li class="list-inline-item pt-1"><a ><img class="icon" src="./../../assets/img/attribute/movement.png">{}<img></a></li>
+    if hero_name != "unselection":
+        hero_data = data.loc[data['Hero'] == hero_name]
+        
+        ui = """
+                    <div class="d-flex flex-column" style="max-width: 300px;">
+                        <button class="text-uppercase mt-1 font-weight-bold btn blue-grey darken-2 custom-no-shadows font-weight-bold" data-toggle="collapse" data-target="#collapseExample{}">
+                            {}
+                        </button>
+        
+                        <div class="collapse pl-2 pr-2 " id="collapseExample{}" >
+                            <div class="media blue-grey darken-1 rounded m-0" data-toggle="tooltip" data-placement="left" title="Hero Attribute">
+                                <i class="fas fa-user-cog pl-2 pt-2 pr-1grey-text"></i>
+                                <div class="media-body ">
+                                    <div class="container mb-1 mt-1 text-center grey-text" >
+                                        <li class="list-inline-item pt-1"><a ><img class="icon" src="./../../assets/img/attribute/icon_strength.png">{}<img></a></li>
+                                        <li class="list-inline-item pt-1"><a ><img class="icon" src="./../../assets/img/attribute/icon_agility.png">{}<img></a></li>
+                                        <li class="list-inline-item pt-1"><a ><img class="icon" src="./../../assets/img/attribute/icon_intelligence.png">{}<img></a></li>
+                                        <br>
+                                        <li class="list-inline-item pt-1"><a ><img class="icon" src="./../../assets/img/attribute/attack.png"></li>{}-{}<img></a></li>
+                                        <li class="list-inline-item pt-1"><a ><img class="icon" src="./../../assets/img/attribute/defend.png">{}<img></a></li>
+                                        <li class="list-inline-item pt-1"><a ><img class="icon" src="./../../assets/img/attribute/movement.png">{}<img></a></li>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-    
-                        <div class="media teal lighten-5 rounded mt-1">
-                            <i class="fas fa-user-friends pl-2 pt-2 pr-1 green-text"></i>
-                            <div class="media-body" >
-                                <div class="container mb-1 mt-1 text-center" data-toggle="tooltip" data-placement="left" title="Works well with">
+        
+                            <div class="media blue-grey darken-2 rounded mt-1" data-toggle="tooltip" data-placement="left" title="Works well with">
+                                <i class="fas fa-user-friends pl-2 pt-2 pr-1 green-text"></i>
+                                <div class="media-body" >
+                                    <div class="container mb-1 mt-1 text-center" >
+                                        {}
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="media blue-grey darken-3 rounded mt-1" style="width: 100%;" data-toggle="tooltip" data-placement="left" title="Good against">
+                                <i class="fas fa-laugh pl-2 pt-2 pr-1 blue-text"></i>
+                                <div class="media-body">
+                                    <div class="container mb-1 mt-1 text-center " >
+                                        {}
+                                    </div>
+                                </div>
+                            </div>
+        
+                            <div class="media blue-grey darken-4 rounded mt-1" data-toggle="tooltip" data-placement="left" title="Bad against">
+                                <i class="fas fa-skull-crossbones pl-2 pt-2 pr-1 red-text"></i>
+                                <div class="media-body" >
+                                    <div class="container mb-1 mt-1 text-center" >
                                     {}
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="media blue lighten-5 rounded mt-1">
-                            <i class="fas fa-laugh pl-2 pt-2 pr-1 blue-text"></i>
-                            <div class="media-body">
-                                <div class="container mb-1 mt-1 text-center " style="width: 100%;" data-toggle="tooltip" data-placement="left" title="Good against">
-                                    {}
-                                </div>
-                            </div>
-                        </div>
-    
-                        <div class="media red lighten-5 rounded mt-1">
-                            <i class="fas fa-skull-crossbones pl-2 pt-2 pr-1 red-text"></i>
-                            <div class="media-body" >
-                                <div class="container mb-1 mt-1 text-center" data-toggle="tooltip" data-placement="left" title="Bad against">
-                                   {}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            
-            
-            
-    """.format(
-        index,
-        hero_name,
-        index,
-        int(hero_data['STR']),
-        int(hero_data['AGI']),
-        int(hero_data['INT']),
-        int(hero_data['DMG (MIN)']),
-        int(hero_data['DMG (MAX)']),
-        int(hero_data['AR']),
-        int(hero_data['MS']),
-        __hero_icon_ui__(hero_data['Works well with'].item()),
-        __hero_icon_ui__(hero_data['Good against'].item()),
-        __hero_icon_ui__(hero_data['Bad against'].item()),
-        )
-    return ui
+                
+                
+                
+        """.format(
+            index,
+            hero_name,
+            index,
+            int(hero_data['STR']),
+            int(hero_data['AGI']),
+            int(hero_data['INT']),
+            int(hero_data['DMG (MIN)']),
+            int(hero_data['DMG (MAX)']),
+            int(hero_data['AR']),
+            int(hero_data['MS']),
+            __hero_icon_ui__(hero_data['Works well with'].item()),
+            __hero_icon_ui__(hero_data['Good against'].item()),
+            __hero_icon_ui__(hero_data['Bad against'].item()),
+            )
+        return ui
+    else:
+        ui = """
+                    <div class="d-flex flex-column" style="max-width: 300px;">
+                        <button class="text-uppercase mt-1 font-weight-bold btn blue-grey darken-2 custom-no-shadows font-weight-bold" disabled>
+                            {}
+                        </button>
+                    </div>
+                
+        """.format(hero_name)
+        return ui
 
 
-def generate_ui():
-    radiant = ["Io", "Lina", "Lion", "Zeus", "Omniknight"]
-    dire = ["Sven", "Tusk", "Bloodseeker", "Medusa", "Timbersaw"]
-    
-    ui_radiant = [__hero__(radiant[i],i) for i in range(5)]
-    ui_dire = [__hero__(dire[i],i+5) for i in range(5)]
+def generate_ui(radiant, dire):   
+    ui_radiant = [__hero__(radiant[i].title(),i) for i in range(5)]
+    ui_dire = [__hero__(dire[i].title(),i+5) for i in range(5)]
     
     with open(BASE + "/top.html","r") as file:
         top=file.read()
@@ -111,8 +119,7 @@ def generate_ui():
         file.write(top)
         for u in ui_radiant:
             file.write(u)
+        file.write("<hr>")
         for u in ui_dire:
             file.write(u)
         file.write(bottom)
-
-generate_ui()

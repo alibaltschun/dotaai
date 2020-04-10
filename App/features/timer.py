@@ -1,7 +1,7 @@
 # from PIL import ImageGrab
 import pyscreenshot as ImageGrab
 from ..utils.mp3_player import play
-from .heros_name import call_heros_on_team
+from .gameplay_hero import call_heros_on_team
 from .teleport import check_teleport
 from PIL import ImageOps
 import pytesseract
