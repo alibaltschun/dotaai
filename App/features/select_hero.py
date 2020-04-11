@@ -4,7 +4,7 @@ from PIL import ImageGrab
 from fastai.vision import load_learner, open_image
 import time
 import os
-from ..UI.select_hero.main import generate_ui
+from ..UI.select_hero import generate_ui
 from ..UI.main import plot
 
 BASE = (os.path.dirname(os.path.realpath(__file__)))

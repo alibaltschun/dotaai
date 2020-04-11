@@ -1,6 +1,7 @@
 from PIL import ImageGrab
 # import pyscreenshot as ImageGrab
 from ..utils.mp3_player import play
+from ..UI.gameplay import generate_ui
 from .gameplay_hero import call_heros_on_team
 from .teleport import check_teleport
 from PIL import ImageOps
@@ -53,26 +54,35 @@ def check_timer(screen_width, screen_height,
 
             # check player bring teleport
             if seconds == "05" or seconds == "30":
-                check_teleport(screen_width, screen_height)
+                have_teleport = check_teleport(screen_width, screen_height)
+                if have_teleport:
+                    generate_ui("DUDE, Buy teleport !!!")
 
             # check minutes x4 or x9
             if minutes[-1:] == "4" or minutes[-1:] == "9":
 
                 # play alert rune in 20 seconds
                 if seconds == "40":
+                    generate_ui("rune in 20 seconds")
                     play("rune20", voice_type="alert")
 
                 # play alert rune in 10 seconds
                 elif seconds == "50":
+                    generate_ui("rune in 10 seconds")
                     play("rune10", voice_type="alert")
+                    
 
             # play alert for stacking
             elif seconds == "45":
+                generate_ui("stack juggle creep")
                 play("stacking", voice_type="alert")
 
             # validate if play new game
             if int(minutes) < last_minutes:
                 start_asistent = False
+            
+            if seconds[1] == "3" or seconds[1] == "7":
+                generate_ui("")
 
         # before 0:0
         else:

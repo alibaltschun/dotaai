@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="./mdb/css/bootstrap.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="./mdb//css/mdb.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="./mdb//css/style.css" rel="stylesheet"><style>
+    
+    .md-toast-message{
+        color: aliceblue;  
+    }
+
+
+    #toast-container>:hover {
+        /* background: transparent; */
+        -webkit-box-shadow: 0 0 0 0rem transparent;
+        box-shadow: 0 0 0 0rem transparent;
+    }
+</style>
+</head>
+
+<!-- <body 
+style="background-color: transparent;
+background-image: url('./../assets/img/temp/1.png');
+"
+> -->
+
+<body 
+style="background-color: transparent;"
+>
+    <a id="btn_toast" class="btn btn-info invisible" onclick="toastr.info('test');"></a>
+             <script type="text/javascript">
+        setTimeout("CallButton()",100)
+        function CallButton(){
+            document.getElementById("btn_toast").click();   
+        }
+            
+        setTimeout(function(){
+            location.reload();
+        }, 6000);
+
+        
+    </script>
+    <!-- JQuery -->
+    <script type="text/javascript" src="./mdb//js/jquery.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="./mdb//js/popper.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="./mdb//js/bootstrap.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="./mdb//js/mdb.js"></script>   
+    
+</body>
+
+</html>

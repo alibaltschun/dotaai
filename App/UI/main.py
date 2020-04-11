@@ -2,7 +2,9 @@ import win32api, win32con, win32gui
 from cefpython3 import cefpython as cef
 import sys
 
-URL = "file:///C:/Users/baltschun/Desktop/project/dotaai/dotaai/App/UI/select_hero/index.html"
+import os
+BASE = (os.path.dirname(os.path.realpath(__file__)))
+URL = BASE+ "/index.html"
 
 class MyWindow:
 
