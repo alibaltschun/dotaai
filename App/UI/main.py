@@ -49,6 +49,7 @@ class MyWindow:
         
         settings = {
             "background_color":  0x00, #0xff000fff,
+            "web_security_disabled": True
         }
         browser = cef.CreateBrowserSync(window_info, settings=settings, url=URL)
 

@@ -5,6 +5,7 @@ from .features.team import pred_team
 from .features.select_hero import get_heros_name
 from .utils.mp3_player import play
 from .utils.screen import get_screen_information
+from .UI.gameplay import generate_ui
 from .UI.main import plot
 
 import time
@@ -29,16 +30,10 @@ def create_app():
     # call_heros_on_team(screen_width, screen_height)
     # check_teleport(screen_width, screen_height)
 
-    # plot()
-    # t1 = threading.Thread(target=plot)
+    # generate_ui("")
     plot()
-    # __timer__(screen_width, screen_height)
-    # t2 = threading.Thread(target=__timer__)
 
-    # starting thread 1 
-    # t1.start() 
-    # starting thread 2 
-    # t1.start()
+    # __timer__(screen_width, screen_height)
     
     # pred_team(screen_width, screen_height)
     # get_heros_name(screen_width, screen_height)

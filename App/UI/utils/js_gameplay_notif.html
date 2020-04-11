@@ -4,9 +4,30 @@
             document.getElementById("btn_toast").click();   
         }
             
-        setTimeout(function(){
-            location.reload();
-        }, 6000);
+        // setTimeout(async () => {
+        //     const response = await fetch('http://localhost:5000/html_update');
+        //     const res = await response.json()
+        //     if( res == "1"){
+        //         location.reload();
+        //     }else{
+        //         setTimeout();
+        //     }
+        // }, 1000);
 
+        async function checkUpdate()
+        {
+            const response = await fetch('http://localhost:5000/html_update');
+            const res = await response.json()
+            // res = "0"
+            console.log("x")
+            if( res == "1"){
+                location.reload();
+            }else{
+                setTimeout(() => {
+                    checkUpdate()
+                }, 1000); 
+            }
+        }
+        checkUpdate();
         
     </script>

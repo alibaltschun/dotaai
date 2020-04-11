@@ -18863,7 +18863,7 @@ button.md-toast-close-button {
 
 .md-toast-top-right {
     top: 12px;
-    right: 12px
+    left: 12px
 }
 
 .md-toast-bottom-right {

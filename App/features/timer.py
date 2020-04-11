@@ -73,7 +73,7 @@ def check_timer(screen_width, screen_height,
                     
 
             # play alert for stacking
-            elif seconds == "45":
+            elif seconds == "40":
                 generate_ui("stack juggle creep")
                 play("stacking", voice_type="alert")
 
@@ -81,8 +81,9 @@ def check_timer(screen_width, screen_height,
             if int(minutes) < last_minutes:
                 start_asistent = False
             
-            if seconds[1] == "3" or seconds[1] == "7":
-                generate_ui("")
+            if len(seconds) > 1:
+                if seconds[1] == "5":
+                    generate_ui("")
 
         # before 0:0
         else:

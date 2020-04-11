@@ -43,4 +43,4 @@ def generate_ui(text=""):
             file.write(js)
         file.write(bottom)
 
- generate_ui("test")
+generate_ui("c")
