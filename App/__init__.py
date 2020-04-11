@@ -31,9 +31,9 @@ def create_app():
     # check_teleport(screen_width, screen_height)
 
     # generate_ui("")
-    plot()
+    # plot()
 
-    # __timer__(screen_width, screen_height)
+    __timer__(screen_width, screen_height)
     
     # pred_team(screen_width, screen_height)
     # get_heros_name(screen_width, screen_height)

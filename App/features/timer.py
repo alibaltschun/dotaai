@@ -7,6 +7,15 @@ from .teleport import check_teleport
 from PIL import ImageOps
 import pytesseract
 
+import os
+BASE = (os.path.dirname(os.path.realpath(__file__)))
+
+file_html_update = BASE + "/../temp/html_update.txt"
+
+def __update_ui__():
+    with open(file_html_update, "w")  as file:
+        file.write("1")
+
 
 def check_timer(screen_width, screen_height,
                 start_asistent=True, last_minutes=2,
@@ -45,7 +54,7 @@ def check_timer(screen_width, screen_height,
     if ":" in timer:
 
         if greating:
-            call_heros_on_team(screen_width, screen_height)
+            # call_heros_on_team(screen_width, screen_height)
             greating = False
 
         # get minutes and seconds from timer
@@ -55,8 +64,9 @@ def check_timer(screen_width, screen_height,
             # check player bring teleport
             if seconds == "05" or seconds == "30":
                 have_teleport = check_teleport(screen_width, screen_height)
-                if have_teleport:
+                if have_teleport == "0":
                     generate_ui("DUDE, Buy teleport !!!")
+                    __update_ui__()
 
             # check minutes x4 or x9
             if minutes[-1:] == "4" or minutes[-1:] == "9":
@@ -64,26 +74,27 @@ def check_timer(screen_width, screen_height,
                 # play alert rune in 20 seconds
                 if seconds == "40":
                     generate_ui("rune in 20 seconds")
-                    play("rune20", voice_type="alert")
+                    __update_ui__()
+                    #play("rune20", voice_type="alert")
+                    
 
                 # play alert rune in 10 seconds
                 elif seconds == "50":
                     generate_ui("rune in 10 seconds")
+                    __update_ui__()
                     play("rune10", voice_type="alert")
+                    
                     
 
             # play alert for stacking
             elif seconds == "40":
                 generate_ui("stack juggle creep")
+                __update_ui__()
                 play("stacking", voice_type="alert")
 
             # validate if play new game
             if int(minutes) < last_minutes:
                 start_asistent = False
-            
-            if len(seconds) > 1:
-                if seconds[1] == "5":
-                    generate_ui("")
 
         # before 0:0
         else:
