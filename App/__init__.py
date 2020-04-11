@@ -1,17 +1,20 @@
-from .features.gameplay_hero import call_heros_on_team
-from .features.teleport import check_teleport
 from .features.timer import check_timer
-from .features.team import pred_team
-from .features.select_hero import get_heros_name
+from .features.select_hero import main_select_hero
 from .utils.mp3_player import play
 from .utils.screen import get_screen_information
 from .UI.gameplay import generate_ui
 from .UI.main import plot
-
+import os
 import time
-import threading
 
-def __timer__(screen_width, screen_height):
+BASE = (os.path.dirname(os.path.realpath(__file__)))
+
+
+def __ui__():
+    generate_ui("")
+    plot()
+
+def __gameplay__(screen_width, screen_height):
     start_asistent = True
     last_minutes = 2
     greating = True
@@ -24,16 +27,24 @@ def __timer__(screen_width, screen_height):
         time.sleep(0.65)
 
 
+def __select_hero__(screen_width, screen_height):
+    file_html_update = BASE + "/../temp/html_update.txt"
 
-def create_app():
+    with open(file_html_update, "w")  as file:
+        file.write("1")
+
+    while True:
+        main_select_hero(screen_width, screen_height)
+        time.sleep(1)
+
+def create_app(menu):
     screen_width, screen_height = get_screen_information()
-    # call_heros_on_team(screen_width, screen_height)
-    # check_teleport(screen_width, screen_height)
 
-    # generate_ui("")
-    # plot()
-
-    __timer__(screen_width, screen_height)
+    if menu == "gameplay":
+        __gameplay__(screen_width, screen_height)
     
-    # pred_team(screen_width, screen_height)
-    # get_heros_name(screen_width, screen_height)
+    if menu == "select_hero":
+        __select_hero__(screen_width, screen_height)
+    
+    if menu == "ui":
+        __ui__()

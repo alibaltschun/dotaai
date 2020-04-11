@@ -5,12 +5,12 @@ from fastai.vision import load_learner, open_image
 import time
 import os
 from ..UI.select_hero import generate_ui
-from ..UI.main import plot
 
 BASE = (os.path.dirname(os.path.realpath(__file__)))
 
 MODEL_PATH = BASE + '/../model/select_hero'
 model = load_learner(MODEL_PATH)
+
 
 def split(img):
     w,h = img.size
@@ -19,8 +19,7 @@ def split(img):
         r.append(img.crop((i*w/5,0,(i+1)*w/5,h)))
     return r
 
-
-def get_heros_name(screen_width, screen_height, learn=model, ):
+def main_select_hero(screen_width, screen_height, learn=model, ):
     # calculate const for crop from screenshot
     print("get image")
     start_time = time.time()
@@ -64,9 +63,6 @@ def get_heros_name(screen_width, screen_height, learn=model, ):
         hero_name = (str(learn.predict(open_image(temp_file))[0]))
         dire_heros.append(hero_name.lower().replace("_", " "))
 
-    print(radiant_heros)
-    print(dire_heros)
-
     print("--- %s seconds ---" % (time.time() - start_time))
-    generate_ui(radiant_heros, dire_heros)
-    plot()
+
+    generate_ui(radiant, dire)(radiant_heros, dire_heros)

@@ -7,7 +7,7 @@ data = pd.read_csv(BASE + "/../assets/csv/hero.csv")
 
 def __hero_icon__(hero_name):
     ui = """
-                                    <li class="list-inline-item "><a href="#" ><img class="icon" src="./../assets/img/hero_icon/{}_minimap_icon.png"><img></a></li>""".format(hero_name)
+                                        <li class="list-inline-item "><a href="#" ><img class="icon" src="./../assets/img/hero_icon/{}_minimap_icon.png"><img></a></li>""".format(hero_name)
     return ui
 
 def __hero_icon_ui__(heros):
@@ -25,23 +25,24 @@ def __hero__(hero_name, index, data=data):
         hero_data = data.loc[data['Hero'] == hero_name]
         
         ui = """
-                    <div class="d-flex flex-column" style="max-width: 300px;">
-                        <button class="text-uppercase mt-1 font-weight-bold btn blue-grey darken-2 custom-no-shadows font-weight-bold" data-toggle="collapse" data-target="#collapseExample{}">
+                    <div class="d-flex flex-column" style="max-width: 122px;">
+                        <button class="btn-sm mt-2 font-weight-bold btn blue-grey darken-3 custom-no-shadows font-weight-bold" data-toggle="collapse" data-target="#collapseExample{}">
                             {}
                         </button>
         
-                        <div class="collapse pl-2 pr-2 " id="collapseExample{}" >
+                        <div class="collapse pl-1 pr-1 " id="collapseExample{}" >
+                            
                             <div class="media blue-grey darken-1 rounded m-0" data-toggle="tooltip" data-placement="left" title="Hero Attribute">
-                                <i class="fas fa-user-cog pl-2 pt-2 pr-1grey-text"></i>
-                                <div class="media-body ">
-                                    <div class="container mb-1 mt-1 text-center grey-text" >
-                                        <li class="list-inline-item pt-1"><a ><img class="icon" src="./../assets/img/attribute/icon_strength.png">{}<img></a></li>
-                                        <li class="list-inline-item pt-1"><a ><img class="icon" src="./../assets/img/attribute/icon_agility.png">{}<img></a></li>
-                                        <li class="list-inline-item pt-1"><a ><img class="icon" src="./../assets/img/attribute/icon_intelligence.png">{}<img></a></li>
-                                        <br>
-                                        <li class="list-inline-item pt-1"><a ><img class="icon" src="./../assets/img/attribute/attack.png"></li>{}-{}<img></a></li>
-                                        <li class="list-inline-item pt-1"><a ><img class="icon" src="./../assets/img/attribute/defend.png">{}<img></a></li>
-                                        <li class="list-inline-item pt-1"><a ><img class="icon" src="./../assets/img/attribute/movement.png">{}<img></a></li>
+                                <div class="media-body d-flex flex-row pb-1 text-center grey-text flex-grow-2" >
+                                    <div class="d-flex flex-column " style="width: 50%;">
+                                        <li class="list-inline-item pt-1 pl-2"><a ><img class="icon" src="./../assets/img/attribute/icon_strength.png"> {}<img></a></li>
+                                        <li class="list-inline-item pt-1 pl-2"><a ><img class="icon" src="./../assets/img/attribute/icon_agility.png"> {}<img></a></li>
+                                        <li class="list-inline-item pt-1"><a ><img class="icon" src="./../assets/img/attribute/icon_intelligence.png"> {}<img></a></li>
+                                    </div>
+                                    <div class="d-flex flex-column  align-items-start" style="width: 50%;">
+                                        <li class="list-inline-item pt-1"><a><img class="icon" src="./../assets/img/attribute/attack.png"> {}-{}<img></a></li>
+                                        <li class="list-inline-item pt-1"><a ><img class="icon" src="./../assets/img/attribute/defend.png"> {}<img></a></li>
+                                        <li class="list-inline-item pt-1"><a ><img class="icon" src="./../assets/img/attribute/movement.png"> {}<img></a></li>
                                     </div>
                                 </div>
                             </div>
@@ -49,7 +50,7 @@ def __hero__(hero_name, index, data=data):
                             <div class="media blue-grey darken-2 rounded mt-1" data-toggle="tooltip" data-placement="left" title="Works well with">
                                 <i class="fas fa-user-friends pl-2 pt-2 pr-1 green-text"></i>
                                 <div class="media-body" >
-                                    <div class="container mb-1 mt-1 text-center" >
+                                    <div class="mb-1 mt-1 ml-2">
                                         {}
                                     </div>
                                 </div>
@@ -58,7 +59,7 @@ def __hero__(hero_name, index, data=data):
                             <div class="media blue-grey darken-3 rounded mt-1" style="width: 100%;" data-toggle="tooltip" data-placement="left" title="Good against">
                                 <i class="fas fa-laugh pl-2 pt-2 pr-1 blue-text"></i>
                                 <div class="media-body">
-                                    <div class="container mb-1 mt-1 text-center " >
+                                    <div class="mb-1 mt-1 ml-2" >
                                         {}
                                     </div>
                                 </div>
@@ -67,8 +68,8 @@ def __hero__(hero_name, index, data=data):
                             <div class="media blue-grey darken-4 rounded mt-1" data-toggle="tooltip" data-placement="left" title="Bad against">
                                 <i class="fas fa-skull-crossbones pl-2 pt-2 pr-1 red-text"></i>
                                 <div class="media-body" >
-                                    <div class="container mb-1 mt-1 text-center" >
-                                    {}
+                                    <div class="mb-1 mt-1 ml-2" >
+                                        {}
                                     </div>
                                 </div>
                             </div>
@@ -117,8 +118,17 @@ def generate_ui(radiant, dire):
     with open(BASE + "/utils/close_head_open_body.html","r") as file:
         head_body=file.read()
     
-    with open(BASE + "/utils/js_select_hero.html","r") as file:
+    with open(BASE + "/utils/flex_select_hero_open.html","r") as file:
+        flex_open=file.read()
+    
+    with open(BASE + "/utils/flex_select_hero_close.html","r") as file:
+        flex_close=file.read()
+    
+    with open(BASE + "/utils/js.html","r") as file:
         js=file.read()
+    
+    with open(BASE + "/utils/js_select_hero.html","r") as file:
+        js_custom=file.read()
     
     with open(BASE + "/utils/bottom.html","r") as file:
         bottom=file.read()
@@ -129,13 +139,18 @@ def generate_ui(radiant, dire):
         file.write(head)
         file.write(style)
         file.write(head_body)
+        file.write(flex_open)
         for u in ui_radiant:
             file.write(u)
-        file.write("<hr>")
+        file.write("<hr><hr>")
         for u in ui_dire:
             file.write(u)
+        file.write(flex_close)
         file.write(js)
+        file.write(js_custom)
         file.write(bottom)
 
 
-# generate_ui(["Lion" for i in range(5)], ["Lion" for i in range(5)])
+#radiant = ['Bristleback','Sniper','Lion','Warlock','Pudge']
+#dire= ['Axe','Bloodseeker','Razor','Zeus','Necrophos']
+#generate_ui(radiant, dire)
