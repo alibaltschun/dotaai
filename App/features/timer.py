@@ -74,14 +74,14 @@ def check_timer(screen_width, screen_height,
 
                 # play alert rune in 20 seconds
                 if seconds == "40":
-                    generate_ui("rune in 20 seconds")
+                    generate_ui("Rune in 20 seconds")
                     update_ui()
                     #play("rune20", voice_type="alert")
                     
 
                 # play alert rune in 10 seconds
                 elif seconds == "50":
-                    generate_ui("rune in 10 seconds")
+                    generate_ui("Rune in 10 seconds")
                     update_ui()
                     play("rune10", voice_type="alert")
                     
@@ -89,7 +89,7 @@ def check_timer(screen_width, screen_height,
 
             # play alert for stacking
             elif seconds == "40":
-                generate_ui("stack juggle creep")
+                generate_ui("Stack a jungle creep")
                 update_ui()
                 play("stacking", voice_type="alert")
 

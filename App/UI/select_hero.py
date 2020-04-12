@@ -209,6 +209,7 @@ def __ui_statistics__():
         """
     bot = """
         <div class="dark-grey-text d-flex justify-content-center"
+             style="margin-right: 370PX;"
                     >
 
             <div class="d-flex flex-column justify-content-center mr-5 mb-3 p-1 pb-2" >
@@ -276,14 +277,14 @@ def __input_hero_counter__(hero_name, index, data=data):
                             <div class="media blue-grey darken-1 m-0" data-toggle="tooltip" data-placement="left" title="Hero Attribute">
                                 <div class="media-body d-flex flex-row justify-content-center pb-1 grey-text2" >
                                     <div class="d-flex flex-column align-items-start" >
-                                        <li class="list-inline-item pt-1 pl-2"><a><img class="icon" src="./../assets/img/attribute/icon_strength.png"><small> {}</small><img></a></li>
-                                        <li class="list-inline-item pt-1 pl-2"><a><img class="icon" src="./../assets/img/attribute/icon_agility.png"><small> {}</small><img></a></li>
-                                        <li class="list-inline-item pt-1 pl-2"><a><img class="icon" src="./../assets/img/attribute/icon_intelligence.png"><small> {}</small><img></a></li>
+                                        <li class="list-inline-item pt-1 pl-2 text-default"><a ><img class="icon" src="./../assets/img/attribute/icon_strength.png"><small> {}</small><img></a></li>
+                                        <li class="list-inline-item pt-1 pl-2 text-default"><a><img class="icon" src="./../assets/img/attribute/icon_agility.png"><small> {}</small><img></a></li>
+                                        <li class="list-inline-item pt-1 pl-2 text-default"><a><img class="icon" src="./../assets/img/attribute/icon_intelligence.png"><small> {}</small><img></a></li>
                                     </div>
                                     <div class="d-flex flex-column align-items-start" >
-                                        <li class="list-inline-item pt-1"><a><img class="icon" src="./../assets/img/attribute/attack.png"><small> {}-{}</small><img></a></li>
-                                        <li class="list-inline-item pt-1"><a><img class="icon" src="./../assets/img/attribute/defend.png"><small> {}</small><img></a></li>
-                                        <li class="list-inline-item pt-1"><a><img class="icon" src="./../assets/img/attribute/movement.png"><small> {}</small><img></a></li>
+                                        <li class="list-inline-item pt-1 text-default"><a><img class="icon" src="./../assets/img/attribute/attack.png"><small> {}-{}</small><img></a></li>
+                                        <li class="list-inline-item pt-1 text-default"><a><img class="icon" src="./../assets/img/attribute/defend.png"><small> {}</small><img></a></li>
+                                        <li class="list-inline-item pt-1 text-default"><a><img class="icon" src="./../assets/img/attribute/movement.png"><small> {}</small><img></a></li>
                                     </div>
                                 </div>
                             </div>
