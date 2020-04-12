@@ -19,5 +19,21 @@
             }, 300);
             });
             });
+        
+        async function checkUpdate()
+        {
+            const response = await fetch('http://localhost:5000/html_update');
+            const res = await response.json()
+            // res = "0"
+            console.log("x")
+            if( res == "1"){
+                location.reload();
+            }else{
+                setTimeout(() => {
+                    checkUpdate()
+                }, 1000); 
+            }
+        }
+        checkUpdate();
 
     </script>

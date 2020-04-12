@@ -12,7 +12,8 @@ BASE = (os.path.dirname(os.path.realpath(__file__)))
 
 file_html_update = BASE + "/../temp/html_update.txt"
 
-def __update_ui__():
+def update_ui():
+    print("update ui")
     with open(file_html_update, "w")  as file:
         file.write("1")
 
@@ -66,7 +67,7 @@ def check_timer(screen_width, screen_height,
                 have_teleport = check_teleport(screen_width, screen_height)
                 if have_teleport == "0":
                     generate_ui("DUDE, Buy teleport !!!")
-                    __update_ui__()
+                    update_ui()
 
             # check minutes x4 or x9
             if minutes[-1:] == "4" or minutes[-1:] == "9":
@@ -74,14 +75,14 @@ def check_timer(screen_width, screen_height,
                 # play alert rune in 20 seconds
                 if seconds == "40":
                     generate_ui("rune in 20 seconds")
-                    __update_ui__()
+                    update_ui()
                     #play("rune20", voice_type="alert")
                     
 
                 # play alert rune in 10 seconds
                 elif seconds == "50":
                     generate_ui("rune in 10 seconds")
-                    __update_ui__()
+                    update_ui()
                     play("rune10", voice_type="alert")
                     
                     
@@ -89,7 +90,7 @@ def check_timer(screen_width, screen_height,
             # play alert for stacking
             elif seconds == "40":
                 generate_ui("stack juggle creep")
-                __update_ui__()
+                update_ui()
                 play("stacking", voice_type="alert")
 
             # validate if play new game

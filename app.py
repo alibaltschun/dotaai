@@ -1,4 +1,5 @@
 from App import create_app
+import fire
 
 if __name__ == '__main__':
-    create_app('ui')
+    fire.Fire(create_app)

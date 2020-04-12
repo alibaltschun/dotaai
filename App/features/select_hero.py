@@ -21,7 +21,7 @@ def split(img):
 
 def main_select_hero(screen_width, screen_height, learn=model, ):
     # calculate const for crop from screenshot
-    print("get image")
+    # print("get image")
     start_time = time.time()
 
     header = ImageGrab.grab((
@@ -37,8 +37,8 @@ def main_select_hero(screen_width, screen_height, learn=model, ):
     radiant = split(left)
     dire = split(right)
 
-    print("--- %s seconds ---" % (time.time() - start_time))
-    start_time = time.time()
+    # print("--- %s seconds ---" % (time.time() - start_time))
+    # start_time = time.time()
 
     # set array for heros name
     radiant_heros = []
@@ -47,8 +47,8 @@ def main_select_hero(screen_width, screen_height, learn=model, ):
     # temp img from model pred
     temp_file = BASE + "/../temp/select_hero.png"
 
-    print("predict hero")
-    print("--- %s seconds ---" % (time.time() - start_time))
+    # print("predict hero")
+    # print("--- %s seconds ---" % (time.time() - start_time))
     start_time = time.time()
 
     # get all radiant heros name
@@ -63,6 +63,7 @@ def main_select_hero(screen_width, screen_height, learn=model, ):
         hero_name = (str(learn.predict(open_image(temp_file))[0]))
         dire_heros.append(hero_name.lower().replace("_", " "))
 
-    print("--- %s seconds ---" % (time.time() - start_time))
+    # print("--- %s seconds ---" % (time.time() - start_time))
 
-    generate_ui(radiant, dire)(radiant_heros, dire_heros)
+    generate_ui(radiant_heros, dire_heros)
+    return radiant_heros, dire_heros

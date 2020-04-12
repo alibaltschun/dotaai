@@ -1,17 +1,22 @@
-from .features.timer import check_timer
+from .features.timer import check_timer, update_ui
 from .features.select_hero import main_select_hero
 from .utils.mp3_player import play
 from .utils.screen import get_screen_information
 from .UI.gameplay import generate_ui
 from .UI.main import plot
+from .local_server.main import app as server
 import os
 import time
 
 BASE = (os.path.dirname(os.path.realpath(__file__)))
 
 
+def __local_server__():
+    server.run()
+
+
 def __ui__():
-    generate_ui("")
+    generate_ui("instagram : dota2.gg.ai")
     plot()
 
 def __gameplay__(screen_width, screen_height):
@@ -24,17 +29,20 @@ def __gameplay__(screen_width, screen_height):
                                         start_asistent=start_asistent,
                                         last_minutes=last_minutes,
                                         greating=greating)
+                                        
         time.sleep(0.65)
 
 
 def __select_hero__(screen_width, screen_height):
-    file_html_update = BASE + "/../temp/html_update.txt"
+    file_html_update = BASE + "/temp/html_update.txt"
 
-    with open(file_html_update, "w")  as file:
-        file.write("1")
-
+    heros = [None,None]
     while True:
-        main_select_hero(screen_width, screen_height)
+        radiant, dire = main_select_hero(screen_width, screen_height)
+        if heros != [radiant, dire]:
+            update_ui()
+            heros = [radiant, dire]
+
         time.sleep(1)
 
 def create_app(menu):
@@ -48,3 +56,6 @@ def create_app(menu):
     
     if menu == "ui":
         __ui__()
+    
+    if menu == "server":
+        __local_server__()

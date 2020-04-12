@@ -16,26 +16,26 @@ def __hero_icon__(hero_name):
 def __emblem_icon__(emblem_id):
     if emblem_id == "123":
         return  """
-        <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Herald.png">
-        <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Guardian.png">
-        <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Crusader.png">
+                                <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Herald.png">
+                                <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Guardian.png">
+                                <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Crusader.png">
         """
     if emblem_id == "4":
         return  """
-        <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Archon.png">
+                                <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Archon.png">
         """
     if emblem_id == "5":
         return  """
-        <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Legend.png">
+                                <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Legend.png">
         """
     if emblem_id == "6":
         return  """
-        <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Ancient.png">
+                                <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Ancient.png">
         """
     if emblem_id == "78":
         return  """
-        <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Divine.png">
-        <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Immortal.png">
+                                <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Divine.png">
+                                <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Immortal.png">
         """
     return ""
    
@@ -43,61 +43,69 @@ def __emblem_icon__(emblem_id):
 def __input_hero_statistics_win_rate__(name, win_rate, pick_rate, kda_ratio):
     ui = """
                         <tr> 
-                            <td class="pt-0 pb-0 pl-5"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/{}_minimap_icon.png"><img></td>
+                            <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/{}_minimap_icon.png"><img></td>
                             <td class="pt-0 pb-0 ">{}%</td>
                             <td class="pt-0 pb-0 ">{}%</td>
                             <td class="pt-0 pb-0 ">{}</td>
                         </tr> 
-        """.format(name.replace(" ","_"), win_rate, pick_rate, kda_ratio)
+        """.format(
+            name.replace(" ","_"),
+            str(round(float(win_rate), 2)),
+            str(round(float(pick_rate), 2)),
+            str(round(float(kda_ratio), 2))
+            )
     return ui
 
 
 def __input_hero_statistics_most_played__(name, matches_played, win_rate, pick_rate, kda_ratio):
     ui = """
                         <tr> 
-                            <td class="pt-0 pb-0 pl-5"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/{}_minimap_icon.png"><img></td>
+                            <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/{}_minimap_icon.png"><img></td>
                             <td class="pt-0 pb-0 ">{}</td>
                             <td class="pt-0 pb-0 ">{}%</td>
                             <td class="pt-0 pb-0 ">{}%</td>
                             <td class="pt-0 pb-0 ">{}</td>
                         </tr> 
-        """.format(name.replace(" ","_"), matches_played, win_rate, pick_rate, kda_ratio)
+        """.format(
+            name.replace(" ","_"),
+            str(round(float(matches_played), 2)),
+            str(round(float(win_rate), 2)),
+            str(round(float(pick_rate), 2)),
+            str(round(float(kda_ratio), 2)),
+            )
     return ui
 
 
-def __input_hero_statistics_meta__(name, pick, win):
+def __input_hero_statistics_meta__(name, pick_rate, win_rate):
     ui = """
                         <tr> 
-                            <td class="pt-0 pb-0 pl-5"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/{}_minimap_icon.png"><img></td>
+                            <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/{}_minimap_icon.png"><img></td>
                             <td class="pt-0 pb-0 ">{}%</td>
                             <td class="pt-0 pb-0 ">{}%</td>
                         </tr>  
-        """.format(name.replace(" ","_"), pick, win)
+        """.format(
+            name.replace(" ","_"),
+             str(round(float(pick_rate), 2)),
+             str(round(float(win_rate), 2)),
+             )
     return ui
     
 
 def __ui_statistics_win_rate__():
     top = """
             <!-- hero statistics -->
-            <div class="gallery" id="gallery" 
-                style="position: absolute;
-                margin-left: auto;
-                margin-right: auto;
-                left: 0;
-                right: 0;
-                padding-right: 400px;
-                width: 900px;"
+            <div class="gallery" id="gallery"
                 >
 
                 <div class="animation hero_win_rate card card-list mb-4 blue-grey darken-1" data-toggle="modal"  data-target="#basicExampleModal" style="display: none;">
                     <table class="table table-borderless">
                         <div class="p-2 pr-3 pl-3 d-flex justify-content-between align-items-center blue-grey darken-2">
-                            <p class="h5-responsive font-weight-bold mb-0"></i>Top 5 Heros base on win rate - This week</p>
-                            <p class="h5-responsive font-weight-bold mb-0"><a class=" filter" data-rel="close"><i class="fas fa-times"></i></a></p>
+                            <p class="h5-responsive font-weight-bold mb-0"></i>Top 5 Heros base on win rate - <small>This week</small></p>
+                            <p class="h5-responsive font-weight-bold mb-0"><a class=" filter pl-3" data-rel="close"><i class="fas fa-times"></i></a></p>
                         </div>
                         <thead> 
                             <tr>
-                                <th class="font-weight-bold pb-1 pt-2 pl-5" scope="col">Hero</th>
+                                <th class="font-weight-bold pb-1 pt-2" scope="col">Hero</th>
                                 <th class="font-weight-bold pb-1 pt-2" scope="col">Win Rate</th>
                                 <th class="font-weight-bold pb-1 pt-2" scope="col">Pick Rate</th>
                                 <th class="font-weight-bold pb-1 pt-2" scope="col">KDA Ratio</th>
@@ -121,25 +129,18 @@ def __ui_statistics_win_rate__():
 def __ui_statistics_most_played__():
     top = """
             <!-- hero statistics -->
-            <div class="gallery" id="gallery" 
-                style="position: absolute;
-                margin-left: auto;
-                margin-right: auto;
-                left: 0;
-                right: 0;
-                padding-right: 400px;
-                width: 900px;"
+            <div class="gallery" id="gallery"
                 >
 
                 <div class="animation hero_most_played card card-list mb-4 blue-grey darken-1" data-toggle="modal"  data-target="#basicExampleModal" style="display: none;">
                     <table class="table table-borderless">
                         <div class="p-2 pr-3 pl-3 d-flex justify-content-between align-items-center blue-grey darken-2">
-                            <p class="h5-responsive font-weight-bold mb-0"></i>Top 5 Heros base on most played - This week</p>
-                            <p class="h5-responsive font-weight-bold mb-0"><a class=" filter" data-rel="close"><i class="fas fa-times"></i></a></p>
+                            <p class="h5-responsive font-weight-bold mb-0"></i>Top 5 Heros base on most played -  <small>This week</small></p>
+                            <p class="h5-responsive font-weight-bold mb-0"><a class="filter pl-3" data-rel="close"><i class="fas fa-times"></i></a></p>
                         </div>
                         <thead> 
                             <tr>
-                                <th class="font-weight-bold pb-1 pt-2 pl-5" scope="col">Hero</th>
+                                <th class="font-weight-bold pb-1 pt-2" scope="col">Hero</th>
                                 <th class="font-weight-bold pb-1 pt-2" scope="col">Matches Played</th>
                                 <th class="font-weight-bold pb-1 pt-2" scope="col">Win Rate</th>
                                 <th class="font-weight-bold pb-1 pt-2" scope="col">Pick Rate</th>
@@ -164,26 +165,19 @@ def __ui_statistics_meta__(meta_id, df=data_stat_meta):
     
     top = """
             <div class="gallery" id="gallery" 
-                style="position: absolute;
-                margin-left: auto;
-                margin-right: auto;
-                left: 0;
-                right: 0;
-                padding-right: 400px;
-                width: 900px;"
                 >
 
-                <div class="animation hero_meta_{} card card-list mb-4 blue-grey darken-1 z-depth-2" data-toggle="modal"  data-target="#basicExampleModal" style="display: none;">
+                <div class="animation hero_meta_{} card card-list mb-4 blue-grey darken-1" data-toggle="modal"  data-target="#basicExampleModal" style="display: none;">
                     <table class="table table-borderless">
                         <div class="p-2 pr-3 pl-3 d-flex justify-content-lg-between align-items-center blue-grey darken-2">
-                            <p class="h5-responsive font-weight-bold mb-0">{} - Top 5 Heros base on meta </p>
-                            <p class="h5-responsive font-weight-bold mb-0"><a class=" filter" data-rel="close"><i class="fas fa-times"></i></a></p>
+                            <p class="h5-responsive font-weight-bold mb-0">{} Top 5 Heros base on meta </p>
+                            <p class="h5-responsive font-weight-bold mb-0"><a class=" filter pl-3" data-rel="close"><i class="fas fa-times"></i></a></p>
                             
                         </div>
                         
                         <thead> 
                             <tr>
-                                <th class="font-weight-bold pb-1 pt-2 pl-5" scope="col">Hero</th>
+                                <th class="font-weight-bold pb-1 pt-2" scope="col">Hero</th>
                                 <th class="font-weight-bold pb-1 pt-2" scope="col">Pick Rate</th>
                                 <th class="font-weight-bold pb-1 pt-2" scope="col">Win Rate</th>
                             </tr>
@@ -211,13 +205,11 @@ def __ui_statistics_meta__(meta_id, df=data_stat_meta):
 def __ui_statistics__():
     top = """
     <footer class="fixed-bottom">
-        <div class="d-flex align-items-end">
+        <div class="container d-flex align-items-end justify-content-md-end" style="width: 600px;">
         """
     bot = """
         <div class="dark-grey-text d-flex justify-content-center"
-             style="position: absolute;
-                    right: 1000px;
-                    ">
+                    >
 
             <div class="d-flex flex-column justify-content-center mr-5 mb-3 p-1 pb-2" >
                 <button class=" font-weight-bold btn  mdb-color lighten-3 custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_123" style="width: 150px;">
@@ -269,7 +261,7 @@ def __hero_icon_ui_counter__(heros):
 
 
 def __input_hero_counter__(hero_name, index, data=data):
-    if hero_name != "unselection":
+    if hero_name.lower() != "unselection":
         hero_data = data.loc[data['Hero'] == hero_name]
         
         ui = """
@@ -345,7 +337,7 @@ def __input_hero_counter__(hero_name, index, data=data):
     else:
         ui = """
                     <div class="d-flex flex-column" style="max-width: 300px;">
-                        <button class="text-uppercase mt-1 font-weight-bold btn blue-grey darken-2 custom-no-shadows font-weight-bold" disabled>
+                        <button class="text-uppercase mt-1 font-weight-bold btn blue-grey darken-2 custom-no-shadows font-weight-bold invisible">
                             {}
                         </button>
                     </div>
@@ -393,7 +385,7 @@ def generate_ui(radiant, dire):
         file.write(flex_open)
         for u in ui_radiant:
             file.write(u)
-        file.write("<hr><hr>")
+        file.write("""<div class="container" style="width: 16vh;"></div>""")
         for u in ui_dire:
             file.write(u)
         file.write(flex_close)
@@ -403,6 +395,6 @@ def generate_ui(radiant, dire):
         file.write(bottom)
 
 
-radiant = ['Bristleback','Sniper','Lion','Warlock','Pudge']
-dire= ['Axe','Bloodseeker','Razor','Zeus','Necrophos']
-generate_ui(radiant, dire)
+# radiant = ['Bristleback','Sniper','Lion','Warlock','Pudge']
+# dire= ['Axe','Bloodseeker','Razor','Zeus','Necrophos']
+# generate_ui(radiant, dire)
