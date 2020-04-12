@@ -41,4 +41,4 @@ def generate_ui(text):
         file.write(js_notif)
         file.write(bottom)
 
-generate_ui("Dude, buy teleport")
+#generate_ui("Dude, buy teleport")
