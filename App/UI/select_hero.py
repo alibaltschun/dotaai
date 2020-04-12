@@ -33,16 +33,16 @@ def __hero__(hero_name, index, data=data):
                         <div class="collapse pl-1 pr-1 " id="collapseExample{}" >
                             
                             <div class="media blue-grey darken-1 rounded m-0" data-toggle="tooltip" data-placement="left" title="Hero Attribute">
-                                <div class="media-body d-flex flex-row pb-1 text-center grey-text flex-grow-2" >
-                                    <div class="d-flex flex-column " style="width: 50%;">
-                                        <li class="list-inline-item pt-1 pl-2"><a ><img class="icon" src="./../assets/img/attribute/icon_strength.png"> {}<img></a></li>
-                                        <li class="list-inline-item pt-1 pl-2"><a ><img class="icon" src="./../assets/img/attribute/icon_agility.png"> {}<img></a></li>
-                                        <li class="list-inline-item pt-1"><a ><img class="icon" src="./../assets/img/attribute/icon_intelligence.png"> {}<img></a></li>
+                                <div class="media-body d-flex flex-row justify-content-center pb-1 grey-text2" >
+                                    <div class="d-flex flex-column align-items-start" >
+                                        <li class="list-inline-item pt-1 pl-2"><a><img class="icon" src="./../assets/img/attribute/icon_strength.png"><small> {}</small><img></a></li>
+                                        <li class="list-inline-item pt-1 pl-2"><a><img class="icon" src="./../assets/img/attribute/icon_agility.png"><small> {}</small><img></a></li>
+                                        <li class="list-inline-item pt-1 pl-2"><a><img class="icon" src="./../assets/img/attribute/icon_intelligence.png"><small> {}</small><img></a></li>
                                     </div>
-                                    <div class="d-flex flex-column  align-items-start" style="width: 50%;">
-                                        <li class="list-inline-item pt-1"><a><img class="icon" src="./../assets/img/attribute/attack.png"> {}-{}<img></a></li>
-                                        <li class="list-inline-item pt-1"><a ><img class="icon" src="./../assets/img/attribute/defend.png"> {}<img></a></li>
-                                        <li class="list-inline-item pt-1"><a ><img class="icon" src="./../assets/img/attribute/movement.png"> {}<img></a></li>
+                                    <div class="d-flex flex-column align-items-start" >
+                                        <li class="list-inline-item pt-1"><a><img class="icon" src="./../assets/img/attribute/attack.png"><small> {}-{}</small><img></a></li>
+                                        <li class="list-inline-item pt-1"><a><img class="icon" src="./../assets/img/attribute/defend.png"><small> {}</small><img></a></li>
+                                        <li class="list-inline-item pt-1"><a><img class="icon" src="./../assets/img/attribute/movement.png"><small> {}</small><img></a></li>
                                     </div>
                                 </div>
                             </div>
@@ -124,6 +124,9 @@ def generate_ui(radiant, dire):
     with open(BASE + "/utils/flex_select_hero_close.html","r") as file:
         flex_close=file.read()
     
+    with open(BASE + "/utils/footer_select_hero.html","r") as file:
+        footer=file.read()
+    
     with open(BASE + "/utils/js.html","r") as file:
         js=file.read()
     
@@ -146,11 +149,12 @@ def generate_ui(radiant, dire):
         for u in ui_dire:
             file.write(u)
         file.write(flex_close)
+        file.write(footer)
         file.write(js)
         file.write(js_custom)
         file.write(bottom)
 
 
-#radiant = ['Bristleback','Sniper','Lion','Warlock','Pudge']
-#dire= ['Axe','Bloodseeker','Razor','Zeus','Necrophos']
-#generate_ui(radiant, dire)
+radiant = ['Bristleback','Sniper','Lion','Warlock','Pudge']
+dire= ['Axe','Bloodseeker','Razor','Zeus','Necrophos']
+generate_ui(radiant, dire)
