@@ -3,9 +3,12 @@
         // Animations initialization
         // new WOW().init();
 
-        $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
+        $("[title]").tooltip({
+            delay: { "show": 100, "hide": 1000 },
+            offset: '0 10',
+            template: '<div class="tooltip" role="tooltip"><div class=""></div><div class="tooltip-inner text-default rounded-0"></div></div>'
+            
+            });
 
         $(function () {
             var selectedClass = "";

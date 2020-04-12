@@ -135,7 +135,7 @@ def __ui_statistics_most_played__():
                 <div class="animation hero_most_played card card-list mb-4 blue-grey darken-1" data-toggle="modal"  data-target="#basicExampleModal" style="display: none;">
                     <table class="table table-borderless">
                         <div class="p-2 pr-3 pl-3 d-flex justify-content-between align-items-center blue-grey darken-2">
-                            <p class="h5-responsive font-weight-bold mb-0"></i>Top 5 Heros base on most played -  <small>This week</small></p>
+                            <p class="h5-responsive font-weight-bold mb-0"></i>Top 5 Heros base on most played - <small>This week</small></p>
                             <p class="h5-responsive font-weight-bold mb-0"><a class="filter pl-3" data-rel="close"><i class="fas fa-times"></i></a></p>
                         </div>
                         <thead> 
@@ -212,28 +212,28 @@ def __ui_statistics__():
                     >
 
             <div class="d-flex flex-column justify-content-center mr-5 mb-3 p-1 pb-2" >
-                <button class=" font-weight-bold btn  mdb-color lighten-3 custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_123" style="width: 150px;">
+                <button class=" font-weight-bold btn  blue-grey darken-3 text-default custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_123" style="width: 150px;">
                     Meta - <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Herald.png">
                     <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Guardian.png">
                     <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Crusader.png">
                 </button>
-                <button class=" font-weight-bold btn  mdb-color lighten-3 custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_4" style="width: 150px;">
+                <button class=" font-weight-bold btn  blue-grey darken-3 text-default custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_4" style="width: 150px;">
                     Meta - <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Archon.png">
                 </button>
-                <button class=" font-weight-bold btn  mdb-color lighten-3 custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_5" style="width: 150px;">
+                <button class=" font-weight-bold btn  blue-grey darken-3 text-default custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_5" style="width: 150px;">
                     Meta - <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Legend.png">
                 </button>
-                <button class=" font-weight-bold btn  mdb-color lighten-3 custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_6" style="width: 150px;">
+                <button class=" font-weight-bold btn  blue-grey darken-3 text-default custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_6" style="width: 150px;">
                     Meta - <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Ancient.png">
                 </button>
-                <button class=" font-weight-bold btn  mdb-color lighten-3 custom-no-shadows font-weight-bold filter  mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_78" style="width: 150px;">
+                <button class=" font-weight-bold btn  blue-grey darken-3 text-default custom-no-shadows font-weight-bold filter  mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_78" style="width: 150px;">
                     Meta - <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Divine.png">
                     <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Ancient.png">
                 </button>
-                <button class="font-weight-bold btn  mdb-color lighten-3  custom-no-shadows font-weight-bold filter mb-0 pt-2 pb-2" data-rel="hero_win_rate" style="width: 150px;">
+                <button class="font-weight-bold btn  blue-grey darken-3 text-default  custom-no-shadows font-weight-bold filter mb-0 pt-2 pb-2" data-rel="hero_win_rate" style="width: 150px;">
                     Win Rate
                 </button>
-                <button class="font-weight-bold btn  mdb-color lighten-3  custom-no-shadows font-weight-bold filter mb-0 pt-2 pb-2" data-rel="hero_most_played" style="width: 150px;">
+                <button class="font-weight-bold btn  blue-grey darken-3 text-default  custom-no-shadows font-weight-bold filter mb-0 pt-2 pb-2" data-rel="hero_most_played" style="width: 150px;">
                     Most Played
                 </button>
             </div>
@@ -261,18 +261,19 @@ def __hero_icon_ui_counter__(heros):
 
 
 def __input_hero_counter__(hero_name, index, data=data):
+    print(hero_name)
     if hero_name.lower() != "unselection":
         hero_data = data.loc[data['Hero'] == hero_name]
         
         ui = """
                     <div class="d-flex flex-column" style="max-width: 122px;">
-                        <button class="btn-sm mt-2 font-weight-bold btn blue-grey darken-3 custom-no-shadows font-weight-bold" data-toggle="collapse" data-target="#collapseExample{}">
+                        <button class="btn-sm mt-2 pl-0 pr-0 text-center font-weight-bold btn blue-grey darken-3 text-default custom-no-shadows font-weight-bold" data-toggle="collapse" data-target="#collapseExample{}">
                             {}
                         </button>
         
                         <div class="collapse pl-1 pr-1 " id="collapseExample{}" >
                             
-                            <div class="media blue-grey darken-1 rounded m-0" data-toggle="tooltip" data-placement="left" title="Hero Attribute">
+                            <div class="media blue-grey darken-1 m-0" data-toggle="tooltip" data-placement="left" title="Hero Attribute">
                                 <div class="media-body d-flex flex-row justify-content-center pb-1 grey-text2" >
                                     <div class="d-flex flex-column align-items-start" >
                                         <li class="list-inline-item pt-1 pl-2"><a><img class="icon" src="./../assets/img/attribute/icon_strength.png"><small> {}</small><img></a></li>
@@ -287,7 +288,7 @@ def __input_hero_counter__(hero_name, index, data=data):
                                 </div>
                             </div>
         
-                            <div class="media blue-grey darken-2 rounded mt-1" data-toggle="tooltip" data-placement="left" title="Works well with">
+                            <div class="media blue-grey darken-2   mt-1" data-toggle="tooltip" data-placement="left" title="Works well with">
                                 <i class="fas fa-user-friends pl-2 pt-2 pr-1 green-text"></i>
                                 <div class="media-body" >
                                     <div class="mb-1 mt-1 ml-2">
@@ -296,7 +297,7 @@ def __input_hero_counter__(hero_name, index, data=data):
                                 </div>
                             </div>
                             
-                            <div class="media blue-grey darken-3 rounded mt-1" style="width: 100%;" data-toggle="tooltip" data-placement="left" title="Good against">
+                            <div class="media blue-grey darken-3   mt-1" style="width: 100%;" data-toggle="tooltip" data-placement="left" title="Good against">
                                 <i class="fas fa-laugh pl-2 pt-2 pr-1 blue-text"></i>
                                 <div class="media-body">
                                     <div class="mb-1 mt-1 ml-2" >
@@ -305,7 +306,7 @@ def __input_hero_counter__(hero_name, index, data=data):
                                 </div>
                             </div>
         
-                            <div class="media blue-grey darken-4 rounded mt-1" data-toggle="tooltip" data-placement="left" title="Bad against">
+                            <div class="media blue-grey darken-4   mt-1" data-toggle="tooltip" data-placement="left" title="Bad against">
                                 <i class="fas fa-skull-crossbones pl-2 pt-2 pr-1 red-text"></i>
                                 <div class="media-body" >
                                     <div class="mb-1 mt-1 ml-2" >
