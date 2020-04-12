@@ -13,6 +13,33 @@ def __hero_icon__(hero_name):
                                         <li class="list-inline-item "><a href="#" ><img class="icon" src="./../assets/img/hero_icon/{}_minimap_icon.png"><img></a></li>""".format(hero_name)
     return ui
 
+def __emblem_icon__(emblem_id):
+    if emblem_id == "123":
+        return  """
+        <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Herald.png">
+        <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Guardian.png">
+        <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Crusader.png">
+        """
+    if emblem_id == "4":
+        return  """
+        <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Archon.png">
+        """
+    if emblem_id == "5":
+        return  """
+        <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Legend.png">
+        """
+    if emblem_id == "6":
+        return  """
+        <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Ancient.png">
+        """
+    if emblem_id == "78":
+        return  """
+        <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Divine.png">
+        <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Immortal.png">
+        """
+    return ""
+   
+
 def __input_hero_statistics_win_rate__(name, win_rate, pick_rate, kda_ratio):
     ui = """
                         <tr> 
@@ -65,7 +92,7 @@ def __ui_statistics_win_rate__():
                 <div class="animation hero_win_rate card card-list mb-4 blue-grey darken-1" data-toggle="modal"  data-target="#basicExampleModal" style="display: none;">
                     <table class="table table-borderless">
                         <div class="p-2 pr-3 pl-3 d-flex justify-content-between align-items-center blue-grey darken-2">
-                            <p class="h5-responsive font-weight-bold mb-0"><i class="fas fa-inbox pr-2"></i>Top 5 Heros base on win rate - This week</p>
+                            <p class="h5-responsive font-weight-bold mb-0"></i>Top 5 Heros base on win rate - This week</p>
                             <p class="h5-responsive font-weight-bold mb-0"><a class=" filter" data-rel="close"><i class="fas fa-times"></i></a></p>
                         </div>
                         <thead> 
@@ -107,7 +134,7 @@ def __ui_statistics_most_played__():
                 <div class="animation hero_most_played card card-list mb-4 blue-grey darken-1" data-toggle="modal"  data-target="#basicExampleModal" style="display: none;">
                     <table class="table table-borderless">
                         <div class="p-2 pr-3 pl-3 d-flex justify-content-between align-items-center blue-grey darken-2">
-                            <p class="h5-responsive font-weight-bold mb-0"><i class="fas fa-inbox pr-2"></i>Top 5 Heros base on most played - This week</p>
+                            <p class="h5-responsive font-weight-bold mb-0"></i>Top 5 Heros base on most played - This week</p>
                             <p class="h5-responsive font-weight-bold mb-0"><a class=" filter" data-rel="close"><i class="fas fa-times"></i></a></p>
                         </div>
                         <thead> 
@@ -133,6 +160,8 @@ def __ui_statistics_most_played__():
 
 
 def __ui_statistics_meta__(meta_id, df=data_stat_meta):
+    
+    
     top = """
             <div class="gallery" id="gallery" 
                 style="position: absolute;
@@ -147,7 +176,7 @@ def __ui_statistics_meta__(meta_id, df=data_stat_meta):
                 <div class="animation hero_meta_{} card card-list mb-4 blue-grey darken-1 z-depth-2" data-toggle="modal"  data-target="#basicExampleModal" style="display: none;">
                     <table class="table table-borderless">
                         <div class="p-2 pr-3 pl-3 d-flex justify-content-lg-between align-items-center blue-grey darken-2">
-                            <p class="h5-responsive font-weight-bold mb-0"><img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Ancient.png"> - Top 5 Heros base on meta </p>
+                            <p class="h5-responsive font-weight-bold mb-0">{} - Top 5 Heros base on meta </p>
                             <p class="h5-responsive font-weight-bold mb-0"><a class=" filter" data-rel="close"><i class="fas fa-times"></i></a></p>
                             
                         </div>
@@ -160,7 +189,7 @@ def __ui_statistics_meta__(meta_id, df=data_stat_meta):
                             </tr>
                         </thead>
                         <tbody>
-                        """.format(meta_id)
+                        """.format(meta_id,__emblem_icon__(meta_id))
     bot = """
                         </tbody>
                     </table>
