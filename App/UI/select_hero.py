@@ -24,6 +24,7 @@ def __input_hero_statistics_win_rate__(name, win_rate, pick_rate, kda_ratio):
         """.format(name.replace(" ","_"), win_rate, pick_rate, kda_ratio)
     return ui
 
+
 def __input_hero_statistics_most_played__(name, matches_played, win_rate, pick_rate, kda_ratio):
     ui = """
                         <tr> 
@@ -35,6 +36,18 @@ def __input_hero_statistics_most_played__(name, matches_played, win_rate, pick_r
                         </tr> 
         """.format(name.replace(" ","_"), matches_played, win_rate, pick_rate, kda_ratio)
     return ui
+
+
+def __input_hero_statistics_meta__(name, pick, win):
+    ui = """
+                        <tr> 
+                            <td class="pt-0 pb-0 pl-5"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/{}_minimap_icon.png"><img></td>
+                            <td class="pt-0 pb-0 ">{}%</td>
+                            <td class="pt-0 pb-0 ">{}%</td>
+                        </tr>  
+        """.format(name.replace(" ","_"), pick, win)
+    return ui
+    
 
 def __ui_statistics_win_rate__():
     top = """
@@ -74,6 +87,8 @@ def __ui_statistics_win_rate__():
     for _, row in data_stat_win_rate.iterrows():
         ui += __input_hero_statistics_win_rate__(row['Hero'], row['Win Rate'], row['Pick Rate'], row['KDA Ratio'])
     return top + ui + bot
+
+
 
 
 def __ui_statistics_most_played__():
@@ -116,37 +131,102 @@ def __ui_statistics_most_played__():
         ui += __input_hero_statistics_most_played__(row['Hero'],row['Matches Played'], row['Win Rate'], row['Pick Rate'], row['KDA Ratio'])
     return top + ui + bot
 
+
+def __ui_statistics_meta__(meta_id, df=data_stat_meta):
+    top = """
+            <div class="gallery" id="gallery" 
+                style="position: absolute;
+                margin-left: auto;
+                margin-right: auto;
+                left: 0;
+                right: 0;
+                padding-right: 400px;
+                width: 900px;"
+                >
+
+                <div class="animation hero_meta_{} card card-list mb-4 blue-grey darken-1 z-depth-2" data-toggle="modal"  data-target="#basicExampleModal" style="display: none;">
+                    <table class="table table-borderless">
+                        <div class="p-2 pr-3 pl-3 d-flex justify-content-lg-between align-items-center blue-grey darken-2">
+                            <p class="h5-responsive font-weight-bold mb-0"><img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Ancient.png"> - Top 5 Heros base on meta </p>
+                            <p class="h5-responsive font-weight-bold mb-0"><a class=" filter" data-rel="close"><i class="fas fa-times"></i></a></p>
+                            
+                        </div>
+                        
+                        <thead> 
+                            <tr>
+                                <th class="font-weight-bold pb-1 pt-2 pl-5" scope="col">Hero</th>
+                                <th class="font-weight-bold pb-1 pt-2" scope="col">Pick Rate</th>
+                                <th class="font-weight-bold pb-1 pt-2" scope="col">Win Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        """.format(meta_id)
+    bot = """
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            """
+
+    ui = ""
+    df_meta = df.sort_values(('rank {} win'.format(meta_id)), ascending=False)[:5]
+    for _, row in df_meta.iterrows():
+        ui += __input_hero_statistics_meta__(
+            row['Hero'],
+            row['rank {} pick'.format(meta_id)],
+            row['rank {} win'.format(meta_id)]
+            )
+    return top + ui + bot
+
+
 def __ui_statistics__():
     top = """
     <footer class="fixed-bottom">
         <div class="d-flex align-items-end">
         """
     bot = """
-
-        <!-- button hero statistics -->
         <div class="dark-grey-text d-flex justify-content-center"
              style="position: absolute;
-                    margin-left: auto;
-                    margin-right: auto;
-                    left: 0;
-                    right: 0;
-                    margin-left: 350px;">
+                    right: 1000px;
+                    ">
 
-            <div class="d-flex flex-column justify-content-center mr-5 mb-3 p-1" >
-                <button class=" font-weight-bold btn  mdb-color lighten-3 custom-no-shadows font-weight-bold filter" data-rel="hero_meta" style="width: 150px;">
-                    Meta
+            <div class="d-flex flex-column justify-content-center mr-5 mb-3 p-1 pb-2" >
+                <button class=" font-weight-bold btn  mdb-color lighten-3 custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_123" style="width: 150px;">
+                    Meta - <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Herald.png">
+                    <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Guardian.png">
+                    <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Crusader.png">
                 </button>
-                <button class="font-weight-bold btn  mdb-color lighten-3  custom-no-shadows font-weight-bold filter" data-rel="hero_win_rate" style="width: 150px;">
+                <button class=" font-weight-bold btn  mdb-color lighten-3 custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_4" style="width: 150px;">
+                    Meta - <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Archon.png">
+                </button>
+                <button class=" font-weight-bold btn  mdb-color lighten-3 custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_5" style="width: 150px;">
+                    Meta - <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Legend.png">
+                </button>
+                <button class=" font-weight-bold btn  mdb-color lighten-3 custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_6" style="width: 150px;">
+                    Meta - <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Ancient.png">
+                </button>
+                <button class=" font-weight-bold btn  mdb-color lighten-3 custom-no-shadows font-weight-bold filter  mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_78" style="width: 150px;">
+                    Meta - <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Divine.png">
+                    <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Ancient.png">
+                </button>
+                <button class="font-weight-bold btn  mdb-color lighten-3  custom-no-shadows font-weight-bold filter mb-0 pt-2 pb-2" data-rel="hero_win_rate" style="width: 150px;">
                     Win Rate
                 </button>
-                <button class="font-weight-bold btn   mdb-color lighten-3  custom-no-shadows font-weight-bold filter" data-rel="hero_most_played" style="width: 150px;">
+                <button class="font-weight-bold btn  mdb-color lighten-3  custom-no-shadows font-weight-bold filter mb-0 pt-2 pb-2" data-rel="hero_most_played" style="width: 150px;">
                     Most Played
                 </button>
             </div>
         </div>
     </div>
 </footer>"""
-    data = __ui_statistics_win_rate__() + __ui_statistics_most_played__()
+    data = (
+        __ui_statistics_win_rate__() +
+        __ui_statistics_most_played__() +
+        __ui_statistics_meta__('123') +
+        __ui_statistics_meta__('4') +
+        __ui_statistics_meta__('5') +
+        __ui_statistics_meta__('6') +
+        __ui_statistics_meta__('78'))
     return top + data + bot
 
 def __hero_icon_ui_counter__(heros):

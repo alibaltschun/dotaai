@@ -66,11 +66,11 @@ def __meta__():
         top_10.append([td[i]['data-value'] for i in range(1,12)])
     
     df = pd.DataFrame(top_10, columns=['Hero',
-                                       'rank 123 pick','rank 123 Win Rate',
-                                       'rank 4 pick','rank 4 Win Rate',
-                                       'rank 5 pick','rank 5 Win Rate',
-                                       'rank 6 pick','rank 6 Win Rate',
-                                       'rank 78 pick','rank 78 Win Rate',
+                                       'rank 123 pick','rank 123 win',
+                                       'rank 4 pick','rank 4 win',
+                                       'rank 5 pick','rank 5 win',
+                                       'rank 6 pick','rank 6 win',
+                                       'rank 78 pick','rank 78 win',
                                        ])
     df.to_csv(BASE +"/../App/assets/csv/hero_meta.csv", index=False)
 
