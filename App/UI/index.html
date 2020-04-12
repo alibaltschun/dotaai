@@ -56,7 +56,8 @@ background-image: url('./../assets/img/temp/2.png');
 
 <!-- <body 
 style="background-color: transparent;"
-> --><div class="container-fluid pt-5" > 
+> -->
+<div class="container-fluid pt-5" > 
     <div class="d-flex pt-5 justify-content-center " >
         <hr><hr><hr><hr>
                     <div class="d-flex flex-column" style="max-width: 122px;">
@@ -891,10 +892,10 @@ style="background-color: transparent;"
                 
                     <hr><hr><hr><hr>
         </div>
-    </div> 
-    
+    </div>
     <footer class="fixed-bottom">
         <div class="d-flex align-items-end">
+        
             <!-- hero statistics -->
             <div class="gallery" id="gallery" 
                 style="position: absolute;
@@ -906,87 +907,155 @@ style="background-color: transparent;"
                 width: 900px;"
                 >
 
-                    <div class="animation hero_win_rate card card-list mb-4 blue-grey darken-1" data-toggle="modal"  data-target="#basicExampleModal">
+                <div class="animation hero_win_rate card card-list mb-4 blue-grey darken-1" data-toggle="modal"  data-target="#basicExampleModal" style="display: none;">
                     <table class="table table-borderless">
                         <div class="p-2 pr-3 pl-3 d-flex justify-content-between align-items-center blue-grey darken-2">
-                            <p class="h5-responsive font-weight-bold mb-0"><i class="fas fa-inbox pr-2"></i>Top 5 Heros base on win rate</p>
+                            <p class="h5-responsive font-weight-bold mb-0"><i class="fas fa-inbox pr-2"></i>Top 5 Heros base on win rate - This week</p>
                             <p class="h5-responsive font-weight-bold mb-0"><a class=" filter" data-rel="close"><i class="fas fa-times"></i></a></p>
-                          </div>
+                        </div>
                         <thead> 
                             <tr>
                                 <th class="font-weight-bold pb-1 pt-2 pl-5" scope="col">Hero</th>
-                                <th class="font-weight-bold pb-1 pt-2" scope="col">Pick Rate</th>
                                 <th class="font-weight-bold pb-1 pt-2" scope="col">Win Rate</th>
+                                <th class="font-weight-bold pb-1 pt-2" scope="col">Pick Rate</th>
                                 <th class="font-weight-bold pb-1 pt-2" scope="col">KDA Ratio</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr> 
-                                <td class="pt-0 pb-0 pl-5"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Shadow_Demon_minimap_icon.png"><img></td>
-                                <td class="pt-0 pb-0 pl-4">50.5%</td>
-                                <td class="pt-0 pb-0 pl-4">50.5%</td>
-                                <td class="pt-0 pb-0 pl-4">50.5%</td>
-                            </tr>
-                            <tr> 
-                                <td class="pt-0 pb-0 pl-5"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Shadow_Demon_minimap_icon.png"><img></td>
-                                <td class="pt-0 pb-0 pl-4">50.5%</td>
-                                <td class="pt-0 pb-0 pl-4">50.5%</td>
-                                <td class="pt-0 pb-0 pl-4">50.5%</td>
-                            </tr>
-                            <tr> 
-                                <td class="pt-0 pb-0 pl-5"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Shadow_Demon_minimap_icon.png"><img></td>
-                                <td class="pt-0 pb-0 pl-4">50.5%</td>
-                                <td class="pt-0 pb-0 pl-4">50.5%</td>
-                                <td class="pt-0 pb-0 pl-4">50.5%</td>
-                            </tr>
-                            <tr> 
-                                <td class="pt-0 pb-0 pl-5"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Shadow_Demon_minimap_icon.png"><img></td>
-                                <td class="pt-0 pb-0 pl-4">50.5%</td>
-                                <td class="pt-0 pb-0 pl-4">50.5%</td>
-                                <td class="pt-0 pb-0 pl-4">50.5%</td>
-                            </tr>
-                            <tr> 
-                                <td class="pt-0 pb-0 pl-5"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Shadow_Demon_minimap_icon.png"><img></td>
-                                <td class="pt-0 pb-0 pl-4">50.5%</td>
-                                <td class="pt-0 pb-0 pl-4">50.5%</td>
-                                <td class="pt-0 pb-0 pl-4">50.5%</td>
-                            </tr>
-                            
-                        </tbody>
+                    
+                        <tr> 
+                            <td class="pt-0 pb-0 pl-5"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Wraith_King_minimap_icon.png"><img></td>
+                            <td class="pt-0 pb-0 ">55.4342%</td>
+                            <td class="pt-0 pb-0 ">17.5988%</td>
+                            <td class="pt-0 pb-0 ">3.4053</td>
+                        </tr> 
+        
+                        <tr> 
+                            <td class="pt-0 pb-0 pl-5"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Underlord_minimap_icon.png"><img></td>
+                            <td class="pt-0 pb-0 ">54.4344%</td>
+                            <td class="pt-0 pb-0 ">7.1478%</td>
+                            <td class="pt-0 pb-0 ">2.8512</td>
+                        </tr> 
+        
+                        <tr> 
+                            <td class="pt-0 pb-0 pl-5"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Meepo_minimap_icon.png"><img></td>
+                            <td class="pt-0 pb-0 ">53.9675%</td>
+                            <td class="pt-0 pb-0 ">4.3861%</td>
+                            <td class="pt-0 pb-0 ">2.7193</td>
+                        </tr> 
+        
+                        <tr> 
+                            <td class="pt-0 pb-0 pl-5"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Ogre_Magi_minimap_icon.png"><img></td>
+                            <td class="pt-0 pb-0 ">53.5762%</td>
+                            <td class="pt-0 pb-0 ">23.1834%</td>
+                            <td class="pt-0 pb-0 ">2.5283</td>
+                        </tr> 
+        
+                        <tr> 
+                            <td class="pt-0 pb-0 pl-5"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Bloodseeker_minimap_icon.png"><img></td>
+                            <td class="pt-0 pb-0 ">53.5601%</td>
+                            <td class="pt-0 pb-0 ">10.1872%</td>
+                            <td class="pt-0 pb-0 ">3.1106</td>
+                        </tr> 
+                       </tbody>
                     </table>
                 </div>
             </div>
-            <!-- end hero statistics -->
+            <!-- hero statistics -->
+            <div class="gallery" id="gallery" 
+                style="position: absolute;
+                margin-left: auto;
+                margin-right: auto;
+                left: 0;
+                right: 0;
+                padding-right: 400px;
+                width: 900px;"
+                >
 
-            <!-- button hero statistics -->
-            <div class="dark-grey-text d-flex justify-content-center"
-                 style="position: absolute;
-                        margin-left: auto;
-                        margin-right: auto;
-                        left: 0;
-                        right: 0;
-                        margin-left: 350px;">
-
-                <div class="d-flex flex-column justify-content-center mr-5 mb-3 p-1" >
-                    <button class=" font-weight-bold btn  mdb-color lighten-3 custom-no-shadows font-weight-bold filter" data-rel="hero_meta" style="width: 150px;">
-                        Meta
-                    </button>
-                    <button class="font-weight-bold btn  mdb-color lighten-3  custom-no-shadows font-weight-bold filter" data-rel="hero_win_rate" style="width: 150px;">
-                        Win Rate
-                    </button>
-                    <button class="font-weight-bold btn   mdb-color lighten-3  custom-no-shadows font-weight-bold filter" data-rel="hero_most_played" style="width: 150px;">
-                        Most Played
-                    </button>
-                </div>
-            
-            </div>
-            <!-- end button hero statistics -->
+                <div class="animation hero_most_played card card-list mb-4 blue-grey darken-1" data-toggle="modal"  data-target="#basicExampleModal" style="display: none;">
+                    <table class="table table-borderless">
+                        <div class="p-2 pr-3 pl-3 d-flex justify-content-between align-items-center blue-grey darken-2">
+                            <p class="h5-responsive font-weight-bold mb-0"><i class="fas fa-inbox pr-2"></i>Top 5 Heros base on most played - This week</p>
+                            <p class="h5-responsive font-weight-bold mb-0"><a class=" filter" data-rel="close"><i class="fas fa-times"></i></a></p>
+                        </div>
+                        <thead> 
+                            <tr>
+                                <th class="font-weight-bold pb-1 pt-2 pl-5" scope="col">Hero</th>
+                                <th class="font-weight-bold pb-1 pt-2" scope="col">Matches Played</th>
+                                <th class="font-weight-bold pb-1 pt-2" scope="col">Win Rate</th>
+                                <th class="font-weight-bold pb-1 pt-2" scope="col">Pick Rate</th>
+                                <th class="font-weight-bold pb-1 pt-2" scope="col">KDA Ratio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                    
+                        <tr> 
+                            <td class="pt-0 pb-0 pl-5"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Pudge_minimap_icon.png"><img></td>
+                            <td class="pt-0 pb-0 ">1048922</td>
+                            <td class="pt-0 pb-0 ">49.4798%</td>
+                            <td class="pt-0 pb-0 ">26.5471%</td>
+                            <td class="pt-0 pb-0 ">2.2303</td>
+                        </tr> 
         
-            
-        </div>
-    </footer>
+                        <tr> 
+                            <td class="pt-0 pb-0 pl-5"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Lion_minimap_icon.png"><img></td>
+                            <td class="pt-0 pb-0 ">987413</td>
+                            <td class="pt-0 pb-0 ">48.7979%</td>
+                            <td class="pt-0 pb-0 ">24.9903%</td>
+                            <td class="pt-0 pb-0 ">1.9326</td>
+                        </tr> 
+        
+                        <tr> 
+                            <td class="pt-0 pb-0 pl-5"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Juggernaut_minimap_icon.png"><img></td>
+                            <td class="pt-0 pb-0 ">920744</td>
+                            <td class="pt-0 pb-0 ">50.0789%</td>
+                            <td class="pt-0 pb-0 ">23.303%</td>
+                            <td class="pt-0 pb-0 ">3.1451</td>
+                        </tr> 
+        
+                        <tr> 
+                            <td class="pt-0 pb-0 pl-5"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Ogre_Magi_minimap_icon.png"><img></td>
+                            <td class="pt-0 pb-0 ">916019</td>
+                            <td class="pt-0 pb-0 ">53.5762%</td>
+                            <td class="pt-0 pb-0 ">23.1834%</td>
+                            <td class="pt-0 pb-0 ">2.5283</td>
+                        </tr> 
+        
+                        <tr> 
+                            <td class="pt-0 pb-0 pl-5"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Sniper_minimap_icon.png"><img></td>
+                            <td class="pt-0 pb-0 ">822770</td>
+                            <td class="pt-0 pb-0 ">50.6203%</td>
+                            <td class="pt-0 pb-0 ">20.8234%</td>
+                            <td class="pt-0 pb-0 ">3.2594</td>
+                        </tr> 
+                       </tbody>
+                    </table>
+                </div>
+            </div>
 
-<!-- Footer -->    <!-- JQuery -->
+        <!-- button hero statistics -->
+        <div class="dark-grey-text d-flex justify-content-center"
+             style="position: absolute;
+                    margin-left: auto;
+                    margin-right: auto;
+                    left: 0;
+                    right: 0;
+                    margin-left: 350px;">
+
+            <div class="d-flex flex-column justify-content-center mr-5 mb-3 p-1" >
+                <button class=" font-weight-bold btn  mdb-color lighten-3 custom-no-shadows font-weight-bold filter" data-rel="hero_meta" style="width: 150px;">
+                    Meta
+                </button>
+                <button class="font-weight-bold btn  mdb-color lighten-3  custom-no-shadows font-weight-bold filter" data-rel="hero_win_rate" style="width: 150px;">
+                    Win Rate
+                </button>
+                <button class="font-weight-bold btn   mdb-color lighten-3  custom-no-shadows font-weight-bold filter" data-rel="hero_most_played" style="width: 150px;">
+                    Most Played
+                </button>
+            </div>
+        </div>
+    </div>
+</footer>    <!-- JQuery -->
     <script type="text/javascript" src="./mdb//js/jquery.js"></script>
     <!-- Bootstrap tooltips -->
     <script type="text/javascript" src="./mdb//js/popper.js"></script>

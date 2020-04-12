@@ -9,7 +9,7 @@ BASE = (os.path.dirname(os.path.realpath(__file__)))
 
 
 def __win_rate__():
-    driver = webdriver.Chrome('./chromedriver') 
+    driver = webdriver.Chrome(BASE + './chromedriver') 
     driver.get("https://www.dotabuff.com/heroes/winning?date=week")
     
     text = driver.page_source
@@ -26,11 +26,11 @@ def __win_rate__():
         top_10.append([td[i]['data-value'] for i in range(1,5)])
     
     df = pd.DataFrame(top_10, columns=['Hero','Win Rate','Pick Rate','KDA Ratio'])
-    df.to_csv(BASE +"/hero_win_top5.csv", index=False)
+    df.to_csv(BASE +"/../App/assets/csv/hero_win_top5.csv", index=False)
 
 
 def __most_played__():
-    driver = webdriver.Chrome('./chromedriver') 
+    driver = webdriver.Chrome(BASE + './chromedriver') 
     driver.get("https://www.dotabuff.com/heroes/played?date=week")
     
     text = driver.page_source
@@ -46,11 +46,11 @@ def __most_played__():
         top_10.append([td[i]['data-value'] for i in range(1,6)])
     
     df = pd.DataFrame(top_10, columns=['Hero','Matches Played','Pick Rate','Win Rate','KDA Ratio'])
-    df.to_csv(BASE +"/hero_most_played_top5.csv", index=False)
+    df.to_csv(BASE +"/../App/assets/csv/hero_most_played_top5.csv", index=False)
 
 
 def __meta__():
-    driver = webdriver.Chrome('./chromedriver') 
+    driver = webdriver.Chrome(BASE + './chromedriver') 
     driver.get("https://www.dotabuff.com/heroes/meta")
     
     text = driver.page_source
@@ -72,7 +72,7 @@ def __meta__():
                                        'rank 6 pick','rank 6 Win Rate',
                                        'rank 78 pick','rank 78 Win Rate',
                                        ])
-    df.to_csv(BASE +"/hero_meta.csv", index=False)
+    df.to_csv(BASE +"/../App/assets/csv/hero_meta.csv", index=False)
 
 __win_rate__()
 __most_played__()
