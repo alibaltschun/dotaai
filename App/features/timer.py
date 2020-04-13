@@ -20,7 +20,7 @@ def update_ui():
 
 def check_timer(screen_width, screen_height,
                 start_asistent=True, last_minutes=2,
-                greating=True):
+                last_timer="0:0"):
 
     # calculate const for crop from screenshot
     if screen_width*9 > screen_height*21:
@@ -54,14 +54,15 @@ def check_timer(screen_width, screen_height,
     # validate dota timer
     if ":" in timer:
 
-        if greating:
-            # call_heros_on_team(screen_width, screen_height)
-            greating = False
+        # call heros name while start new game
+        if timer == "1:00" and last_timer == "1:01":
+            print("call heros name")
+            call_heros_on_team(screen_width, screen_height)
 
         # get minutes and seconds from timer
         minutes, seconds = timer.split(":")
         if start_asistent:
-
+            print("assistand active")
             # check player bring teleport
             if seconds == "05" or seconds == "30":
                 have_teleport = check_teleport(screen_width, screen_height)
@@ -76,7 +77,7 @@ def check_timer(screen_width, screen_height,
                 if seconds == "40":
                     generate_ui("Rune in 20 seconds")
                     update_ui()
-                    #play("rune20", voice_type="alert")
+                    play("rune20", voice_type="alert")
                     
 
                 # play alert rune in 10 seconds
@@ -94,20 +95,28 @@ def check_timer(screen_width, screen_height,
                 play("stacking", voice_type="alert")
 
             # validate if play new game
+            print("last minutes",last_minutes)
             if int(minutes) < last_minutes:
                 start_asistent = False
+                print("assistand deactive")
+
+            # save last information about timer
+            last_minutes = int(minutes)
+            last_timer = timer
 
         # before 0:0
         else:
 
+            print("assistand no active")
             # run assitant on minutes 1
             if int(minutes) > last_minutes:
                 start_asistent = True
-                greating = True
+                # greating = True
                 print("start timer assistant")
 
             # reset last minutes
             else:
                 last_minutes = int(minutes)
+                print("reset last minutes")
 
-    return start_asistent, last_minutes, greating
+    return start_asistent, last_minutes, last_timer

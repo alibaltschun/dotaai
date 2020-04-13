@@ -1,5 +1,6 @@
 from pygame import mixer, time
 import os
+import mmap
 from gtts import gTTS
 
 BASE = (os.path.dirname(os.path.realpath(__file__)))
@@ -25,12 +26,16 @@ def play_opening_game(radiant, dire):
 
     # play the sound
     print("play", 'opening.mp3')
-    mixer.music.load(VOICE_PATH + 'opening.mp3')
+    with open(VOICE_PATH + 'opening.mp3') as f: 
+        m = mmap.mmap(f.fileno(), 0, access=mmap.ACCESS_READ) 
+    mixer.music.load(m)
     mixer.music.play()
 
     # wait mixer done playing the audio
     while mixer.music.get_busy():
         time.Clock().tick(10)
+    
+    m.close()
 
 
 def play(target, voice_type):

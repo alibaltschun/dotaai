@@ -22,13 +22,13 @@ def __ui__():
 def __gameplay__(screen_width, screen_height):
     start_asistent = True
     last_minutes = 2
-    greating = True
+    last_timer = "0:0"
     while True:
-        start_asistent, last_minutes, greating = check_timer(
+        start_asistent, last_minutes, last_timer = check_timer(
                                         screen_width, screen_height,
                                         start_asistent=start_asistent,
                                         last_minutes=last_minutes,
-                                        greating=greating)
+                                        last_timer=last_timer)
                                         
         time.sleep(0.65)
 
