@@ -19,6 +19,7 @@ def split(img):
         r.append(img.crop((i*w/5,0,(i+1)*w/5,h)))
     return r
 
+
 def main_select_hero(screen_width, screen_height, learn=model, ):
     # calculate const for crop from screenshot
     # print("get image")
