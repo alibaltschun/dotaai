@@ -11,6 +11,8 @@ import os
 BASE = (os.path.dirname(os.path.realpath(__file__)))
 
 file_html_update = BASE + "/../temp/html_update.txt"
+OUTPOST_EXP = [50, 350, 550, 750, 950, 1150, 1350,
+               1550, 1750, 1950, 2150, 2350]
 
 
 def update_ui():
@@ -76,8 +78,8 @@ def check_timer(screen_width, screen_height,
                     generate_ui(["DUDE, Buy teleport !!!"])
                     update_ui()
 
-            # check minutes x4 or x9
-            if minutes[-1:] == "4" or minutes[-1:] == "9":
+            # check minutes x4 for rune alert
+            if minutes[-1:] == "4":
 
                 # play alert rune in 20 seconds
                 if seconds == "40":
@@ -90,6 +92,28 @@ def check_timer(screen_width, screen_height,
                     generate_ui(["Rune in 10 seconds"])
                     update_ui()
                     play("rune10", voice_type="alert")
+            
+            # check minutes x4 for rune alert
+            if minutes[-1:] == "9":
+
+                minute = int(minutes)+1
+                index_exp = int(minute / 10)
+
+                print(index_exp)
+                if index_exp > len(OUTPOST_EXP):
+                    index_exp = int(len(OUTPOST_EXP) - 1)
+
+                print(index_exp)
+                # play alert rune in 20 seconds
+                if seconds == "00" or seconds == "20" or seconds == "40":
+                    generate_ui([
+                        "Capture outpost before {}:00".format(str(minute)),
+                        "each heros in team will get {} EXP if we have outpost".format(OUTPOST_EXP[index_exp]),
+                        "EXP outpost not stacked",
+                        "Capture both OP to make enemy did not have bonus EXP"
+                    ])
+                    update_ui()
+                    play("outpost", voice_type="alert")
 
             # play alert for stacking
             elif minutes != "0" and seconds == "40":

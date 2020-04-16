@@ -93,4 +93,4 @@ def generate_ui(text):
         file.write(bottom)
 
 
-generate_ui(["Dude, buy teleport", "test", "fu"])
+# generate_ui(["Dude, buy teleport", "test", "fu"])
