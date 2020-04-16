@@ -1,7 +1,6 @@
 from .features.timer import check_timer, update_ui
 from .features.select_hero import main_select_hero
 from .features.ui import check_ui
-from .utils.mp3_player import play
 from .utils.screen import get_screen_information
 from .UI.gameplay import generate_ui as generate_ui_gameplay
 from .UI.select_hero import generate_ui as generate_ui_drafting
@@ -18,12 +17,12 @@ def __local_server__():
 
 
 def __ui__():
-    generate_ui_gameplay("instagram : dota2.gg.ai")
+    generate_ui_gameplay(["instagram : dota2.gg.ai"])
     plot()
 
 
 def __ui_menu__(screen_width, screen_height):
-    generate_ui_gameplay("instagram : dota2.gg.ai")
+    generate_ui_gameplay(["instagram : dota2.gg.ai"])
     update_ui()
     _check_ui = 0
 
@@ -64,10 +63,6 @@ def __change_ui__(screen_width, screen_height, ui=None):
 
 
 def __gameplay__(screen_width, screen_height):
-
-    # generate_ui_gameplay("instagram : dota2.gg.ai")
-    # update_ui()
-
     start_asistent = True
     last_minutes = 1
     last_timer = "0:0"
@@ -99,8 +94,11 @@ def __gameplay__(screen_width, screen_height):
 
 def __select_hero__(screen_width, screen_height):
 
-    radiant = ['unselection', 'unselection', 'unselection', 'unselection', 'unselection']
-    dire = ['unselection', 'unselection', 'unselection', 'unselection', 'unselection']
+    radiant = ['unselection', 'unselection', 'unselection',
+               'unselection', 'unselection']
+    dire = ['unselection', 'unselection', 'unselection',
+            'unselection', 'unselection']
+
     generate_ui_drafting(radiant, dire)
     update_ui()
 

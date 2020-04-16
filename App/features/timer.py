@@ -12,9 +12,10 @@ BASE = (os.path.dirname(os.path.realpath(__file__)))
 
 file_html_update = BASE + "/../temp/html_update.txt"
 
+
 def update_ui():
     print("update ui")
-    with open(file_html_update, "w")  as file:
+    with open(file_html_update, "w") as file:
         file.write("1")
 
 
@@ -56,9 +57,9 @@ def check_timer(screen_width, screen_height,
 
         # call heros name while start new game
         if timer == "1:08" and last_timer == "1:09":
-            generate_ui("Welcome to the defense of the ancients")
+            generate_ui(["Welcome to the defense of the ancients"])
             update_ui()
-            
+
             print("call heros name")
             call_heros_on_team(screen_width, screen_height)
 
@@ -72,7 +73,7 @@ def check_timer(screen_width, screen_height,
             if seconds == "05" or seconds == "30":
                 have_teleport = check_teleport(screen_width, screen_height)
                 if have_teleport == "0":
-                    generate_ui("DUDE, Buy teleport !!!")
+                    generate_ui(["DUDE, Buy teleport !!!"])
                     update_ui()
 
             # check minutes x4 or x9
@@ -80,19 +81,19 @@ def check_timer(screen_width, screen_height,
 
                 # play alert rune in 20 seconds
                 if seconds == "40":
-                    generate_ui("Rune in 20 seconds")
+                    generate_ui(["Rune in 20 seconds"])
                     update_ui()
                     play("rune20", voice_type="alert")
 
                 # play alert rune in 10 seconds
                 elif seconds == "50":
-                    generate_ui("Rune in 10 seconds")
+                    generate_ui(["Rune in 10 seconds"])
                     update_ui()
                     play("rune10", voice_type="alert")
 
             # play alert for stacking
             elif minutes != "0" and seconds == "40":
-                generate_ui("Stack a jungle creep")
+                generate_ui(["Stack a jungle creep"])
                 update_ui()
                 play("stacking", voice_type="alert")
 

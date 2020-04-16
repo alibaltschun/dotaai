@@ -55,20 +55,38 @@ style="background-color: transparent;"
 background-repeat:no-repeat;
 background-position:top;
 >
-    <a id="btn_toast" class="btn btn-info invisible" onclick="toastr.info('instagram : dota2.gg.ai');"></a>
-             <!-- JQuery -->
+    <a id="btn_toast0" class="btn btn-info invisible" onclick="toastr.info('Dude, buy teleport');"></a>
+         
+    <a id="btn_toast1" class="btn btn-info invisible" onclick="toastr.info('test');"></a>
+         
+    <a id="btn_toast2" class="btn btn-info invisible" onclick="toastr.info('fu');"></a>
+             
+    <!-- JQuery -->
     <script type="text/javascript" src="./mdb//js/jquery.js"></script>
     <!-- Bootstrap tooltips -->
     <script type="text/javascript" src="./mdb//js/popper.js"></script>
     <!-- Bootstrap core JavaScript -->
     <script type="text/javascript" src="./mdb//js/bootstrap.js"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="./mdb//js/mdb.js"></script>       <script type="text/javascript">
-        setTimeout("CallButton()",100)
-        function CallButton(){
-            document.getElementById("btn_toast").click();   
-        }
+    <script type="text/javascript" src="./mdb//js/mdb.js"></script>   <script type="text/javascript"> 
+        setTimeout("CallButton0()",500)
+            function CallButton0(){
+            
+                document.getElementById("btn_toast0").click();
 
+        }
+        setTimeout("CallButton1()",1000)
+            function CallButton1(){
+            
+                document.getElementById("btn_toast1").click();
+
+        }
+        setTimeout("CallButton2()",1500)
+            function CallButton2(){
+            
+                document.getElementById("btn_toast2").click();
+
+        }
         async function checkUpdate()
         {
             const response = await fetch('http://localhost:5000/html_update');
@@ -80,12 +98,13 @@ background-position:top;
             }else{
                 setTimeout(() => {
                     checkUpdate()
-                }, 1000); 
+                }, 1000);
             }
         }
         checkUpdate();
+
+    </script>
         
-    </script>    
 </body>
 
 </html>

@@ -1,7 +1,6 @@
 from PIL import ImageGrab
 # import pyscreenshot as ImageGrab
 from fastai.vision import load_learner, open_image
-from ..utils.mp3_player import play
 import time
 import os
 BASE = (os.path.dirname(os.path.realpath(__file__)))

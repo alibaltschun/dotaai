@@ -17,6 +17,7 @@ def __split_hero_icon__(img):
         r.append(img.crop((i * w / 5, 0, (i+1) * w / 5, h)))
     return r
 
+
 def call_heros_on_team(screen_width, screen_height, learn=model, ):
     # calculate const for crop from screenshot
     if screen_width*9 > screen_height*21:
