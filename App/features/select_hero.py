@@ -56,13 +56,13 @@ def main_select_hero(screen_width, screen_height, learn=model, ):
     for hero in radiant:
         hero.save(temp_file)
         hero_name = (str(learn.predict(open_image(temp_file))[0]))
-        radiant_heros.append(hero_name.lower().replace("_", " "))
+        radiant_heros.append(hero_name.replace("_", " "))
 
     # get all dire heros name
     for hero in dire:
         hero.save(temp_file)
         hero_name = (str(learn.predict(open_image(temp_file))[0]))
-        dire_heros.append(hero_name.lower().replace("_", " "))
+        dire_heros.append(hero_name.replace("_", " "))
 
     # print("--- %s seconds ---" % (time.time() - start_time))
 

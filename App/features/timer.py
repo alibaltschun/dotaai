@@ -19,7 +19,7 @@ def update_ui():
 
 
 def check_timer(screen_width, screen_height,
-                start_asistent=True, last_minutes=2,
+                start_asistent=True, last_minutes=1,
                 last_timer="0:0"):
 
     # calculate const for crop from screenshot
@@ -55,14 +55,19 @@ def check_timer(screen_width, screen_height,
     if ":" in timer:
 
         # call heros name while start new game
-        if timer == "1:00" and last_timer == "1:01":
+        if timer == "1:08" and last_timer == "1:09":
+            generate_ui("Welcome to the defense of the ancients")
+            update_ui()
+            
             print("call heros name")
             call_heros_on_team(screen_width, screen_height)
 
         # get minutes and seconds from timer
         minutes, seconds = timer.split(":")
-        if start_asistent:
-            print("assistand active")
+
+        # validate timer increment
+        if int(seconds) > int(last_timer.split(":")[1]):
+
             # check player bring teleport
             if seconds == "05" or seconds == "30":
                 have_teleport = check_teleport(screen_width, screen_height)
@@ -78,45 +83,20 @@ def check_timer(screen_width, screen_height,
                     generate_ui("Rune in 20 seconds")
                     update_ui()
                     play("rune20", voice_type="alert")
-                    
 
                 # play alert rune in 10 seconds
                 elif seconds == "50":
                     generate_ui("Rune in 10 seconds")
                     update_ui()
                     play("rune10", voice_type="alert")
-                    
-                    
 
             # play alert for stacking
-            elif seconds == "40":
+            elif minutes != "0" and seconds == "40":
                 generate_ui("Stack a jungle creep")
                 update_ui()
                 play("stacking", voice_type="alert")
 
-            # validate if play new game
-            print("last minutes",last_minutes)
-            if int(minutes) < last_minutes:
-                start_asistent = False
-                print("assistand deactive")
-
-            # save last information about timer
-            last_minutes = int(minutes)
-            last_timer = timer
-
-        # before 0:0
-        else:
-
-            print("assistand no active")
-            # run assitant on minutes 1
-            if int(minutes) > last_minutes:
-                start_asistent = True
-                # greating = True
-                print("start timer assistant")
-
-            # reset last minutes
-            else:
-                last_minutes = int(minutes)
-                print("reset last minutes")
+        # save last information about timer
+        last_timer = timer
 
     return start_asistent, last_minutes, last_timer

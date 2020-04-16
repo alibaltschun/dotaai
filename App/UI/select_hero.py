@@ -348,8 +348,8 @@ def __input_hero_counter__(hero_name, index, data=data):
         return ui
         
 def generate_ui(radiant, dire):   
-    ui_radiant = [__input_hero_counter__(radiant[i].title(),i) for i in range(5)]
-    ui_dire = [__input_hero_counter__(dire[i].title(),i+5) for i in range(5)]
+    ui_radiant = [__input_hero_counter__(radiant[i],i) for i in range(5)]
+    ui_dire = [__input_hero_counter__(dire[i],i+5) for i in range(5)]
     
     with open(BASE + "/utils/head.html","r") as file:
         head=file.read()
@@ -397,6 +397,6 @@ def generate_ui(radiant, dire):
         file.write(bottom)
 
 
-radiant = ['Bristleback','Sniper','Lion','Warlock','Pudge']
-dire= ['Axe','Bloodseeker','Razor','Zeus','Necrophos']
-generate_ui(radiant, dire)
+# radiant = ['Bristleback','Sniper','Lion','Warlock','Pudge']
+# dire= ['Axe','Bloodseeker','Razor','Zeus','Necrophos']
+# generate_ui(radiant, dire)
