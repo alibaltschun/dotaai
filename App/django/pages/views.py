@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .utils import hero
+from .utils import hero, stat_meta, stat_most_played, stat_win_rate
 
 
 def home(request):
@@ -22,86 +22,13 @@ def drafting(request):
         'radiant_heros': radiant_data,
         'dire_heros': dire_data,
         'statistics': [
-            {
-                'id': 'hero_meta_123',
-                'title': 'Top 5 Heros base on meta',
-                'heros': [
-                    {
-                        'name': 'Lina',
-                        'win_rate': 51,
-                        'pick_rate': 52,
-                    },
-                ]
-            },
-            {
-                'id': 'hero_meta_4',
-                'title': 'Top 5 Heros base on meta',
-                'heros': [
-                    {
-                        'name': 'Lina',
-                        'win_rate': 51,
-                        'pick_rate': 52,
-                    },
-                ]
-            },
-            {
-                'id': 'hero_meta_5',
-                'title': 'Top 5 Heros base on meta',
-                'heros': [
-                    {
-                        'name': 'Lina',
-                        'win_rate': 51,
-                        'pick_rate': 52,
-                    },
-                ]
-            },
-            {
-                'id': 'hero_meta_6',
-                'title': 'Top 5 Heros base on meta',
-                'heros': [
-                    {
-                        'name': 'Lina',
-                        'win_rate': 51,
-                        'pick_rate': 52,
-                    },
-                ]
-            },
-            {
-                'id': 'hero_meta_78',
-                'title': 'Top 5 Heros base on meta',
-                'heros': [
-                    {
-                        'name': 'Lina',
-                        'win_rate': 51,
-                        'pick_rate': 52,
-                    },
-                ]
-            },
-            {
-                'id': 'hero_win_rate',
-                'title': 'Top 5 Heros base on win rate',
-                'heros': [
-                    {
-                        'name': 'Lina',
-                        'win_rate': 51,
-                        'pick_rate': 52,
-                        'kill_date_ratio': 1,
-                    },
-                ]
-            },
-            {
-                'id': 'hero_most_played',
-                'title': 'Top 5 Heros base on most played',
-                'heros': [
-                    {
-                        'name': 'Lina',
-                        'win_rate': 51,
-                        'pick_rate': 52,
-                        'kill_date_ratio': 1,
-                        'matches_played': 51,
-                    },
-                ]
-            }
+            stat_meta(123),
+            stat_meta(4),
+            stat_meta(5),
+            stat_meta(6),
+            stat_meta(78),
+            stat_win_rate(),
+            stat_most_played(),
         ]
     }
 
