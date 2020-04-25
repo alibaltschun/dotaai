@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .utils import hero
 
 
 def home(request):
@@ -12,271 +13,93 @@ def home(request):
 def drafting(request):
     template = 'drafting/main.html'
 
+    radiant = ['Bristleback', 'Sniper', 'Lion', 'Warlock', 'Pudge']
+    dire = ['Axe', 'Bloodseeker', 'Razor', 'Zeus', 'Necrophos']
+
+    radiant_data, dire_data = hero(radiant, dire)
+
     propt = {
-        'radiant_heros': [
-
+        'radiant_heros': radiant_data,
+        'dire_heros': dire_data,
+        'statistics': [
             {
-                'index': 0,
-                'name': 'Zeus',
-                'strength': 25,
-                'agility': 14,
-                'intelligence': 16,
-                'attack_min': 65,
-                'attack_max': 71,
-                'armor': 0,
-                'movement': 280,
-
-                'work_well_with': [
-                    'Lion'
-                ],
-
-                'good_against': [
-                    'Lina',
-                    'Lion'
-                ],
-
-                'Bad_against': [
-                    'Lina',
-                    'Lion',
-                    'Crystal_Maiden'
+                'id': 'hero_meta_123',
+                'title': 'Top 5 Heros base on meta',
+                'heros': [
+                    {
+                        'name': 'Lina',
+                        'win_rate': 51,
+                        'pick_rate': 52,
+                    },
                 ]
             },
             {
-                'index': 1,
-                'name': 'Zeus',
-                'strength': 25,
-                'agility': 14,
-                'intelligence': 16,
-                'attack_min': 65,
-                'attack_max': 71,
-                'armor': 0,
-                'movement': 280,
-
-                'work_well_with': [
-                    'Lion'
-                ],
-
-                'good_against': [
-                    'Lina',
-                    'Lion'
-                ],
-
-                'Bad_against': [
-                    'Lina',
-                    'Lion',
-                    'Crystal_Maiden'
+                'id': 'hero_meta_4',
+                'title': 'Top 5 Heros base on meta',
+                'heros': [
+                    {
+                        'name': 'Lina',
+                        'win_rate': 51,
+                        'pick_rate': 52,
+                    },
                 ]
             },
             {
-                'index': 2,
-                'name': 'Zeus',
-                'strength': 25,
-                'agility': 14,
-                'intelligence': 16,
-                'attack_min': 65,
-                'attack_max': 71,
-                'armor': 0,
-                'movement': 280,
-
-                'work_well_with': [
-                    'Lion'
-                ],
-
-                'good_against': [
-                    'Lina',
-                    'Lion'
-                ],
-
-                'Bad_against': [
-                    'Lina',
-                    'Lion',
-                    'Crystal_Maiden'
+                'id': 'hero_meta_5',
+                'title': 'Top 5 Heros base on meta',
+                'heros': [
+                    {
+                        'name': 'Lina',
+                        'win_rate': 51,
+                        'pick_rate': 52,
+                    },
                 ]
             },
             {
-                'index': 3,
-                'name': 'Zeus',
-                'strength': 25,
-                'agility': 14,
-                'intelligence': 16,
-                'attack_min': 65,
-                'attack_max': 71,
-                'armor': 0,
-                'movement': 280,
-
-                'work_well_with': [
-                    'Lion'
-                ],
-
-                'good_against': [
-                    'Lina',
-                    'Lion'
-                ],
-
-                'Bad_against': [
-                    'Lina',
-                    'Lion',
-                    'Crystal_Maiden'
+                'id': 'hero_meta_6',
+                'title': 'Top 5 Heros base on meta',
+                'heros': [
+                    {
+                        'name': 'Lina',
+                        'win_rate': 51,
+                        'pick_rate': 52,
+                    },
                 ]
             },
             {
-                'index': 4,
-                'name': 'Zeus',
-                'strength': 25,
-                'agility': 14,
-                'intelligence': 16,
-                'attack_min': 65,
-                'attack_max': 71,
-                'armor': 0,
-                'movement': 280,
-
-                'work_well_with': [
-                    'Lion'
-                ],
-
-                'good_against': [
-                    'Lina',
-                    'Lion'
-                ],
-
-                'Bad_against': [
-                    'Lina',
-                    'Lion',
-                    'Crystal_Maiden'
-                ]
-            }
-        ],
-
-        'dire_heros': [
-
-            {
-                'index': 5,
-                'name': 'Zeus',
-                'strength': 25,
-                'agility': 14,
-                'intelligence': 16,
-                'attack_min': 65,
-                'attack_max': 71,
-                'armor': 0,
-                'movement': 280,
-
-                'work_well_with': [
-                    'Lion'
-                ],
-
-                'good_against': [
-                    'Lina',
-                    'Lion'
-                ],
-
-                'Bad_against': [
-                    'Lina',
-                    'Lion',
-                    'Crystal_Maiden'
+                'id': 'hero_meta_78',
+                'title': 'Top 5 Heros base on meta',
+                'heros': [
+                    {
+                        'name': 'Lina',
+                        'win_rate': 51,
+                        'pick_rate': 52,
+                    },
                 ]
             },
             {
-                'index': 6,
-                'name': 'Zeus',
-                'strength': 25,
-                'agility': 14,
-                'intelligence': 16,
-                'attack_min': 65,
-                'attack_max': 71,
-                'armor': 0,
-                'movement': 280,
-
-                'work_well_with': [
-                    'Lion'
-                ],
-
-                'good_against': [
-                    'Lina',
-                    'Lion'
-                ],
-
-                'Bad_against': [
-                    'Lina',
-                    'Lion',
-                    'Crystal_Maiden'
+                'id': 'hero_win_rate',
+                'title': 'Top 5 Heros base on win rate',
+                'heros': [
+                    {
+                        'name': 'Lina',
+                        'win_rate': 51,
+                        'pick_rate': 52,
+                        'kill_date_ratio': 1,
+                    },
                 ]
             },
             {
-                'index': 7,
-                'name': 'Zeus',
-                'strength': 25,
-                'agility': 14,
-                'intelligence': 16,
-                'attack_min': 65,
-                'attack_max': 71,
-                'armor': 0,
-                'movement': 280,
-
-                'work_well_with': [
-                    'Lion'
-                ],
-
-                'good_against': [
-                    'Lina',
-                    'Lion'
-                ],
-
-                'Bad_against': [
-                    'Lina',
-                    'Lion',
-                    'Crystal_Maiden'
-                ]
-            },
-            {
-                'index': 8,
-                'name': 'Zeus',
-                'strength': 25,
-                'agility': 14,
-                'intelligence': 16,
-                'attack_min': 65,
-                'attack_max': 71,
-                'armor': 0,
-                'movement': 280,
-
-                'work_well_with': [
-                    'Lion'
-                ],
-
-                'good_against': [
-                    'Lina',
-                    'Lion'
-                ],
-
-                'Bad_against': [
-                    'Lina',
-                    'Lion',
-                    'Crystal_Maiden'
-                ]
-            },
-            {
-                'index': 9,
-                'name': 'Zeus',
-                'strength': 25,
-                'agility': 14,
-                'intelligence': 16,
-                'attack_min': 65,
-                'attack_max': 71,
-                'armor': 0,
-                'movement': 280,
-
-                'work_well_with': [
-                    'Lion'
-                ],
-
-                'good_against': [
-                    'Lina',
-                    'Lion'
-                ],
-
-                'Bad_against': [
-                    'Lina',
-                    'Lion',
-                    'Crystal_Maiden'
+                'id': 'hero_most_played',
+                'title': 'Top 5 Heros base on most played',
+                'heros': [
+                    {
+                        'name': 'Lina',
+                        'win_rate': 51,
+                        'pick_rate': 52,
+                        'kill_date_ratio': 1,
+                        'matches_played': 51,
+                    },
                 ]
             }
         ]

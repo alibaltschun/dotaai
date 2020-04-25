@@ -1,415 +1,59 @@
+{% load static %}
+
 <footer class="fixed-bottom">
     <div class="container d-flex align-items-end justify-content-md-end" style="width: 600px;">
     
-        <!-- hero statistics -->
-        <div class="gallery" id="gallery"
-            >
 
-            <div class="animation hero_win_rate card card-list mb-4 blue-grey darken-1" data-toggle="modal"  data-target="#basicExampleModal" style="display: none;">
-                <table class="table table-borderless">
-                    <div class="p-2 pr-3 pl-3 d-flex justify-content-between align-items-center blue-grey darken-2">
-                        <p class="h5-responsive font-weight-bold mb-0"></i>Top 5 Heros base on win rate - <small>This week</small></p>
-                        <p class="h5-responsive font-weight-bold mb-0"><a class=" filter pl-3" data-rel="close"><i class="fas fa-times"></i></a></p>
-                    </div>
-                    <thead> 
-                        <tr>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Hero</th>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Win Rate</th>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Pick Rate</th>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">KDA Ratio</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Wraith_King_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">55.42%</td>
-                        <td class="pt-0 pb-0 ">17.6%</td>
-                        <td class="pt-0 pb-0 ">3.41</td>
-                    </tr> 
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Underlord_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">54.42%</td>
-                        <td class="pt-0 pb-0 ">7.16%</td>
-                        <td class="pt-0 pb-0 ">2.85</td>
-                    </tr> 
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Meepo_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">53.94%</td>
-                        <td class="pt-0 pb-0 ">4.37%</td>
-                        <td class="pt-0 pb-0 ">2.72</td>
-                    </tr> 
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Bloodseeker_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">53.58%</td>
-                        <td class="pt-0 pb-0 ">10.21%</td>
-                        <td class="pt-0 pb-0 ">3.11</td>
-                    </tr> 
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Ogre_Magi_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">53.58%</td>
-                        <td class="pt-0 pb-0 ">23.19%</td>
-                        <td class="pt-0 pb-0 ">2.53</td>
-                    </tr> 
-                   </tbody>
-                </table>
-            </div>
-        </div>
-        <!-- hero statistics -->
-        <div class="gallery" id="gallery"
-            >
+        {% for stat in statistics %}
+            <!-- hero statistics -->
+            <div class="gallery" id="gallery">
 
-            <div class="animation hero_most_played card card-list mb-4 blue-grey darken-1" data-toggle="modal"  data-target="#basicExampleModal" style="display: none;">
-                <table class="table table-borderless">
-                    <div class="p-2 pr-3 pl-3 d-flex justify-content-between align-items-center blue-grey darken-2">
-                        <p class="h5-responsive font-weight-bold mb-0"></i>Top 5 Heros base on most played - <small>This week</small></p>
-                        <p class="h5-responsive font-weight-bold mb-0"><a class="filter pl-3" data-rel="close"><i class="fas fa-times"></i></a></p>
-                    </div>
-                    <thead> 
-                        <tr>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Hero</th>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Matches Played</th>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Win Rate</th>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Pick Rate</th>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">KDA Ratio</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Pudge_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">1063285.0</td>
-                        <td class="pt-0 pb-0 ">49.48%</td>
-                        <td class="pt-0 pb-0 ">26.53%</td>
-                        <td class="pt-0 pb-0 ">2.23</td>
-                    </tr> 
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Lion_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">1002260.0</td>
-                        <td class="pt-0 pb-0 ">48.79%</td>
-                        <td class="pt-0 pb-0 ">25.0%</td>
-                        <td class="pt-0 pb-0 ">1.93</td>
-                    </tr> 
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Juggernaut_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">934706.0</td>
-                        <td class="pt-0 pb-0 ">50.09%</td>
-                        <td class="pt-0 pb-0 ">23.32%</td>
-                        <td class="pt-0 pb-0 ">3.15</td>
-                    </tr> 
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Ogre_Magi_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">929455.0</td>
-                        <td class="pt-0 pb-0 ">53.58%</td>
-                        <td class="pt-0 pb-0 ">23.19%</td>
-                        <td class="pt-0 pb-0 ">2.53</td>
-                    </tr> 
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Sniper_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">834830.0</td>
-                        <td class="pt-0 pb-0 ">50.63%</td>
-                        <td class="pt-0 pb-0 ">20.83%</td>
-                        <td class="pt-0 pb-0 ">3.26</td>
-                    </tr> 
-                   </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="gallery" id="gallery" 
-            >
+                <div class="animation {{stat.id}} card card-list mb-4 blue-grey darken-1" data-toggle="modal"  data-target="#basicExampleModal" style="display: none;">
+                    <table class="table table-borderless">
+                        <div class="p-2 pr-3 pl-3 d-flex justify-content-between align-items-center blue-grey darken-2">
+                            <p class="h5-responsive font-weight-bold mb-0"></i>{{stat.title}} - <small>This week</small></p>
+                            <p class="h5-responsive font-weight-bold mb-0"><a class=" filter pl-3" data-rel="close"><i class="fas fa-times"></i></a></p>
+                        </div>
+                        <thead> 
+                            <tr>
+                                <th class="font-weight-bold pb-1 pt-2" scope="col">Hero</th>
+                                <th class="font-weight-bold pb-1 pt-2" scope="col">Win Rate</th>
+                                <th class="font-weight-bold pb-1 pt-2" scope="col">Pick Rate</th>
 
-            <div class="animation hero_meta_123 card card-list mb-4 blue-grey darken-1" data-toggle="modal"  data-target="#basicExampleModal" style="display: none;">
-                <table class="table table-borderless">
-                    <div class="p-2 pr-3 pl-3 d-flex justify-content-lg-between align-items-center blue-grey darken-2">
-                        <p class="h5-responsive font-weight-bold mb-0">
-                            <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Herald.png">
-                            <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Guardian.png">
-                            <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Crusader.png">
-     Top 5 Heros base on meta </p>
-                        <p class="h5-responsive font-weight-bold mb-0"><a class=" filter pl-3" data-rel="close"><i class="fas fa-times"></i></a></p>
+                                {% if stat.id == "hero_win_rate" or stat.id == "hero_most_played" %}
+                                    <th class="font-weight-bold pb-1 pt-2" scope="col">KDA Ratio</th>
+                                {% endif %}
+
+                                {% if stat.id == "hero_most_played" %}
+                                    <th class="font-weight-bold pb-1 pt-2" scope="col">Matches played</th>
+                                {% endif %}
+                            </tr>
+                        </thead>
+                        <tbody>
                         
-                    </div>
-                    
-                    <thead> 
-                        <tr>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Hero</th>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Pick Rate</th>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Win Rate</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Meepo_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">6.57%</td>
-                        <td class="pt-0 pb-0 ">60.31%</td>
-                    </tr>  
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Wraith_King_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">20.04%</td>
-                        <td class="pt-0 pb-0 ">57.21%</td>
-                    </tr>  
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Underlord_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">6.56%</td>
-                        <td class="pt-0 pb-0 ">56.27%</td>
-                    </tr>  
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Vengeful_Spirit_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">7.14%</td>
-                        <td class="pt-0 pb-0 ">55.03%</td>
-                    </tr>  
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Naga_Siren_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">4.68%</td>
-                        <td class="pt-0 pb-0 ">54.94%</td>
-                    </tr>  
-    
+                        {% for hero in stat.heros %}
+                            <tr> 
+                                {% with "img/hero_icon/"|add:hero.name|add:"_minimap_icon.png" as img %}
+                                    <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="{% static img %}"><img></td>
+                                {% endwith %}
+                                <td class="pt-0 pb-0 ">{{hero.win_rate}}</td>
+                                <td class="pt-0 pb-0 ">{{hero.pick_rate}}</td>
+                                {% if hero.kill_date_ratio %}
+                                    <td class="pt-0 pb-0 ">{{hero.kill_date_ratio}}</td>
+                                {% endif %}
+                                {% if hero.matches_played %}
+                                    <td class="pt-0 pb-0 ">{{hero.matches_played}}</td>
+                                {% endif %}
+                            </tr> 
+                        {% endfor %}
                     </tbody>
-                </table>
+                    </table>
+                </div>
             </div>
-        </div>
-        
-        <div class="gallery" id="gallery" 
-            >
+            <!-- end hero statistics -->
 
-            <div class="animation hero_meta_4 card card-list mb-4 blue-grey darken-1" data-toggle="modal"  data-target="#basicExampleModal" style="display: none;">
-                <table class="table table-borderless">
-                    <div class="p-2 pr-3 pl-3 d-flex justify-content-lg-between align-items-center blue-grey darken-2">
-                        <p class="h5-responsive font-weight-bold mb-0">
-                            <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Archon.png">
-     Top 5 Heros base on meta </p>
-                        <p class="h5-responsive font-weight-bold mb-0"><a class=" filter pl-3" data-rel="close"><i class="fas fa-times"></i></a></p>
-                        
-                    </div>
-                    
-                    <thead> 
-                        <tr>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Hero</th>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Pick Rate</th>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Win Rate</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Meepo_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">6.08%</td>
-                        <td class="pt-0 pb-0 ">58.6%</td>
-                    </tr>  
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Underlord_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">8.73%</td>
-                        <td class="pt-0 pb-0 ">57.23%</td>
-                    </tr>  
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Wraith_King_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">18.04%</td>
-                        <td class="pt-0 pb-0 ">55.48%</td>
-                    </tr>  
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Bloodseeker_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">8.5%</td>
-                        <td class="pt-0 pb-0 ">54.88%</td>
-                    </tr>  
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Vengeful_Spirit_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">7.54%</td>
-                        <td class="pt-0 pb-0 ">54.26%</td>
-                    </tr>  
-    
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <div class="gallery" id="gallery" 
-            >
 
-            <div class="animation hero_meta_5 card card-list mb-4 blue-grey darken-1" data-toggle="modal"  data-target="#basicExampleModal" style="display: none;">
-                <table class="table table-borderless">
-                    <div class="p-2 pr-3 pl-3 d-flex justify-content-lg-between align-items-center blue-grey darken-2">
-                        <p class="h5-responsive font-weight-bold mb-0">
-                            <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Legend.png">
-     Top 5 Heros base on meta </p>
-                        <p class="h5-responsive font-weight-bold mb-0"><a class=" filter pl-3" data-rel="close"><i class="fas fa-times"></i></a></p>
-                        
-                    </div>
-                    
-                    <thead> 
-                        <tr>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Hero</th>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Pick Rate</th>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Win Rate</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Meepo_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">6.07%</td>
-                        <td class="pt-0 pb-0 ">57.76%</td>
-                    </tr>  
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Underlord_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">9.9%</td>
-                        <td class="pt-0 pb-0 ">55.56%</td>
-                    </tr>  
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Wraith_King_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">17.63%</td>
-                        <td class="pt-0 pb-0 ">55.08%</td>
-                    </tr>  
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Lycan_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">4.49%</td>
-                        <td class="pt-0 pb-0 ">54.77%</td>
-                    </tr>  
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Bloodseeker_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">6.83%</td>
-                        <td class="pt-0 pb-0 ">54.31%</td>
-                    </tr>  
-    
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <div class="gallery" id="gallery" 
-            >
-
-            <div class="animation hero_meta_6 card card-list mb-4 blue-grey darken-1" data-toggle="modal"  data-target="#basicExampleModal" style="display: none;">
-                <table class="table table-borderless">
-                    <div class="p-2 pr-3 pl-3 d-flex justify-content-lg-between align-items-center blue-grey darken-2">
-                        <p class="h5-responsive font-weight-bold mb-0">
-                            <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Ancient.png">
-     Top 5 Heros base on meta </p>
-                        <p class="h5-responsive font-weight-bold mb-0"><a class=" filter pl-3" data-rel="close"><i class="fas fa-times"></i></a></p>
-                        
-                    </div>
-                    
-                    <thead> 
-                        <tr>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Hero</th>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Pick Rate</th>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Win Rate</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Lycan_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">6.42%</td>
-                        <td class="pt-0 pb-0 ">58.89%</td>
-                    </tr>  
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Meepo_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">6.37%</td>
-                        <td class="pt-0 pb-0 ">57.73%</td>
-                    </tr>  
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Visage_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">1.7%</td>
-                        <td class="pt-0 pb-0 ">56.48%</td>
-                    </tr>  
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Beastmaster_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">6.64%</td>
-                        <td class="pt-0 pb-0 ">55.56%</td>
-                    </tr>  
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Vengeful_Spirit_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">6.65%</td>
-                        <td class="pt-0 pb-0 ">54.62%</td>
-                    </tr>  
-    
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        
-        <div class="gallery" id="gallery" 
-            >
-
-            <div class="animation hero_meta_78 card card-list mb-4 blue-grey darken-1" data-toggle="modal"  data-target="#basicExampleModal" style="display: none;">
-                <table class="table table-borderless">
-                    <div class="p-2 pr-3 pl-3 d-flex justify-content-lg-between align-items-center blue-grey darken-2">
-                        <p class="h5-responsive font-weight-bold mb-0">
-                            <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Divine.png">
-                            <img class="icon " style="width: 24px;" src="./../assets/img/emblem/Emoticon_Ranked_Immortal.png">
-     Top 5 Heros base on meta </p>
-                        <p class="h5-responsive font-weight-bold mb-0"><a class=" filter pl-3" data-rel="close"><i class="fas fa-times"></i></a></p>
-                        
-                    </div>
-                    
-                    <thead> 
-                        <tr>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Hero</th>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Pick Rate</th>
-                            <th class="font-weight-bold pb-1 pt-2" scope="col">Win Rate</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Lycan_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">10.29%</td>
-                        <td class="pt-0 pb-0 ">60.53%</td>
-                    </tr>  
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Meepo_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">6.84%</td>
-                        <td class="pt-0 pb-0 ">57.7%</td>
-                    </tr>  
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Beastmaster_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">11.29%</td>
-                        <td class="pt-0 pb-0 ">55.94%</td>
-                    </tr>  
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Bane_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">9.52%</td>
-                        <td class="pt-0 pb-0 ">55.49%</td>
-                    </tr>  
-    
-                    <tr> 
-                        <td class="pt-0 pb-0 pl-3"><img class="icon" style="width: 18px;" src="./../assets/img/hero_icon/Visage_minimap_icon.png"><img></td>
-                        <td class="pt-0 pb-0 ">1.99%</td>
-                        <td class="pt-0 pb-0 ">54.87%</td>
-                    </tr>  
-    
-                    </tbody>
-                </table>
-            </div>
-        </div>
+        {% endfor %}
         
     <div class="dark-grey-text d-flex justify-content-center"
          style="margin-right: 370PX;"
@@ -417,22 +61,24 @@
 
         <div class="d-flex flex-column justify-content-center mr-5 mb-3 p-1 pb-2" >
             <button class=" font-weight-bold btn  blue-grey darken-3 text-default custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_123" style="width: 150px;">
-                Meta - <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Herald.png">
-                <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Guardian.png">
-                <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Crusader.png">
+                Meta - 
+                <img class="icon " style="width: 18px;" src="{% static 'img/emblem/Emoticon_Ranked_Herald.png' %}">
+                <img class="icon " style="width: 18px;" src="{% static 'img/emblem/Emoticon_Ranked_Guardian.png' %}">
+                <img class="icon " style="width: 18px;" src="{% static 'img/emblem/Emoticon_Ranked_Crusader.png' %}">
             </button>
             <button class=" font-weight-bold btn  blue-grey darken-3 text-default custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_4" style="width: 150px;">
-                Meta - <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Archon.png">
+                Meta - <img class="icon " style="width: 18px;" src="{% static 'img/emblem/Emoticon_Ranked_Archon.png' %}">
             </button>
             <button class=" font-weight-bold btn  blue-grey darken-3 text-default custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_5" style="width: 150px;">
-                Meta - <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Legend.png">
+                Meta - <img class="icon " style="width: 18px;" src="{% static 'img/emblem/Emoticon_Ranked_Legend.png' %}">
             </button>
             <button class=" font-weight-bold btn  blue-grey darken-3 text-default custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_6" style="width: 150px;">
-                Meta - <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Ancient.png">
+                Meta - <img class="icon " style="width: 18px;" src="{% static 'img/emblem/Emoticon_Ranked_Ancient.png' %}">
             </button>
             <button class=" font-weight-bold btn  blue-grey darken-3 text-default custom-no-shadows font-weight-bold filter  mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_78" style="width: 150px;">
-                Meta - <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Divine.png">
-                <img class="icon " style="width: 18px;" src="./../assets/img/emblem/Emoticon_Ranked_Ancient.png">
+                Meta - 
+                <img class="icon " style="width: 18px;" src="{% static 'img/emblem/Emoticon_Ranked_Divine.png' %}">
+                <img class="icon " style="width: 18px;" src="{% static 'img/emblem/Emoticon_Ranked_Immortal.png' %}">
             </button>
             <button class="font-weight-bold btn  blue-grey darken-3 text-default  custom-no-shadows font-weight-bold filter mb-0 pt-2 pb-2" data-rel="hero_win_rate" style="width: 150px;">
                 Win Rate

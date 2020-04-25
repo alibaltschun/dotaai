@@ -57,7 +57,7 @@
                     <i class="fas fa-skull-crossbones pl-2 pt-2 pr-1 red-text"></i>
                     <div class="media-body" >
                         <div class="mb-1 mt-1 ml-2" >
-                            {% for h in hero.Bad_against %}
+                            {% for h in hero.bad_against %}
                                 {% with "img/hero_icon/"|add:h|add:"_minimap_icon.png" as img %}
                                     <li class="list-inline-item "><a href="#" ><img class="icon" src="{% static img %}"><img></a></li>
                                 {% endwith %}
@@ -74,13 +74,12 @@
     
     
     {% for hero in dire_heros %}
-        
         <div class="d-flex flex-column" style="max-width: 122px;">
-            <button class="btn-sm mt-2 pl-0 pr-0 text-center font-weight-bold btn blue-grey darken-3 text-default custom-no-shadows font-weight-bold" data-toggle="collapse" data-target="#collapseExample4">
+            <button class="btn-sm mt-2 pl-0 pr-0 text-center font-weight-bold btn blue-grey darken-3 text-default custom-no-shadows font-weight-bold" data-toggle="collapse" data-target="#collapseExample{{hero.index}}">
                 {{hero.name}}
             </button>
 
-            <div class="collapse pl-1 pr-1 " id="collapseExample4" >
+            <div class="collapse pl-1 pr-1 " id="collapseExample{{hero.index}}" >
 
                 <div class="media blue-grey darken-1 m-0" data-toggle="tooltip" data-placement="left" title="Hero Attribute">
                     <div class="media-body d-flex flex-row justify-content-center pb-1 grey-text2" >
@@ -127,7 +126,7 @@
                     <i class="fas fa-skull-crossbones pl-2 pt-2 pr-1 red-text"></i>
                     <div class="media-body" >
                         <div class="mb-1 mt-1 ml-2" >
-                            {% for h in hero.Bad_against %}
+                            {% for h in hero.bad_against %}
                                 {% with "img/hero_icon/"|add:h|add:"_minimap_icon.png" as img %}
                                     <li class="list-inline-item "><a href="#" ><img class="icon" src="{% static img %}"><img></a></li>
                                 {% endwith %}
