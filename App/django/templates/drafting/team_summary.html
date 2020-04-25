@@ -53,7 +53,7 @@
                 <div class="d-flex justify-content-between">
                     {% with "img/hero_icon/"|add:hero.name|add:"_minimap_icon.png" as img %}
                         <img class="icon pb-1 ml-2" src="{% static img %}" style="width: 18px;"><img>
-                        <small class="mr-2">{{hero.movement_speed}}</small>
+                        <small class="mr-2">{{hero.movement}}</small>
                     {% endwith %}
                 </div>
             {% endfor %}           

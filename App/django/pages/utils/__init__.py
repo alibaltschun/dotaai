@@ -1,3 +1,4 @@
+import json
 import os
 import pandas as pd
 BASE = (os.path.dirname(os.path.realpath(__file__)))
@@ -46,7 +47,8 @@ def __get_hero_data__(heros, df, index):
 
         else:
             data.append({
-                'index': index
+                'index': index,
+                'invisible': 'invisible'
             })
 
         index += 1
@@ -79,7 +81,7 @@ def stat_meta(meta_id, df=data_stat_meta):
     heros = []
     for index, row in df_meta.iterrows():
         heros.append({
-            'name': row[0].replace(" ","_"),
+            'name': row[0].replace(" ", "_"),
             'win_rate': __rounding__(row[1]),
             'pick_rate': __rounding__(row[2])
             })
@@ -100,7 +102,7 @@ def stat_win_rate(df=data_stat_win_rate):
     heros = []
     for index, row in df.iterrows():
         heros.append({
-            'name': row['Hero'].replace(" ","_"),
+            'name': row['Hero'].replace(" ", "_"),
             'win_rate': __rounding__(row['Win Rate']),
             'pick_rate': __rounding__(row['Pick Rate']),
             'kill_date_ratio': __rounding__(row['KDA Ratio']),
@@ -136,3 +138,22 @@ def stat_most_played(df=data_stat_most_played):
         }
 
     return result
+
+
+
+def summary_atribute(heros):    
+    df = pd.DataFrame(heros)
+    df = df[df['name'].notna()]
+
+    df_attack = df.sort_values(
+        'attack_min', ascending=False)[['name', 'attack_min', 'attack_max']]
+    df_armor = df.sort_values(
+        'armor', ascending=False)[['name', 'armor']]
+    df_speed = df.sort_values(
+        'movement', ascending=False)[['name', 'movement']]
+
+    attack = json.loads(df_attack.to_json(orient='records').replace('.0',''))
+    armor = json.loads(df_armor.to_json(orient='records').replace('.0',''))
+    speed = json.loads(df_speed.to_json(orient='records').replace('.0',''))
+
+    return attack, armor, speed

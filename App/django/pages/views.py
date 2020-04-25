@@ -1,5 +1,11 @@
 from django.shortcuts import render
-from .utils import hero, stat_meta, stat_most_played, stat_win_rate
+from .utils import (
+    hero,
+    stat_meta,
+    stat_most_played,
+    stat_win_rate,
+    summary_atribute
+)
 
 
 def home(request):
@@ -13,10 +19,12 @@ def home(request):
 def drafting(request):
     template = 'drafting/main.html'
 
-    radiant = ['Bristleback', 'Sniper', 'Lion', 'Warlock', 'Pudge']
-    dire = ['Axe', 'Bloodseeker', 'Razor', 'Zeus', 'Necrophos']
+    radiant = ['Bristleback', 'Sniper', 'unselection', 'Warlock', 'Pudge']
+    dire = ['Axe', 'Bloodseeker', 'unselection', 'unselection', 'Necrophos']
 
     radiant_data, dire_data = hero(radiant, dire)
+
+    s_r_attack, s_r_armor, s_r_speed = summary_atribute(radiant_data)
 
     propt = {
         'radiant_heros': radiant_data,
@@ -31,82 +39,12 @@ def drafting(request):
             stat_most_played(),
         ],
         'summary': {
-            'attack': [
-                {
-                    'name': 'Zeus',
-                    'attack_min': 1,
-                    'attack_max': 2
-                },
-                {
-                    'name': 'Lina',
-                    'attack_min': 3,
-                    'attack_max': 4
-                },
-                {
-                    'name': 'Luna',
-                    'attack_min': 5,
-                    'attack_max': 6
-                },
-                {
-                    'name': 'Razor',
-                    'attack_min': 7,
-                    'attack_max': 8
-                },
-                {
-                    'name': 'Lion',
-                    'attack_min': 90,
-                    'attack_max': 10
-                }
-            ],
-            'armor': [
-                {
-                    'name': 'Zeus',
-                    'armor': 2
-                },
-                {
-                    'name': 'Lina',
-                    'armor': 4
-
-                },
-                {
-                    'name': 'Luna',
-                    'armor': 2
-
-                },
-                {
-                    'name': 'Razor',
-                    'armor': 3
-
-                },
-                {
-                    'name': 'Lion',
-                    'armor': 5
-
-                }
-            ],
-            'movement': [
-                {
-                    'name': 'Zeus',
-                    'movement_speed': 100,
-                },
-                {
-                    'name': 'Lina',
-                    'movement_speed': 100,
-                },
-                {
-                    'name': 'Luna',
-                    'movement_speed': 100,
-                },
-                {
-                    'name': 'Razor',
-                    'movement_speed': 100,
-                },
-                {
-                    'name': 'Lion',
-                    'movement_speed': 100,
-                }
-            ]
+            'attack': s_r_attack,
+            'armor': s_r_armor,
+            'movement': s_r_speed
         }
     }
+
+    print(s_r_speed)
 
     return render(request, template, propt)
