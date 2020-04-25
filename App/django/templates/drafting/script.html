@@ -1,0 +1,52 @@
+{% load static %}
+
+<!-- JQuery -->
+<script type="text/javascript" src="{% static 'mdb/js/jquery.js' %}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="{% static 'mdb/js/popper.js' %}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{% static 'mdb/js/bootstrap.js' %}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{% static 'mdb/js/mdb.js' %}"></script>
+
+<script type="text/javascript">
+    // Animations initialization
+    // new WOW().init();
+
+    $("[title]").tooltip({
+        delay: { "show": 100, "hide": 1000 },
+        offset: '0 10',
+        template: '<div class="tooltip" role="tooltip"><div class=""></div><div class="tooltip-inner text-default rounded-0"></div></div>'
+        
+        });
+
+    $(function () {
+        var selectedClass = "";
+        $(".filter").click(function () {
+        selectedClass = $(this).attr("data-rel");
+        $("#gallery").fadeTo(100, 0.1);
+        $("#gallery div").not("." + selectedClass).fadeOut().removeClass('animation');
+        setTimeout(function () {
+            $("." + selectedClass).fadeIn().addClass('animation');
+            $("#gallery").fadeTo(300, 1);
+        }, 300);
+        });
+        });
+    
+    async function checkUpdate()
+    {
+        const response = await fetch('http://localhost:5000/html_update');
+        const res = await response.json()
+        // res = "0"
+        console.log("x")
+        if( res == "1"){
+            location.reload();
+        }else{
+            setTimeout(() => {
+                checkUpdate()
+            }, 1000); 
+        }
+    }
+    checkUpdate();
+
+</script>

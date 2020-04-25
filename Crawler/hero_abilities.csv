@@ -1,0 +1,120 @@
+Hero,Abilities attack type,Abilities attack demage
+Abaddon,"['Target Unit', 'Target Unit']","['Magical', 'Magical']"
+Alchemist,['Target Area'],['Physical']
+Axe,"['Target Unit', 'Passive', 'Target Unit']","['Magical', 'Pure', 'Magical']"
+Beastmaster,"['Target Point', 'Target Unit']","['Magical', 'Magical']"
+Brewmaster,['No Target'],['Magical']
+Bristleback,['No Target'],['Physical']
+Centaur Warrunner,"['No Target', 'Target Unit', 'No Target', 'No Target']","['Magical', 'Magical', 'Physical', 'Magical']"
+Chaos Knight,['Target Unit'],['Magical']
+Clockwerk,"['No Target', 'No Target', 'Target Area', 'Target Point']","['Magical', 'Magical', 'Magical', 'Magical']"
+Doom,"['No Target', 'Target Unit', 'Target Unit']","['Magical', 'Magical', 'Pure']"
+Dragon Knight,"['Target Point', 'Target Unit', 'No Target']","['Magical', 'Magical', 'Physical']"
+Earth Spirit,"['Target Point', 'Target Point', 'No Target']","['Magical', 'Magical', 'Magical']"
+Earthshaker,"['Target Point', 'Passive', 'No Target']","['Magical', 'Magical', 'Magical']"
+Elder Titan,"['No Target', 'Target Point', 'Target Point']","['Physical', 'Magical', 'Physical']"
+Huskar,"['No Target', 'Target Unit', 'Target Unit']","['Magical', 'Magical', 'Magical']"
+Io,['No Target'],['Magical']
+Kunkka,"['Target Area', 'Target Unit', 'Target Point', 'No Target']","['Magical', 'Physical', 'Magical', 'Magical']"
+Legion Commander,['Target Area'],['Magical']
+Lifestealer,['No Target'],['Magical']
+Lycan,[],[]
+Magnus,"['Target Point', 'No Target']","['Magical', 'Magical']"
+Mars,"['Target Point', 'Target Point']","['Magical', ' Instant Attack']"
+Night Stalker,['Target Unit'],['Magical']
+Omniknight,['Target Unit'],['Pure']
+Phoenix,"['Target Point', 'No Target', 'Target Point', 'No Target']","['Magical', 'Magical', 'Magical', 'Magical']"
+Pudge,"['Target Point', 'Toggle', 'Target Unit']","['Pure', 'Magical', 'Magical']"
+Sand King,"['Target Point', 'No Target', 'Passive', 'No Target']","['Magical', 'Magical', 'Magical', 'Magical']"
+Slardar,"['No Target', 'Passive']","['Physical', 'Physical']"
+Snapfire,"['Target Point', 'Target Unit', 'Target Area', 'Target Unit', 'Target Area']","['Magical', 'Magical', 'Magical', ' Instant Kill', 'Magical']"
+Spirit Breaker,"['Passive', 'Target Unit']","['Magical', 'Magical']"
+Sven,"['Target Unit', 'Passive']","['Magical', 'Physical']"
+Tidehunter,"['Target Unit', 'No Target', 'No Target']","['Magical', ' Instant Attack', 'Magical']"
+Timbersaw,"['No Target', 'Target Point', 'Target Area', 'Target Area']","['Pure', 'Pure', 'Pure', 'Pure']"
+Tiny,"['Target Area', 'Target Unit', 'Target Unit', 'Target Point', 'Target Area']","['Magical', 'Magical', 'Physical', ' Instant Attack', ' Instant Attack']"
+Treant Protector,"['Target Point', 'No Target', 'No Target']","['Magical', 'Magical', 'Magical']"
+Tusk,"['Target Point', 'Target Unit', 'Target Unit']","['Magical', 'Magical', 'Magical']"
+Underlord,['Target Area'],['Magical']
+Undying,"['Target Area', 'Target Unit', 'No Target']","['Magical', 'Magical', 'Magical']"
+Wraith King,['Target Unit'],['Magical']
+Anti-Mage,"['Passive', 'Target Unit']","['Physical', 'Magical']"
+Arc Warden,"['Target Unit', 'Target Area']","['Magical', 'Magical']"
+Bloodseeker,"['Target Area', 'Target Unit']","['Pure', 'Pure']"
+Bounty Hunter,['Target Unit'],['Magical']
+Broodmother,['Target Unit'],['Magical']
+Clinkz,['Target Unit'],['Physical']
+Drow Ranger,"['Target Unit', 'Target Point', 'Passive']","['Physical', 'Physical', '']"
+Ember Spirit,"['No Target', 'Target Area', 'No Target', 'Target Point']","['Magical', ' Instant Attack', 'Magical', 'Magical']"
+Faceless Void,['Passive'],['Magical']
+Gyrocopter,"['No Target', 'Target Unit', 'No Target', 'Target Area', 'Passive']","['Magical', 'Magical', ' Instant Attack', 'Magical', ' Instant Attack']"
+Juggernaut,"['No Target', 'Target Unit', 'Target Unit']","['Magical', ' Instant Attack', ' Instant Attack']"
+Lone Druid,[],[]
+Luna,"['Target Unit', 'Passive', 'No Target']","['Magical', 'Physical', 'Magical']"
+Medusa,"['Passive', 'Target Unit']","[' Instant Attack', 'Magical']"
+Meepo,"['Target Point', 'Passive']","['Magical', 'Pure']"
+Mirana,"['No Target', 'Target Point', 'Passive']","['Magical', 'Magical', 'Physical']"
+Monkey King,"['Target Point', 'Target Area']","[' Instant Attack', 'Magical']"
+Morphling,"['Target Point', 'Target Unit']","['Magical', 'Magical']"
+Naga Siren,['Passive'],['Magical']
+Nyx Assassin,"['Target Point', 'No Target']","['Magical', 'Pure']"
+Pangolier,"['Target Point', 'No Target', 'No Target']","[' Instant Attack', 'Magical', 'Magical']"
+Phantom Assassin,['Target Unit'],[' Instant Attack']
+Phantom Lancer,['Target Unit'],['Magical']
+Razor,"['No Target', 'No Target']","['Magical', 'Physical']"
+Riki,"['Target Unit', 'Target Area', 'Passive']","['Magical', ' Instant Attack', 'Physical']"
+Shadow Fiend,"['No Target', 'No Target', 'No Target']","['Magical', 'Magical', 'Magical']"
+Slark,['No Target'],['Magical']
+Sniper,"['Target Area', 'Passive', 'Target Unit']","['Magical', 'Physical', 'Magical']"
+Spectre,"['Target Point', 'Passive', 'Passive']","['Magical', 'Pure', 'HP Removal']"
+Templar Assassin,"['No Target', 'Passive', 'No Target', 'Target Point']","['Physical', 'Pure', 'Magical', 'Magical']"
+Terrorblade,['No Target'],['Magical']
+Troll Warlord,"['Toggle', 'Target Point', 'No Target']","['Magical', 'Magical', 'Magical']"
+Ursa,"['No Target', 'Passive']","['Magical', 'Physical']"
+Vengeful Spirit,"['Target Unit', 'Target Point']","['Magical', 'Magical']"
+Venomancer,"['Target Point', 'Passive', 'No Target']","['Magical', 'Magical', 'Magical']"
+Viper,"['Target Unit', 'Target Area', 'Passive', 'Target Unit']","['Magical', 'Magical', 'Magical', 'Magical']"
+Weaver,"['Target Point', 'No Target', 'Passive', 'Passive']","['Physical', 'Magical', ' Instant Attack', 'Physical']"
+Ancient Apparition,"['Target Unit', 'Target Unit', 'Target Point']","['Magical', 'Magical', 'Magical']"
+Bane,"['Target Unit', 'Target Unit']","['Magical', 'Magical']"
+Batrider,"['Target Area', 'Target Area', 'No Target']","['Magical', 'Magical', 'Magical']"
+Chen,[],[]
+Crystal Maiden,"['Target Area', 'Target Unit', 'No Target']","['Magical', 'Magical', 'Magical']"
+Dark Seer,"['Target Area', 'Target Unit']","['Magical', 'Magical']"
+Dark Willow,"['Target Area', 'No Target', 'No Target']","['Magical', 'Magical', 'Magical']"
+Dazzle,"['Target Unit', 'Target Unit']","['Physical', 'Physical']"
+Death Prophet,"['Target Point', 'Target Unit', 'No Target']","['Magical', 'Magical', 'Physical']"
+Disruptor,"['Target Unit', 'Target Area']","['Magical', 'Magical']"
+Enchantress,['Target Unit'],['Pure']
+Enigma,"['Target Unit', 'Target Area', 'Target Area']","['Magical', 'Magical', 'Pure']"
+Grimstroke,"['Target Point', 'Target Unit', 'Target Unit']","['Magical', 'Magical', 'Magical']"
+Invoker,"['Target Unit', 'No Target', 'Target Area', 'Target Point', 'Target Area', 'Target Point', 'Target Point']","['Magical', 'Magical', 'Magical', 'Magical', 'Pure', 'Magical', 'Magical']"
+Jakiro,"['Target Point', 'Target Point', 'Target Unit', 'Target Point']","['Magical', 'Magical', 'Magical', 'Magical']"
+Keeper of the Light,['Target Area'],['Magical']
+Leshrac,"['Target Area', 'No Target', 'Target Unit', 'Toggle']","['Magical', 'Physical', 'Magical', 'Magical']"
+Lich,"['Target Unit', 'Target Unit']","['Magical', 'Magical']"
+Lina,"['Target Point', 'Target Area', 'Target Unit']","['Magical', 'Magical', 'Magical']"
+Lion,"['Target Point', 'Target Unit', 'Target Unit', 'Target Unit']","['Magical', ' Instant Kill', ' Instant Kill', 'Magical']"
+Nature's Prophet,['Target Point'],['Magical']
+Necrophos,"['No Target', 'Aura']","['Magical', 'Magical']"
+Ogre Magi,"['Target Unit', 'Target Unit', 'Target Unit']","['Magical', 'Magical', 'Magical']"
+Oracle,"['Target Unit', 'Target Unit']","['Magical', 'Magical']"
+Outworld Devourer,"['Target Unit', 'Target Unit']","['Pure', 'Magical']"
+Puck,"['Target Point', 'Target Area']","['Magical', 'Magical']"
+Pugna,"['Target Area', 'Target Point', 'Target Unit']","['Magical', 'Magical', 'Magical']"
+Queen of Pain,"['Target Unit', 'No Target', 'Target Point']","['Magical', 'Magical', 'Pure']"
+Rubick,['Target Unit'],['Magical']
+Shadow Demon,"['Target Point', 'Target Unit']","['Magical', 'Magical']"
+Shadow Shaman,"['Target Unit', 'Target Unit', 'Target Unit']","['Magical', ' Instant Kill', 'Magical']"
+Silencer,"['Target Area', 'Target Unit', 'Target Unit']","['Magical', 'Pure', 'Magical']"
+Skywrath Mage,"['Target Unit', 'Target Area']","['Magical', 'Magical']"
+Storm Spirit,"['No Target', 'Passive', 'Target Point']","['Magical', 'Magical', 'Magical']"
+Techies,"['Target Area', 'Target Area', 'Target Point']","['Magical', 'Magical', 'Magical']"
+Tinker,"['Target Unit', 'Target Point']","['Pure', 'Magical']"
+Visage,['Target Unit'],['Magical']
+Void Spirit,"['Target Point', 'No Target', 'No Target', 'Target Point']","['Magical', 'Magical', 'Magical', ' Instant Attack']"
+Warlock,['Target Unit'],['Magical']
+Windranger,['Target Point'],['Magical']
+Winter Wyvern,"['No Target', 'Target Unit']","['Magical', 'Magical']"
+Witch Doctor,['Target Unit'],['Magical']
+Zeus,"['Target Unit', 'Target Point', 'Passive', 'Target Area']","['Magical', 'Magical', 'Magical', 'Magical']"
