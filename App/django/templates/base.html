@@ -58,9 +58,25 @@
     </style>
     
 </head>
-<body>
+
+
+<body 
+    style="background-color: transparent;
+    background-image: url({% static 'img/temp/3.png' %});
+    background-repeat:no-repeat;
+    background-position:top;
+    ">
+
+<!-- <body 
+    style="background-color: transparent;"
+    background-repeat:no-repeat;
+    background-position:top;> -->
+
+
     {% block body %}
 
     {% endblock %}
+
+
 </body>
 </html>

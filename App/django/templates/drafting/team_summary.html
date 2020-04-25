@@ -1,0 +1,70 @@
+{% load static %}
+
+<div class="container blue-grey darken-3 ml-3 text-default" 
+    style="position: absolute;
+    top: 90px;
+    left: 0%;
+    width: auto;">
+
+      <!--Grid row-->
+      <div class="row pt-2 m-2">
+
+
+        <!--Grid column-->
+        <div class="m-3">
+
+            <h5 class="text-center font-weight-bold mb-3">Attack</h5>
+
+            {% for hero in summary.attack %}
+                <div class="d-flex justify-content-between">
+                    {% with "img/hero_icon/"|add:hero.name|add:"_minimap_icon.png" as img %}
+                        <img class="icon pb-1 ml-1" src="{% static img %}" style="width: 18px;"><img>
+                        <small class="mr-1">{{hero.attack_min}} - {{hero.attack_max}}</small>
+                    {% endwith %}
+                </div>
+            {% endfor %}           
+          
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="m-3">
+            
+            <h5 class="text-center font-weight-bold mb-3">Armor</h5>
+
+            {% for hero in summary.armor %}
+                <div class="d-flex justify-content-between">
+                    {% with "img/hero_icon/"|add:hero.name|add:"_minimap_icon.png" as img %}
+                        <img class="icon pb-1 ml-2" src="{% static img %}" style="width: 18px;"><img>
+                        <small class="mr-2">{{hero.armor}}</small>
+                    {% endwith %}
+                </div>
+            {% endfor %}           
+          
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="m-3">
+            
+            <h5 class="text-center font-weight-bold mb-3">Speed</h5>
+
+            {% for hero in summary.movement %}
+                <div class="d-flex justify-content-between">
+                    {% with "img/hero_icon/"|add:hero.name|add:"_minimap_icon.png" as img %}
+                        <img class="icon pb-1 ml-2" src="{% static img %}" style="width: 18px;"><img>
+                        <small class="mr-2">{{hero.movement_speed}}</small>
+                    {% endwith %}
+                </div>
+            {% endfor %}           
+          
+        </div>
+        <!--Grid column-->
+        
+        
+        
+      </div>
+      <!--Grid row-->
+
+
+  </div>
