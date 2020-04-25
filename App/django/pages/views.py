@@ -4,7 +4,8 @@ from .utils import (
     stat_meta,
     stat_most_played,
     stat_win_rate,
-    summary_atribute
+    summary_atribute,
+    summary_attack_abilities
 )
 
 
@@ -25,6 +26,9 @@ def drafting(request):
     radiant_data, dire_data = hero(radiant, dire)
 
     s_r_attack, s_r_armor, s_r_speed = summary_atribute(radiant_data)
+    s_r_attack_type, s_r_demage_type = summary_attack_abilities(radiant)
+
+    print(s_r_demage_type)
 
     propt = {
         'radiant_heros': radiant_data,
@@ -41,7 +45,17 @@ def drafting(request):
         'summary': {
             'attack': s_r_attack,
             'armor': s_r_armor,
-            'movement': s_r_speed
+            'movement': s_r_speed,
+            'abilities': {
+                'attack_type': {
+                    'key': s_r_attack_type[0],
+                    'value': s_r_attack_type[1]
+                },
+                'demage_type': {
+                    'key': s_r_demage_type[0],
+                    'value': s_r_demage_type[1]
+                },
+            }
         }
     }
 

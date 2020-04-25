@@ -49,4 +49,68 @@
     }
     checkUpdate();
 
+    // Doughnut
+
+    
+    const color = ["#004d40", "#00796b", "#4db6ac", "#006064", "#4dd0e1", "#01579b", "#03a9f4"]
+
+    var ctxD = document.getElementById("SummaryRadiantAttackType").getContext('2d');
+        var attack_type_key = {{ summary.abilities.attack_type.key|safe }};
+        var attack_type_value = {{ summary.abilities.attack_type.value|safe}};
+        
+        var myLineChart = new Chart(ctxD, {
+        type: 'doughnut',
+        data: {
+            labels: attack_type_key,
+            datasets: [{
+            data: attack_type_value,
+            backgroundColor: color,
+            hoverBackgroundColor:  color,
+            borderColor:  color,
+            hoverBorderColor: color,
+            }]
+        },
+        options: {
+            responsive: true,
+            legend: {
+            position: 'right',
+            align: 'center',
+            labels: {
+                padding: 10,
+                fontColor: '#2bbbad',
+            }
+            }
+        }
+        });
+    
+    var ctxD = document.getElementById("SummaryRadiantDemageType").getContext('2d');
+        var attack_type_key = {{ summary.abilities.demage_type.key|safe }};
+        var attack_type_value = {{ summary.abilities.demage_type.value|safe}};
+        
+        var myLineChart = new Chart(ctxD, {
+        type: 'doughnut',
+        data: {
+            labels: attack_type_key,
+            datasets: [{
+            data: attack_type_value,
+            backgroundColor: color,
+            hoverBackgroundColor:  color,
+            borderColor:  color,
+            hoverBorderColor: color,
+            }]
+        },
+        options: {
+            responsive: true,
+            legend: {
+            position: 'right',
+            align: 'center',
+            
+            labels: {
+                padding: 10,
+                fontColor: '#2bbbad',
+            }
+            }
+        }
+        });
+
 </script>

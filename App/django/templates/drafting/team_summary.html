@@ -1,70 +1,96 @@
 {% load static %}
 
-<div class="container blue-grey darken-3 ml-3 text-default" 
-    style="position: absolute;
-    top: 90px;
-    left: 0%;
-    width: auto;">
+<div class="d-flex flex-column" style="position: absolute;
+top: 90px;
+left: 0%;">
 
-      <!--Grid row-->
-      <div class="row pt-2 m-2">
+    <div class="container blue-grey darken-2 ml-3 text-default" 
+        style="width: 330px;">
+
+        <!--Grid row-->
+        <div class="row m-2">
 
 
-        <!--Grid column-->
-        <div class="m-3">
+            <!--Grid column-->
+            <div class="m-3">
 
-            <h5 class="text-center font-weight-bold mb-3">Attack</h5>
+                <h5 class="text-center font-weight-bold mb-3">Attack</h5>
 
-            {% for hero in summary.attack %}
-                <div class="d-flex justify-content-between">
-                    {% with "img/hero_icon/"|add:hero.name|add:"_minimap_icon.png" as img %}
-                        <img class="icon pb-1 ml-1" src="{% static img %}" style="width: 18px;"><img>
-                        <small class="mr-1">{{hero.attack_min}} - {{hero.attack_max}}</small>
-                    {% endwith %}
-                </div>
-            {% endfor %}           
-          
-        </div>
-        <!--Grid column-->
-
-        <!--Grid column-->
-        <div class="m-3">
+                {% for hero in summary.attack %}
+                    <div class="d-flex justify-content-between">
+                        {% with "img/hero_icon/"|add:hero.name|add:"_minimap_icon.png" as img %}
+                            <img class="icon pb-1" src="{% static img %}" style="width: 18px;"><img>
+                            <a class="mr-1 ml-2">{{hero.attack_min}} - {{hero.attack_max}}</a>
+                        {% endwith %}
+                    </div>
+                {% endfor %}           
             
-            <h5 class="text-center font-weight-bold mb-3">Armor</h5>
+            </div>
+            <!--Grid column-->
 
-            {% for hero in summary.armor %}
-                <div class="d-flex justify-content-between">
-                    {% with "img/hero_icon/"|add:hero.name|add:"_minimap_icon.png" as img %}
-                        <img class="icon pb-1 ml-2" src="{% static img %}" style="width: 18px;"><img>
-                        <small class="mr-2">{{hero.armor}}</small>
-                    {% endwith %}
-                </div>
-            {% endfor %}           
-          
-        </div>
-        <!--Grid column-->
+            <!--Grid column-->
+            <div class="m-3">
+                
+                <h5 class="text-center font-weight-bold mb-3">Armor</h5>
 
-        <!--Grid column-->
-        <div class="m-3">
+                {% for hero in summary.armor %}
+                    <div class="d-flex justify-content-between">
+                        {% with "img/hero_icon/"|add:hero.name|add:"_minimap_icon.png" as img %}
+                            <img class="icon pb-1 ml-2" src="{% static img %}" style="width: 18px;"><img>
+                            <a class="mr-2">{{hero.armor}}</a>
+                        {% endwith %}
+                    </div>
+                {% endfor %}           
             
-            <h5 class="text-center font-weight-bold mb-3">Speed</h5>
+            </div>
+            <!--Grid column-->
 
-            {% for hero in summary.movement %}
-                <div class="d-flex justify-content-between">
-                    {% with "img/hero_icon/"|add:hero.name|add:"_minimap_icon.png" as img %}
-                        <img class="icon pb-1 ml-2" src="{% static img %}" style="width: 18px;"><img>
-                        <small class="mr-2">{{hero.movement}}</small>
-                    {% endwith %}
-                </div>
-            {% endfor %}           
-          
+            <!--Grid column-->
+            <div class="m-3">
+                
+                <h5 class="text-center font-weight-bold mb-3">Speed</h5>
+
+                {% for hero in summary.movement %}
+                    <div class="d-flex justify-content-between">
+                        {% with "img/hero_icon/"|add:hero.name|add:"_minimap_icon.png" as img %}
+                            <img class="icon pb-1 ml-2" src="{% static img %}" style="width: 18px;"><img>
+                            <a class="mr-2">{{hero.movement}}</a>
+                        {% endwith %}
+                    </div>
+                {% endfor %}           
+            
+            </div>
+            <!--Grid column-->       
+             
+            
         </div>
-        <!--Grid column-->
-        
-        
-        
-      </div>
-      <!--Grid row-->
+        <!--Grid row-->
+
+    </div>
 
 
-  </div>
+    <div class="container blue-grey darken-3 mt-3 ml-3 text-default" 
+        style="width: 330px;">
+
+        <div class="mb-4 ">
+            <h5 class="text-center font-weight-bold mb-3 mt-3">Abilities attack type</h5>
+            <canvas id="SummaryRadiantAttackType"></canvas>
+
+        </div>
+    </div>
+
+
+    <div class="container blue-grey darken-4 mt-3 ml-3 text-default" 
+        style="width: 330px;">
+
+        <div class="mb-4 ">
+            <h5 class="text-center font-weight-bold mb-3 mt-3">Abilities demage type</h5>
+            <canvas id="SummaryRadiantDemageType"></canvas>
+
+        </div>
+    </div>
+
+
+</div>
+
+

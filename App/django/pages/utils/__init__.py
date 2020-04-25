@@ -1,6 +1,7 @@
 import json
 import os
 import pandas as pd
+from collections import Counter
 BASE = (os.path.dirname(os.path.realpath(__file__)))
 
 data_hero = pd.read_csv(BASE + "/../../static/csv/hero.csv")
@@ -68,7 +69,7 @@ def hero(radiant, dire, df=data_hero):
 def stat_meta(meta_id, df=data_stat_meta):
     _id = "hero_meta_"+str(meta_id)
     _title = "Top 5 Heros base on meta"
-    
+
     df_meta = df.sort_values(
         'rank {} win'.format(meta_id),
         ascending=False)[:5]
@@ -140,8 +141,7 @@ def stat_most_played(df=data_stat_most_played):
     return result
 
 
-
-def summary_atribute(heros):    
+def summary_atribute(heros):
     df = pd.DataFrame(heros)
     df = df[df['name'].notna()]
 
@@ -152,8 +152,67 @@ def summary_atribute(heros):
     df_speed = df.sort_values(
         'movement', ascending=False)[['name', 'movement']]
 
-    attack = json.loads(df_attack.to_json(orient='records').replace('.0',''))
-    armor = json.loads(df_armor.to_json(orient='records').replace('.0',''))
-    speed = json.loads(df_speed.to_json(orient='records').replace('.0',''))
+    attack = json.loads(df_attack.to_json(orient='records').replace('.0', ''))
+    armor = json.loads(df_armor.to_json(orient='records').replace('.0', ''))
+    speed = json.loads(df_speed.to_json(orient='records').replace('.0', ''))
 
     return attack, armor, speed
+
+
+def summary_countered(heros, df):
+    bad_against = []
+    df = df.loc[df['Hero'].isin(heros)]
+
+    for row in df['Bad against']:
+        str1 = row.replace(']', '').replace('[', '').replace(" '", "")
+        str1 = str1.replace("'", "").replace(" I", "I")
+
+        for i in str1.replace('"', '').split(","):
+            if i != "":
+                bad_against.append(i)
+
+    max_countered = max(list(Counter(bad_against).values()))
+    summary_countered = [[i, []] for i in range(1, max_countered)]
+
+    for i in range(len(Counter(bad_against).keys())):
+        total_countred = list(Counter(bad_against).values())[i]
+        if total_countred > 1:
+            summary_countered[total_countred-2][1].append(
+                str(list(Counter(bad_against).keys())[i]))
+
+    return dict(summary_countered)
+
+
+def summary_attack_abilities(heros, df=data_hero):
+    attack_type = []
+    attack_demage = []
+    summary_attack = []
+    summary_demage = []
+
+    df = df.loc[df['Hero'].isin(heros)]
+
+    for row in df['Abilities attack type']:
+        str1 = row.replace(']', '').replace('[', '')
+        str1 = str1.replace(" '", "").replace("'", "")
+        for i in str1.replace('"', '').split(","):
+            if i != "":
+                attack_type.append(i)
+
+    for row in df['Abilities attack demage']:
+        str1 = row.replace(']', '').replace('[', '')
+        str1 = str1.replace(" '", "").replace("'", "").replace(" I", "I")
+        for i in str1.replace('"', '').split(","):
+            if i != "":
+                attack_demage.append(i)
+
+    summary_attack = [
+        list(Counter(attack_type).keys()),
+        list(Counter(attack_type).values())
+        ]
+
+    summary_demage = [
+        list(Counter(attack_demage).keys()),
+        list(Counter(attack_demage).values())
+        ]
+
+    return summary_attack, summary_demage
