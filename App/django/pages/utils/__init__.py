@@ -146,7 +146,7 @@ def summary_atribute(heros):
     df = df[df['name'].notna()]
 
     df_attack = df.sort_values(
-        'attack_min', ascending=False)[['name', 'attack_min', 'attack_max']]
+        'attack_max', ascending=False)[['name', 'attack_min', 'attack_max']]
     df_armor = df.sort_values(
         'armor', ascending=False)[['name', 'armor']]
     df_speed = df.sort_values(
@@ -159,7 +159,7 @@ def summary_atribute(heros):
     return attack, armor, speed
 
 
-def summary_countered(heros, df):
+def summary_countered(heros, df=data_hero):
     bad_against = []
     df = df.loc[df['Hero'].isin(heros)]
 
@@ -180,7 +180,14 @@ def summary_countered(heros, df):
             summary_countered[total_countred-2][1].append(
                 str(list(Counter(bad_against).keys())[i]))
 
-    return dict(summary_countered)
+    result = []
+    for i in reversed(summary_countered):
+        result.append({
+            'total_countered': i[0]+1,
+            'heros': [i.replace(" ", "_") for i in i[1]]
+        })
+
+    return result
 
 
 def summary_attack_abilities(heros, df=data_hero):

@@ -54,9 +54,10 @@
     
     const color = ["#004d40", "#00796b", "#4db6ac", "#006064", "#4dd0e1", "#01579b", "#03a9f4"]
 
+    // radiant
     var ctxD = document.getElementById("SummaryRadiantAttackType").getContext('2d');
-        var attack_type_key = {{ summary.abilities.attack_type.key|safe }};
-        var attack_type_value = {{ summary.abilities.attack_type.value|safe}};
+        var attack_type_key = {{ summary.0.abilities.attack_type.key|safe }};
+        var attack_type_value = {{ summary.0.abilities.attack_type.value|safe}};
         
         var myLineChart = new Chart(ctxD, {
         type: 'doughnut',
@@ -83,9 +84,71 @@
         }
         });
     
+    //radiant
     var ctxD = document.getElementById("SummaryRadiantDemageType").getContext('2d');
-        var attack_type_key = {{ summary.abilities.demage_type.key|safe }};
-        var attack_type_value = {{ summary.abilities.demage_type.value|safe}};
+        var attack_type_key = {{ summary.0.abilities.demage_type.key|safe }};
+        var attack_type_value = {{ summary.0.abilities.demage_type.value|safe}};
+        
+        var myLineChart = new Chart(ctxD, {
+        type: 'doughnut',
+        data: {
+            labels: attack_type_key,
+            datasets: [{
+            data: attack_type_value,
+            backgroundColor: color,
+            hoverBackgroundColor:  color,
+            borderColor:  color,
+            hoverBorderColor: color,
+            }]
+        },
+        options: {
+            responsive: true,
+            legend: {
+            position: 'right',
+            align: 'center',
+            
+            labels: {
+                padding: 10,
+                fontColor: '#2bbbad',
+            }
+            }
+        }
+        });
+    
+    // dire
+    var ctxD = document.getElementById("SummaryDireAttackType").getContext('2d');
+        var attack_type_key = {{ summary.1.abilities.attack_type.key|safe }};
+        var attack_type_value = {{ summary.1.abilities.attack_type.value|safe}};
+        
+        var myLineChart = new Chart(ctxD, {
+        type: 'doughnut',
+        data: {
+            labels: attack_type_key,
+            datasets: [{
+            data: attack_type_value,
+            backgroundColor: color,
+            hoverBackgroundColor:  color,
+            borderColor:  color,
+            hoverBorderColor: color,
+            }]
+        },
+        options: {
+            responsive: true,
+            legend: {
+            position: 'right',
+            align: 'center',
+            labels: {
+                padding: 10,
+                fontColor: '#2bbbad',
+            }
+            }
+        }
+        });
+    
+    //dire
+    var ctxD = document.getElementById("SummaryDireDemageType").getContext('2d');
+        var attack_type_key = {{ summary.1.abilities.demage_type.key|safe }};
+        var attack_type_value = {{ summary.1.abilities.demage_type.value|safe}};
         
         var myLineChart = new Chart(ctxD, {
         type: 'doughnut',
