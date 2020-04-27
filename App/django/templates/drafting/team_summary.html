@@ -3,127 +3,136 @@
 
 {% for team in summary %}
     <div class="d-flex flex-column" style="position: absolute;
-    top: 55px;
+    top: 90px;
     background-color: transparent;
     {{team.position}}: 0%;">
+       
+        <button class="mt-2 mb-3 pl-0 pr-0 text-center font-weight-bold btn blue-grey darken-3 text-default custom-no-shadows font-weight-bold "
+                data-toggle="collapse"
+                data-target="#collapse{{team.name}}"
+                {% if team.position == "right" %}
+                style="margin-left: 215px;"
+                {% endif %}
+                >
+            Summary
+        </button>
 
-        <h3 class="text-center font-weight-bold mb-3 text-default">Dire Summary</h3>
-        
-        <div class="container blue-grey darken-2 text-default mt-3 p-2 " 
-            style="width: 330px;">
+        <div class="collapse {% if team.settings.show_ui.main %} show {% endif %}" id="collapse{{team.name}}">
+            <div class="blue-grey darken-2 text-default " 
+                style="width: 330px;">
 
-            <!--Grid row-->
-            <div class="row m-2 pt-2 ml-4">
+                <!--Grid row-->
+                <div class="row m-2 pt-2 ml-4 pl-3">
 
-                
-                <!--Grid column-->
-                <div class="ml-3 mr-3 mb-2">
+                    <!--Grid column-->
+                    <div class="ml-3 mr-3 mb-2">
 
-                    <a class="text-center font-weight-bold mb-3" style="font-size: 1rem;">Attack</a>
+                        <a class="text-center font-weight-bold mb-3" style="font-size: 1rem;">Attack</a>
 
-                    {% for hero in team.attack %}
-                        <div class="d-flex justify-content-between">
-                            {% with "img/hero_icon/"|add:hero.name|add:"_minimap_icon.png" as img %}
-                                <img class="icon pb-1" src="{% static img %}" style="width: 18px;"><img>
-                                <a class="mr-1 ml-2">{{hero.attack_min}} - {{hero.attack_max}}</a>
-                            {% endwith %}
-                        </div>
-                    {% endfor %}           
-                
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="ml-3 mr-3 mb-2">
-                    
-                    <a class="text-center font-weight-bold mb-3" style="font-size: 1rem;">Armor</a>
-
-                    {% for hero in team.armor %}
-                        <div class="d-flex justify-content-between">
-                            {% with "img/hero_icon/"|add:hero.name|add:"_minimap_icon.png" as img %}
-                                <img class="icon pb-1 ml-2" src="{% static img %}" style="width: 18px;"><img>
-                                <a class="mr-2">{{hero.armor}}</a>
-                            {% endwith %}
-                        </div>
-                    {% endfor %}           
-                
-                </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="ml-3 mr-3 mb-2">
-                    
-                    <a class="text-center font-weight-bold mb-3" style="font-size: 1rem;">Speed</a>
-
-                    {% for hero in team.movement %}
-                        <div class="d-flex justify-content-between">
-                            {% with "img/hero_icon/"|add:hero.name|add:"_minimap_icon.png" as img %}
-                                <img class="icon pb-1 ml-2" src="{% static img %}" style="width: 18px;"><img>
-                                <a class="mr-2">{{hero.movement}}</a>
-                            {% endwith %}
-                        </div>
-                    {% endfor %}           
-                
-                </div>
-                <!--Grid column-->       
-                
-                
-            </div>
-            <!--Grid row-->
-
-        </div>
-
-        <a data-toggle="collapse" data-target="#collapse{{team.name}}CounteredRecomend">
-            <h5 class="container blue-grey darken-3 text-center font-weight-bold mt-3 pt-2 pb-2 text-default" style="font-size: 1rem;">Recomendation counter this team</h5>
-        </a>
-        <div class="collapse" id="collapse{{team.name}}CounteredRecomend">
-            {% for countered in team.countered %}
-
-                <div class="media container blue-grey darken-3 mb-2 text-default" data-toggle="tooltip" data-placement="right" title="{{countered.total_countered}} heros countered by" style="width: 330px;">
-                    <div class="media-body pt-2">
-                        <a >{{countered.total_countered}} heros countered by :</a>
-                        <div class="mb-1 mt-2" >
-                            
-                            {% for hero in countered.heros %}
-                                {% with "img/hero_icon/"|add:hero|add:"_minimap_icon.png" as img %}
-                                    <img class="icon pb-1 ml-2" src="{% static img %}" style="width: 18px;"><img>
+                        {% for hero in team.attack %}
+                            <div class="d-flex justify-content-between">
+                                {% with "img/hero_icon/"|add:hero.name|add:"_minimap_icon.png" as img %}
+                                    <img class="icon pb-1" src="{% static img %}" style="width: 18px;"><img>
+                                    <a class="mr-1 ml-2">{{hero.attack_min}} - {{hero.attack_max}}</a>
                                 {% endwith %}
-                            {% endfor %}
+                            </div>
+                        {% endfor %}           
+                    
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="ml-3 mr-3 mb-2">
+                        
+                        <a class="text-center font-weight-bold mb-3" style="font-size: 1rem;">Armor</a>
+
+                        {% for hero in team.armor %}
+                            <div class="d-flex justify-content-between">
+                                {% with "img/hero_icon/"|add:hero.name|add:"_minimap_icon.png" as img %}
+                                    <img class="icon pb-1 ml-2" src="{% static img %}" style="width: 18px;"><img>
+                                    <a class="mr-2">{{hero.armor}}</a>
+                                {% endwith %}
+                            </div>
+                        {% endfor %}           
+                    
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="ml-3 mr-3 mb-2">
+                        
+                        <a class="text-center font-weight-bold mb-3" style="font-size: 1rem;">Speed</a>
+
+                        {% for hero in team.movement %}
+                            <div class="d-flex justify-content-between">
+                                {% with "img/hero_icon/"|add:hero.name|add:"_minimap_icon.png" as img %}
+                                    <img class="icon pb-1 ml-2" src="{% static img %}" style="width: 18px;"><img>
+                                    <a class="mr-2">{{hero.movement}}</a>
+                                {% endwith %}
+                            </div>
+                        {% endfor %}           
+                    
+                    </div>
+                    <!--Grid column-->       
+                    
+                    
+                </div>
+                <!--Grid row-->
+
+            </div>
+
+            <a data-toggle="collapse" data-target="#collapse{{team.name}}CounteredRecomend">
+                <h5 class="blue-grey darken-3 text-center font-weight-bold mt-3 pt-2 pb-2 text-default" style="font-size: 1rem;">Recomendation countering for this team</h5>
+            </a>
+            <div class="collapse {% if team.settings.show_ui.recomendation_countering %} show {% endif %}" id="collapse{{team.name}}CounteredRecomend">
+                {% for countered in team.countered %}
+
+                    <div class="media container blue-grey darken-3 mb-2 text-default" data-toggle="tooltip" data-placement="right" title="{{countered.total_countered}} heros countered by" style="width: 330px;">
+                        <div class="media-body pt-2">
+                            <a >{{countered.total_countered}} heros countered by :</a>
+                            <div class="mb-1 mt-2" >
+                                
+                                {% for hero in countered.heros %}
+                                    {% with "img/hero_icon/"|add:hero|add:"_minimap_icon.png" as img %}
+                                        <img class="icon pb-1 ml-2" src="{% static img %}" style="width: 18px;"><img>
+                                    {% endwith %}
+                                {% endfor %}
+                            </div>
                         </div>
                     </div>
-                </div>
-            {% endfor %}
-        </div>
-
-        <a data-toggle="collapse" data-target="#collapse{{team.name}}Abilities">
-            <h5 class="container blue-grey darken-4 text-center font-weight-bold mt-2 pt-2 pb-2  text-default" style="font-size: 1rem;">Abilities</h5>
-        </a>
-        <div class="collapse" id="collapse{{team.name}}Abilities">
-            <div class="container blue-grey darken-4 mt-2 text-default" 
-                style="width: 330px;">
-
-                <div class="mb-3 pb-3">
-                    <!-- <a data-toggle="collapse" data-target="#collapseDireDemageType"> -->
-                        <h5 class="text-center font-weight-bold mb-2 pt-3" style="font-size: 1rem;">Abilities Damage Type</h5>
-                    <!-- </a> -->
-                    <!-- <div class="collapse" id="collapseDireDemageType"> -->
-                        <canvas id="Summary{{team.name}}DemageType"></canvas>
-                    <!-- </div> -->
-
-                </div>
+                {% endfor %}
             </div>
 
-            <div class="container blue-grey darken-4 text-default" 
-                style="width: 330px;">
+            <a data-toggle="collapse" data-target="#collapse{{team.name}}Abilities">
+                <h5 class=" blue-grey darken-4 text-center font-weight-bold mt-2 pt-2 pb-2  text-default" style="font-size: 1rem;">Abilities</h5>
+            </a>
+            <div class="collapse {% if team.settings.show_ui.abilitites %} show {% endif %}" id="collapse{{team.name}}Abilities">
+                <div class="container blue-grey darken-4 text-default" 
+                    style="width: 330px;">
 
-                <div class="mb-3 pb-3">
-                    <!-- <a data-toggle="collapse" data-target="#collapseDireAttackType"> -->
-                        <h5 class="text-center font-weight-bold mb-2 pt-3" style="font-size: 1rem;">Abilities Attack Type</h5>
-                    <!-- </a> -->
-                    <!-- <div class="collapse" id="collapseDireAttackType"> -->
-                        <canvas id="Summary{{team.name}}AttackType"></canvas>
-                    <!-- </div> -->
+                    <div class="mb-2 pb-3">
+                        <!-- <a data-toggle="collapse" data-target="#collapseDireDemageType"> -->
+                            <h5 class="text-center font-weight-bold mb-2 pt-3" style="font-size: 1rem;">Abilities Damage Type</h5>
+                        <!-- </a> -->
+                        <!-- <div class="collapse" id="collapseDireDemageType"> -->
+                            <canvas id="Summary{{team.name}}DemageType"></canvas>
+                        <!-- </div> -->
 
+                    </div>
+                </div>
+
+                <div class="container blue-grey darken-4 text-default" 
+                    style="width: 330px;">
+
+                    <div class="mb-3 pb-3">
+                        <!-- <a data-toggle="collapse" data-target="#collapseDireAttackType"> -->
+                            <h5 class="text-center font-weight-bold mb-2 pt-3" style="font-size: 1rem;">Abilities Attack Type</h5>
+                        <!-- </a> -->
+                        <!-- <div class="collapse" id="collapseDireAttackType"> -->
+                            <canvas id="Summary{{team.name}}AttackType"></canvas>
+                        <!-- </div> -->
+
+                    </div>
                 </div>
             </div>
         </div>

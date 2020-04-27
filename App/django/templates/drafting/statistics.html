@@ -8,7 +8,11 @@
             <!-- hero statistics -->
             <div class="gallery" id="gallery">
 
-                <div class="animation {{stat.id}} card card-list mb-4 blue-grey darken-1" data-toggle="modal"  data-target="#basicExampleModal" style="display: none;">
+                <div class="animation {{stat.id}} card card-list mb-4 blue-grey darken-1"
+                    data-toggle="modal"
+                    data-target="#basicExampleModal"
+                    style="{% if not stat.show %} display: none; {% endif %}">
+
                     <table class="table table-borderless">
                         <div class="p-2 pr-3 pl-3 d-flex justify-content-between align-items-center blue-grey darken-2">
                             <p class="h5-responsive font-weight-bold mb-0"></i>{{stat.title}} - <small>This week</small></p>

@@ -18,6 +18,26 @@ def home(request):
     return render(request, template, propt)
 
 
+def __setup_stat__(id_show):
+    stats = [ 
+        stat_meta(123),
+        stat_meta(4),
+        stat_meta(5),
+        stat_meta(6),
+        stat_meta(78),
+        stat_win_rate(),
+        stat_most_played(),
+    ]
+
+    for stat in stats:
+        stat['show'] = False
+
+    if id_show >= 0 and id_show < 7:
+        stats[id_show]['show'] = True
+
+    return stats
+
+
 def drafting(request):
     template = 'drafting/main.html'
 
@@ -34,20 +54,12 @@ def drafting(request):
     s_d_attack_type, s_d_demage_type = summary_attack_abilities(dire)
     s_d_countered = summary_countered(dire)
 
-    print(s_r_demage_type)
+    stats = __setup_stat__(id_show=6)
 
     propt = {
         'radiant_heros': radiant_data,
         'dire_heros': dire_data,
-        'statistics': [
-            stat_meta(123),
-            stat_meta(4),
-            stat_meta(5),
-            stat_meta(6),
-            stat_meta(78),
-            stat_win_rate(),
-            stat_most_played(),
-        ],
+        'statistics': stats,
         'summary': [
             {
                 'name': 'Radiant',
@@ -65,7 +77,14 @@ def drafting(request):
                         'value': s_r_demage_type[1]
                     },
                 },
-                'countered': s_r_countered
+                'countered': s_r_countered,
+                'settings':{
+                    'show_ui': {
+                        'main': True,
+                        'recomendation_countering': False,
+                        'abilitites': True,
+                    }
+                }
             },
             {
                 'name': 'Dire',
@@ -83,7 +102,14 @@ def drafting(request):
                         'value': s_d_demage_type[1]
                     },
                 },
-                'countered': s_d_countered
+                'countered': s_d_countered,
+                'settings':{
+                    'show_ui': {
+                        'main': False,
+                        'recomendation_countering': True,
+                        'abilitites': False,
+                    }
+                }
             }
         ]
     }
