@@ -31,6 +31,7 @@ def __get_hero_data__(heros, df, index):
 
             data.append({
                 'index': index,
+                'show_info': False,
                 'name': hero,
                 'strength': int(hero_data['STR']),
                 'agility': int(hero_data['AGI']),

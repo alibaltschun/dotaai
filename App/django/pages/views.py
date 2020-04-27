@@ -18,7 +18,7 @@ def home(request):
     return render(request, template, propt)
 
 
-def __setup_stat__(id_show):
+def __setup_show_ui_stat__(id_show):
     stats = [ 
         stat_meta(123),
         stat_meta(4),
@@ -38,6 +38,16 @@ def __setup_stat__(id_show):
     return stats
 
 
+def __setup_show_ui_hero_info(radiant_data, dire_data, arr_show):
+    for i in range(5):
+        radiant_data[i]['show_info'] = arr_show[i]
+
+    for i in range(5):
+        dire_data[i]['show_info'] = arr_show[i+5]
+
+    return radiant_data, dire_data
+
+
 def drafting(request):
     template = 'drafting/main.html'
 
@@ -54,7 +64,13 @@ def drafting(request):
     s_d_attack_type, s_d_demage_type = summary_attack_abilities(dire)
     s_d_countered = summary_countered(dire)
 
-    stats = __setup_stat__(id_show=6)
+    arr_show_hero_info = [0, 0, 0, 1, 1, 0, 0, 0, 0, 0]
+    radiant_data, dire_data = __setup_show_ui_hero_info(
+                                    radiant_data,
+                                    dire_data,
+                                    arr_show_hero_info)
+
+    stats = __setup_show_ui_stat__(id_show=6)
 
     propt = {
         'radiant_heros': radiant_data,
