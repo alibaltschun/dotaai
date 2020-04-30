@@ -33,19 +33,19 @@
             });
         });
     
-    // async function checkUpdate()
-    // {
-    //     const response = await fetch('http://localhost:5000/html_update');
-    //     const res = await response.json()
-    //     if( res == "1"){
-    //         location.reload();
-    //     }else{
-    //         setTimeout(() => {
-    //             checkUpdate()
-    //         }, 1000); 
-    //     }
-    // }
-    // checkUpdate();
+    async function checkUpdate()
+    {
+        const response = await fetch('http://localhost:8000/drafting_check_update');
+        const res = await response.json()
+        if( res == "1"){
+            location.reload();
+        }else{
+            setTimeout(() => {
+                checkUpdate()
+            }, 1000); 
+        }
+    }
+    checkUpdate();
 
     // Doughnut
 
@@ -223,29 +223,20 @@
     
     async function heroInfo(index, value)
     {
-        console.log(index)
-        console.log(value)
         const response = await fetch('http://localhost:8000/update_user_data/arr_show_hero_info.'+String(index)+'/'+String(value));
         const res = await response.json()
-        console.log(res)
     }
 
     async function statistics(index)
     {
-        console.log(index)
         const response = await fetch('http://localhost:8000/update_user_data/statistics.id_show/'+String(index));
         const res = await response.json()
-        console.log(res)
     }
 
     async function teamSummary(team, ui, value)
     {
-        console.log(team)
-        console.log(ui)
-        console.log(value)
         const response = await fetch('http://localhost:8000/update_user_data/summary.'+String(team)+'.settings.show_ui.'+String(ui)+'/'+String(value));
         const res = await response.json()
-        console.log(res)
     }
 
 </script>

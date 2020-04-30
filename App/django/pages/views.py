@@ -13,9 +13,6 @@ def home(request):
 def drafting(request):
     template = 'drafting/main.html'
 
-    radiant = ['Bristleback', 'Sniper', 'Lion', 'Warlock', 'Pudge']
-    dire = ['Axe', 'Bloodseeker', 'Razor', 'Zeus', 'Necrophos']
-
-    propt = set_up(radiant, dire)
+    propt = set_up()
 
     return render(request, template, propt)
