@@ -187,13 +187,38 @@
 
     {% for team in summary %}
         $('#collapse{{team.name}}').on('shown.bs.collapse', function () {
-            teamSummary('{{team.name}}', 'main', 1)
+            teamSummary('{{team.name}}', 'main', 1);
+        });
+        $('#collapse{{team.name}}CounteredRecomend').on('shown.bs.collapse', function () {
+            teamSummary('{{team.name}}', 'recomendation_countering', 1);
+        });
+        $('#collapse{{team.name}}Abilities').on('shown.bs.collapse', function () {
+            teamSummary('{{team.name}}', 'abilitites', 1);
         });
 
+        
         $('#collapse{{team.name}}').on('hidden.bs.collapse', function () {
-            teamSummary('{{team.name}}', 'main', 0)
+            teamSummary('{{team.name}}', 'main', 0);
+        });
+        $('#collapse{{team.name}}CounteredRecomend').on('hidden.bs.collapse', function () {
+            teamSummary('{{team.name}}', 'recomendation_countering', 0);
+            // manual fixing parent function called
+            // TODO should find better solution
+            setTimeout(function() {
+                teamSummary('{{team.name}}', 'main', 1);
+            }, 300);
+        });
+        $('#collapse{{team.name}}Abilities').on('hidden.bs.collapse', function () {
+            teamSummary('{{team.name}}', 'abilitites', 0);
+
+            // manual fixing parent function called
+            // TODO should find better solution
+            setTimeout(function() {
+                teamSummary('{{team.name}}', 'main', 1);
+            }, 300);
         });
     {% endfor %}
+    
 
     
     async function heroInfo(index, value)
@@ -201,6 +226,14 @@
         console.log(index)
         console.log(value)
         const response = await fetch('http://localhost:8000/update_user_data/arr_show_hero_info.'+String(index)+'/'+String(value));
+        const res = await response.json()
+        console.log(res)
+    }
+
+    async function statistics(index)
+    {
+        console.log(index)
+        const response = await fetch('http://localhost:8000/update_user_data/statistics.id_show/'+String(index));
         const res = await response.json()
         console.log(res)
     }

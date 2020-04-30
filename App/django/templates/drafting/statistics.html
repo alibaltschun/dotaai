@@ -16,7 +16,7 @@
                     <table class="table table-borderless">
                         <div class="p-2 pr-3 pl-3 d-flex justify-content-between align-items-center blue-grey darken-2">
                             <p class="h5-responsive font-weight-bold mb-0"></i>{{stat.title}} - <small>This week</small></p>
-                            <p class="h5-responsive font-weight-bold mb-0"><a class=" filter pl-3" data-rel="close"><i class="fas fa-times"></i></a></p>
+                            <a onclick="statistics(99);" class=" filter pl-3" data-rel="close"><i class="fas fa-times"></i></a>
                         </div>
                         <thead> 
                             <tr>
@@ -64,30 +64,30 @@
                 >
 
         <div class="d-flex flex-column justify-content-center mr-5 mb-3 p-1 pb-2" >
-            <button class=" font-weight-bold btn  blue-grey darken-3 text-default custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_123" style="width: 150px;">
+            <button onclick="statistics(0);" class=" font-weight-bold btn  blue-grey darken-3 text-default custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_123" style="width: 150px;">
                 Meta - 
                 <img class="icon " style="width: 18px;" src="{% static 'img/emblem/Emoticon_Ranked_Herald.png' %}">
                 <img class="icon " style="width: 18px;" src="{% static 'img/emblem/Emoticon_Ranked_Guardian.png' %}">
                 <img class="icon " style="width: 18px;" src="{% static 'img/emblem/Emoticon_Ranked_Crusader.png' %}">
             </button>
-            <button class=" font-weight-bold btn  blue-grey darken-3 text-default custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_4" style="width: 150px;">
+            <button onclick="statistics(1);" class=" font-weight-bold btn  blue-grey darken-3 text-default custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_4" style="width: 150px;">
                 Meta - <img class="icon " style="width: 18px;" src="{% static 'img/emblem/Emoticon_Ranked_Archon.png' %}">
             </button>
-            <button class=" font-weight-bold btn  blue-grey darken-3 text-default custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_5" style="width: 150px;">
+            <button onclick="statistics(2);" class=" font-weight-bold btn  blue-grey darken-3 text-default custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_5" style="width: 150px;">
                 Meta - <img class="icon " style="width: 18px;" src="{% static 'img/emblem/Emoticon_Ranked_Legend.png' %}">
             </button>
-            <button class=" font-weight-bold btn  blue-grey darken-3 text-default custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_6" style="width: 150px;">
+            <button onclick="statistics(3);" class=" font-weight-bold btn  blue-grey darken-3 text-default custom-no-shadows font-weight-bold filter mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_6" style="width: 150px;">
                 Meta - <img class="icon " style="width: 18px;" src="{% static 'img/emblem/Emoticon_Ranked_Ancient.png' %}">
             </button>
-            <button class=" font-weight-bold btn  blue-grey darken-3 text-default custom-no-shadows font-weight-bold filter  mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_78" style="width: 150px;">
+            <button onclick="statistics(4);" class=" font-weight-bold btn  blue-grey darken-3 text-default custom-no-shadows font-weight-bold filter  mb-0 pt-0 pb-0 pl-4" data-rel="hero_meta_78" style="width: 150px;">
                 Meta - 
                 <img class="icon " style="width: 18px;" src="{% static 'img/emblem/Emoticon_Ranked_Divine.png' %}">
                 <img class="icon " style="width: 18px;" src="{% static 'img/emblem/Emoticon_Ranked_Immortal.png' %}">
             </button>
-            <button class="font-weight-bold btn  blue-grey darken-3 text-default  custom-no-shadows font-weight-bold filter mb-0 pt-2 pb-2" data-rel="hero_win_rate" style="width: 150px;">
+            <button onclick="statistics(5);" class="font-weight-bold btn  blue-grey darken-3 text-default  custom-no-shadows font-weight-bold filter mb-0 pt-2 pb-2" data-rel="hero_win_rate" style="width: 150px;">
                 Win Rate
             </button>
-            <button class="font-weight-bold btn  blue-grey darken-3 text-default  custom-no-shadows font-weight-bold filter mb-0 pt-2 pb-2" data-rel="hero_most_played" style="width: 150px;">
+            <button onclick="statistics(6);" class="font-weight-bold btn  blue-grey darken-3 text-default  custom-no-shadows font-weight-bold filter mb-0 pt-2 pb-2" data-rel="hero_most_played" style="width: 150px;">
                 Most Played
             </button>
         </div>
