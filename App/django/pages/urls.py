@@ -1,7 +1,6 @@
 from django.urls import path
 from .views import home, drafting
-from .utils.user_data import update_user_data
-from .utils.drafting import check_update
+from .utils.user_data import update_user_data, check_update
 
 urlpatterns = [
     path('', home, name='home'),

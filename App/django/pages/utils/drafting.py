@@ -1,4 +1,3 @@
-from django.shortcuts import HttpResponse
 import json
 import os
 import pandas as pd
@@ -13,7 +12,6 @@ DATA_STAT_MOST_PLAYED = pd.read_csv(
     BASE + "/../../static/csv/hero_most_played_top5.csv")
 DATA_STAT_META = pd.read_csv(
     BASE + "/../../static/csv/hero_meta.csv")
-DRAFTING_UPDATE_PATH = BASE + "/../../local_data/drafting_update.txt"
 
 
 def __rounding__(i):
@@ -257,15 +255,6 @@ def __summary_attack_abilities__(heros, df=DATA_HERO):
         ]
 
     return summary_attack, summary_demage
-
-
-def check_update(request):
-    with open(DRAFTING_UPDATE_PATH, "r") as file:
-        result = file.read()
-    if result == "1":
-        with open(DRAFTING_UPDATE_PATH, "w") as file:
-            file.write("0")
-    return HttpResponse(result)
 
 
 def set_up():

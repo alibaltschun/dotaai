@@ -17,6 +17,16 @@ def save_user_data(data):
         json.dump(data, f)
 
 
+def check_update(request):
+    data = read_user_data()
+    result = data["have_update"]
+    if result == 1:
+        data["have_update"] = 0
+        save_user_data(data)
+
+    return HttpResponse(result)
+
+
 def update_user_data(request, arr_key, value, data=read_user_data()):
     arr_key = arr_key.split(".")
 
