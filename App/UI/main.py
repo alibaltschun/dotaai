@@ -1,10 +1,15 @@
-import win32api, win32con, win32gui
+import win32api
+import win32con
+import win32gui
 from cefpython3 import cefpython as cef
 import sys
+import time
 
-import os
-BASE = (os.path.dirname(os.path.realpath(__file__)))
-URL = BASE+ "/index.html"
+# import os
+# BASE = (os.path.dirname(os.path.realpath(__file__)))
+# URL = BASE + "/index.html"
+URL = "http://localhost:8000/drafting"
+
 
 class MyWindow:
 
@@ -36,33 +41,38 @@ class MyWindow:
         )
         win32gui.UpdateWindow(self.hwnd)
         win32gui.ShowWindow(self.hwnd, win32con.SW_MAXIMIZE)
-        win32gui.SetWindowLong(self.hwnd, win32con.GWL_EXSTYLE, win32con.WS_EX_LAYERED)
-        win32gui.SetWindowPos(self.hwnd, win32con.HWND_TOPMOST,0,0,2560,1080,0)
-        win32gui.SetLayeredWindowAttributes(self.hwnd, win32api.RGB(255,255,255), 0, win32con.LWA_COLORKEY)
-        
-        sys.excepthook = cef.ExceptHook  # To shutdown all CEF processes on error
+        win32gui.SetWindowLong(self.hwnd, win32con.GWL_EXSTYLE,
+                               win32con.WS_EX_LAYERED)
+        win32gui.SetWindowPos(self.hwnd, win32con.HWND_TOPMOST,
+                              0, 0, 2560, 1080, 0)
+        win32gui.SetLayeredWindowAttributes(
+                    self.hwnd, win32api.RGB(255, 255, 255), 0,
+                    win32con.LWA_COLORKEY)
+
+        sys.excepthook = cef.ExceptHook
         cef.Initialize()
-        
+
         window_info = cef.WindowInfo()
         window_info.SetAsChild(self.hwnd)
         window_info.SetTransparentPainting(True)
-        
+
         settings = {
-            # "background_color":  0x0000000,
             "web_security_disabled": True
         }
-        browser = cef.CreateBrowserSync(window_info, settings=settings, url=URL)
+        browser = cef.CreateBrowserSync(
+                    window_info, settings=settings, url=URL)
 
         browser.SendFocusEvent(True)
         browser.WasResized()
-        
+
         cef.MessageLoop()
         cef.Shutdown()
-        
+
     def OnDestroy(self, hwnd, message, wparam, lparam):
         win32gui.PostQuitMessage(0)
         return True
 
+
 def plot():
-    w = MyWindow()
-    win32gui.PumpMessages() 
+    m = MyWindow()
+    win32gui.PumpMessages()

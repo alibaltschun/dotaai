@@ -294,6 +294,6 @@ def generate_ui(radiant, dire):
         file.write(bottom)
 
 
-radiant = ['Bristleback', 'Sniper', 'Lion', 'Warlock', 'Pudge']
-dire = ['Axe', 'Bloodseeker', 'Razor', 'Zeus', 'Necrophos']
-generate_ui(radiant, dire)
+# radiant = ['Bristleback', 'Sniper', 'Lion', 'Warlock', 'Pudge']
+# dire = ['Axe', 'Bloodseeker', 'Razor', 'Zeus', 'Necrophos']
+# generate_ui(radiant, dire)

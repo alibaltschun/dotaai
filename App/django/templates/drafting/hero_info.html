@@ -80,7 +80,8 @@
                 {{hero.name}}
             </button>
 
-            <div class="collapse pl-1 pr-1 " id="collapseExample{{hero.index}}" >
+            <div class="pl-1 pr-1 collapse {% if hero.show_info %} show {% endif %}"
+                id="collapseExample{{hero.index}}" >
 
                 <div class="media blue-grey darken-1 m-0" data-toggle="tooltip" data-placement="left" title="Hero Attribute">
                     <div class="media-body d-flex flex-row justify-content-center pb-1 grey-text2" >

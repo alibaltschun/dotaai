@@ -1,9 +1,9 @@
 from .features.timer import check_timer, update_ui
-from .features.select_hero import main_select_hero
+# from .features.select_hero import main_select_hero
 from .features.ui import check_ui
 from .utils.screen import get_screen_information
 from .UI.gameplay import generate_ui as generate_ui_gameplay
-from .UI.select_hero import generate_ui as generate_ui_drafting
+# from .UI.select_hero import generate_ui as generate_ui_drafting
 from .UI.main import plot
 from .local_server.main import app as server
 import os
@@ -99,13 +99,13 @@ def __select_hero__(screen_width, screen_height):
     dire = ['unselection', 'unselection', 'unselection',
             'unselection', 'unselection']
 
-    generate_ui_drafting(radiant, dire)
+    # generate_ui_drafting(radiant, dire)
     update_ui()
 
     heros = [None, None]
     _check_ui = 0
     while True:
-        radiant, dire = main_select_hero(screen_width, screen_height)
+        # radiant, dire = main_select_hero(screen_width, screen_height)
         if heros != [radiant, dire]:
             update_ui()
             heros = [radiant, dire]

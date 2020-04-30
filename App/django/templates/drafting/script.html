@@ -23,31 +23,29 @@
     $(function () {
         var selectedClass = "";
         $(".filter").click(function () {
-        selectedClass = $(this).attr("data-rel");
-        $("#gallery").fadeTo(100, 0.1);
-        $("#gallery div").not("." + selectedClass).fadeOut().removeClass('animation');
-        setTimeout(function () {
-            $("." + selectedClass).fadeIn().addClass('animation');
-            $("#gallery").fadeTo(300, 1);
-        }, 300);
-        });
+            selectedClass = $(this).attr("data-rel");
+            $("#gallery").fadeTo(100, 0.1);
+            $("#gallery div").not("." + selectedClass).fadeOut().removeClass('animation');
+            setTimeout(function () {
+                $("." + selectedClass).fadeIn().addClass('animation');
+                $("#gallery").fadeTo(300, 1);
+                }, 300);
+            });
         });
     
-    async function checkUpdate()
-    {
-        const response = await fetch('http://localhost:5000/html_update');
-        const res = await response.json()
-        // res = "0"
-        console.log("x")
-        if( res == "1"){
-            location.reload();
-        }else{
-            setTimeout(() => {
-                checkUpdate()
-            }, 1000); 
-        }
-    }
-    checkUpdate();
+    // async function checkUpdate()
+    // {
+    //     const response = await fetch('http://localhost:5000/html_update');
+    //     const res = await response.json()
+    //     if( res == "1"){
+    //         location.reload();
+    //     }else{
+    //         setTimeout(() => {
+    //             checkUpdate()
+    //         }, 1000); 
+    //     }
+    // }
+    // checkUpdate();
 
     // Doughnut
 
@@ -175,5 +173,24 @@
             }
         }
         });
+    
+
+    {% for i in '0123456789'|make_list %}
+        $('#collapseExample{{ forloop.counter0 }}').on('shown.bs.collapse', function () {
+            heroInfo({{ forloop.counter0 }}, 1);
+        });
+
+        $('#collapseExample{{ forloop.counter0 }}').on('hidden.bs.collapse', function () {
+            heroInfo({{ forloop.counter0 }}, 0);
+        });
+    {% endfor %}
+    async function heroInfo(index, value)
+    {
+        console.log(index)
+        console.log(value)
+        const response = await fetch('http://localhost:8000/update_user_data/arr_show_hero_info.'+String(index)+'/'+String(value));
+        const res = await response.json()
+        console.log(res)
+    }
 
 </script>
