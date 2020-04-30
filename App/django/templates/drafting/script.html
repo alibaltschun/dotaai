@@ -184,11 +184,33 @@
             heroInfo({{ forloop.counter0 }}, 0);
         });
     {% endfor %}
+
+    {% for team in summary %}
+        $('#collapse{{team.name}}').on('shown.bs.collapse', function () {
+            teamSummary('{{team.name}}', 'main', 1)
+        });
+
+        $('#collapse{{team.name}}').on('hidden.bs.collapse', function () {
+            teamSummary('{{team.name}}', 'main', 0)
+        });
+    {% endfor %}
+
+    
     async function heroInfo(index, value)
     {
         console.log(index)
         console.log(value)
         const response = await fetch('http://localhost:8000/update_user_data/arr_show_hero_info.'+String(index)+'/'+String(value));
+        const res = await response.json()
+        console.log(res)
+    }
+
+    async function teamSummary(team, ui, value)
+    {
+        console.log(team)
+        console.log(ui)
+        console.log(value)
+        const response = await fetch('http://localhost:8000/update_user_data/summary.'+String(team)+'.settings.show_ui.'+String(ui)+'/'+String(value));
         const res = await response.json()
         console.log(res)
     }

@@ -21,7 +21,7 @@ def update_user_data(request, arr_key, value, data=read_user_data()):
     arr_key = arr_key.split(".")
 
     if len(arr_key) > 1:
-        first_key = arr_key[0]
+        first_key = arr_key[0].lower()
         arr_key = '.'.join(arr_key[1:])
         update_user_data(request, arr_key, value, data=data[first_key])
 
