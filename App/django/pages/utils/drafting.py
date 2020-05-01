@@ -34,6 +34,7 @@ def __get_hero_data__(heros, df, index):
                 'index': index,
                 'show_info': False,
                 'name': hero,
+                'name_no_space': hero.replace(" ", "_"),
                 'strength': int(hero_data['STR']),
                 'agility': int(hero_data['AGI']),
                 'intelligence': int(hero_data['INT']),
@@ -51,7 +52,18 @@ def __get_hero_data__(heros, df, index):
         else:
             data.append({
                 'index': index,
-                'invisible': 'invisible'
+                'name': 'unselection',
+                'invisible': 'invisible',
+                'strength': 0,
+                'agility': 0,
+                'intelligence': 0,
+                'attack_min': 0,
+                'attack_max': 0,
+                'armor': 0,
+                'movement': 0,
+                'work_well_with': [],
+                'good_against': [],
+                'bad_against': [],
             })
 
         index += 1
@@ -176,6 +188,9 @@ def __stat_most_played__(df=DATA_STAT_MOST_PLAYED):
 def __summary_atribute__(heros):
     df = pd.DataFrame(heros)
     df = df[df['name'].notna()]
+    df['name'] = df['name'].str.replace(' ', '_')
+    df = df[df['name'] != 'unselection']
+    
 
     df_attack = df.sort_values(
         'attack_max', ascending=False)[['name', 'attack_min', 'attack_max']]
@@ -203,23 +218,25 @@ def __summary_countered__(heros, df=DATA_HERO):
             if i != "":
                 bad_against.append(i)
 
-    max_countered = max(list(Counter(bad_against).values()))
-    summary_countered = [[i, []] for i in range(1, max_countered)]
+    if bad_against != []:
+        max_countered = max(list(Counter(bad_against).values()))
+        summary_countered = [[i, []] for i in range(1, max_countered)]
 
-    for i in range(len(Counter(bad_against).keys())):
-        total_countred = list(Counter(bad_against).values())[i]
-        if total_countred > 1:
-            summary_countered[total_countred-2][1].append(
-                str(list(Counter(bad_against).keys())[i]))
+        for i in range(len(Counter(bad_against).keys())):
+            total_countred = list(Counter(bad_against).values())[i]
+            if total_countred > 1:
+                summary_countered[total_countred-2][1].append(
+                    str(list(Counter(bad_against).keys())[i]))
 
-    result = []
-    for i in reversed(summary_countered):
-        result.append({
-            'total_countered': i[0]+1,
-            'heros': [i.replace(" ", "_") for i in i[1]]
-        })
+        result = []
+        for i in reversed(summary_countered):
+            result.append({
+                'total_countered': i[0]+1,
+                'heros': [i.replace(" ", "_") for i in i[1]]
+            })
 
-    return result
+        return result
+    return []
 
 
 def __summary_attack_abilities__(heros, df=DATA_HERO):

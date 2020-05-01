@@ -1,5 +1,5 @@
 from .features.timer import check_timer, update_ui
-# from .features.select_hero import main_select_hero
+from .features.drafting import main_drafting, update_drafting_data
 from .features.ui import check_ui
 from .utils.screen import get_screen_information
 from .UI.gameplay import generate_ui as generate_ui_gameplay
@@ -57,7 +57,7 @@ def __change_ui__(screen_width, screen_height, ui=None):
     if ui == "gameplay":
         __gameplay__(screen_width, screen_height)
     if ui == "drafting":
-        __select_hero__(screen_width, screen_height)
+        __drafting__(screen_width, screen_height)
     if ui == "menu":
         __ui_menu__(screen_width, screen_height)
 
@@ -80,7 +80,7 @@ def __gameplay__(screen_width, screen_height):
         _check_ui += 1
         if _check_ui == 3:
 
-            # reset _check)ui
+            # reset _check_ui
             _check_ui = 0
 
             # pred ui
@@ -92,22 +92,21 @@ def __gameplay__(screen_width, screen_height):
     __change_ui__(screen_width, screen_height, ui)
 
 
-def __select_hero__(screen_width, screen_height):
+def __drafting__(screen_width, screen_height):
 
     radiant = ['unselection', 'unselection', 'unselection',
                'unselection', 'unselection']
     dire = ['unselection', 'unselection', 'unselection',
             'unselection', 'unselection']
 
-    # generate_ui_drafting(radiant, dire)
-    update_ui()
+    update_drafting_data(radiant, dire)
 
     heros = [None, None]
     _check_ui = 0
     while True:
-        # radiant, dire = main_select_hero(screen_width, screen_height)
+        radiant, dire = main_drafting(screen_width, screen_height)
         if heros != [radiant, dire]:
-            update_ui()
+            update_drafting_data(radiant, dire)
             heros = [radiant, dire]
 
         time.sleep(1)

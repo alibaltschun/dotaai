@@ -92,7 +92,7 @@ def check_timer(screen_width, screen_height,
                     generate_ui(["Rune in 10 seconds"])
                     update_ui()
                     play("rune10", voice_type="alert")
-            
+
             # check minutes x4 for rune alert
             if minutes[-1:] == "9":
 

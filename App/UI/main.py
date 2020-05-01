@@ -3,11 +3,8 @@ import win32con
 import win32gui
 from cefpython3 import cefpython as cef
 import sys
-import time
 
-# import os
-# BASE = (os.path.dirname(os.path.realpath(__file__)))
-# URL = BASE + "/index.html"
+
 URL = "http://localhost:8000/drafting"
 
 
@@ -74,5 +71,5 @@ class MyWindow:
 
 
 def plot():
-    m = MyWindow()
+    _ = MyWindow()
     win32gui.PumpMessages()
