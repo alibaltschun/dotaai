@@ -94,9 +94,13 @@ def __setup_show_ui_stat__(id_show):
 def __setup_show_ui_hero_info(radiant_data, dire_data, arr_show):
     for i in range(5):
         radiant_data[i]['show_info'] = arr_show[i]
+        if radiant_data[i]['name'] == 'unselection':
+            radiant_data[i]['show_info'] = 0
 
     for i in range(5):
         dire_data[i]['show_info'] = arr_show[i+5]
+        if dire_data[i]['name'] == 'unselection':
+            dire_data[i]['show_info'] = 0
 
     return radiant_data, dire_data
 
@@ -190,7 +194,6 @@ def __summary_atribute__(heros):
     df = df[df['name'].notna()]
     df['name'] = df['name'].str.replace(' ', '_')
     df = df[df['name'] != 'unselection']
-    
 
     df_attack = df.sort_values(
         'attack_max', ascending=False)[['name', 'attack_min', 'attack_max']]
@@ -300,6 +303,7 @@ def set_up():
                 id_show=USER_DATA_DRAFTING['statistics']['id_show'])
 
     propt = {
+        'ui': USER_DATA_DRAFTING['ui'],
         'radiant_heros': radiant_data,
         'dire_heros': dire_data,
         'statistics': stats,

@@ -1,0 +1,3 @@
+{% for notification in notifications %}
+    <a id="btn_toast{{notification.id}}" class="btn btn-info invisible" onclick="toastr.info('{{ notification.text }}');"></a>
+{% endfor %}

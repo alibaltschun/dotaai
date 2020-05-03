@@ -5,7 +5,7 @@ from cefpython3 import cefpython as cef
 import sys
 
 
-URL = "http://localhost:8000/drafting"
+URL = "http://localhost:8000/"
 
 
 class MyWindow:

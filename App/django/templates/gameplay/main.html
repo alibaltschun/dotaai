@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block body %}
+
+{% include "drafting/team_summary.html" %}
+<div class="container-fluid pt-5" >
+    
+    {% include "gameplay/notification.html" %}
+    {% include "gameplay/script.html" %}
+    
+</div>
+{% endblock %}

@@ -1,15 +1,34 @@
-from .features.timer import check_timer, update_ui
+from .features.timer import check_timer
 from .features.drafting import main_drafting, update_drafting_data
 from .features.ui import check_ui
 from .utils.screen import get_screen_information
 from .UI.gameplay import generate_ui as generate_ui_gameplay
-# from .UI.select_hero import generate_ui as generate_ui_drafting
 from .UI.main import plot
 from .local_server.main import app as server
 import os
 import time
+import json
 
 BASE = (os.path.dirname(os.path.realpath(__file__)))
+
+
+def __read_user_data__():
+    USER_DATA_DRAFTING = open(BASE + "/django/local_data/drafting.json")
+    USER_DATA_DRAFTING = USER_DATA_DRAFTING.read()
+    USER_DATA_DRAFTING = json.loads(USER_DATA_DRAFTING)
+    return USER_DATA_DRAFTING
+
+
+def __save_user_data__(data):
+    with open((BASE + "/django/local_data/drafting.json"), 'w') as f:
+        json.dump(data, f)
+
+
+def __update_data_ui__(ui):
+    data = __read_user_data__()
+    data["have_update"] = 1
+    data["ui"] = ui
+    __save_user_data__(data)
 
 
 def __local_server__():
@@ -23,7 +42,6 @@ def __ui__():
 
 def __ui_menu__(screen_width, screen_height):
     generate_ui_gameplay(["instagram : dota2.gg.ai"])
-    update_ui()
     _check_ui = 0
 
     while True:
@@ -52,14 +70,17 @@ def __change_ui__(screen_width, screen_height, ui=None):
     if ui is None:
         ui = ui = check_ui(screen_width, screen_height)
 
-    print(ui)
+    print('ui', ui)
 
     if ui == "gameplay":
+        __update_data_ui__(ui)
         __gameplay__(screen_width, screen_height)
     if ui == "drafting":
+        __update_data_ui__(ui)
         __drafting__(screen_width, screen_height)
-    if ui == "menu":
-        __ui_menu__(screen_width, screen_height)
+    # if ui == "menu":
+    #     __update_data_ui__(ui)
+    #     __ui_menu__(screen_width, screen_height)
 
 
 def __gameplay__(screen_width, screen_height):
@@ -124,7 +145,6 @@ def __drafting__(screen_width, screen_height):
             if ui != "drafting":
                 break
 
-    print("break")
     __change_ui__(screen_width, screen_height, ui)
 
 

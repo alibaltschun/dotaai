@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block body %}
+
+
+<script>
+    async function checkUpdate()
+    {
+        const response = await fetch('http://localhost:8000/drafting_check_update');
+        const res = await response.json()
+        if( res == "1"){
+            location.reload();
+        }else{
+            setTimeout(() => {
+                checkUpdate()
+            }, 1000); 
+        }
+    }
+    checkUpdate();
+</script>
+{% endblock %}

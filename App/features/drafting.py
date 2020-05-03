@@ -32,6 +32,7 @@ def __save_user_data__(data):
 def update_drafting_data(radiant, dire):
     data = __read_user_data__()
     data["have_update"] = 1
+    data["ui"] = 'drafting'
     data["radiant"] = radiant
     data["dire"] = dire
     __save_user_data__(data)

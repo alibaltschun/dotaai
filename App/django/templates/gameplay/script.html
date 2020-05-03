@@ -1,0 +1,36 @@
+{% load static %}
+
+<!-- JQuery -->
+<script type="text/javascript" src="{% static 'mdb/js/jquery.js' %}"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="{% static 'mdb/js/popper.js' %}"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="{% static 'mdb/js/bootstrap.js' %}"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="{% static 'mdb/js/mdb.js' %}"></script>
+
+<script type="text/javascript"> 
+    
+    {% for notification in notifications %}
+    setTimeout("CallButton{{notification.id}}()",{{notification.delay}})
+        function CallButton{{notification.id}}(){
+        
+            document.getElementById("btn_toast{{notification.id}}").click();
+
+    }
+    {% endfor %}
+    async function checkUpdate()
+    {
+        const response = await fetch('http://localhost:8000/drafting_check_update');
+        const res = await response.json()
+        if( res == "1"){
+            location.reload();
+        }else{
+            setTimeout(() => {
+                checkUpdate()
+            }, 1000);
+        }
+    }
+    checkUpdate();
+
+</script>

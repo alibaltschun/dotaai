@@ -8,7 +8,7 @@ model = load_learner(MODEL_PATH)
 
 
 def check_ui(screen_width, screen_height, learn=model):
-    img = ImageGrab.grab((0, 0, screen_height*0.15, screen_height*0.15))
+    img = ImageGrab.grab((0, 0, screen_height*0.1, screen_height*0.1))
 
     # temp img from model pred
     temp_file = BASE + "/../temp/ui.png"
