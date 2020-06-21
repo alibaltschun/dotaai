@@ -27,9 +27,10 @@ def __str2arr__(heros):
 def __get_hero_data__(heros, df, index):
     data = []
     for hero in heros:
-        if hero.lower() != "unselection":
+        if hero.lower() != "unselecting":
             hero_data = df.loc[df['Hero'] == hero]
-
+            print(hero)
+            print(hero_data)
             data.append({
                 'index': index,
                 'show_info': False,

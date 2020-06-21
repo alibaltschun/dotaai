@@ -12,6 +12,7 @@
 <script type="text/javascript">
     // Animations initialization
     // new WOW().init();
+    var URL = 'https://b0a0d144.ngrok.io'
 
     $("[title]").tooltip({
         delay: { "show": 100, "hide": 1000 },
@@ -35,7 +36,7 @@
     
     async function checkUpdate()
     {
-        const response = await fetch('http://localhost:8000/drafting_check_update');
+        const response = await fetch(URL + '/drafting_check_update');
         const res = await response.json()
         if( res == "1"){
             location.reload();
@@ -223,19 +224,19 @@
     
     async function heroInfo(index, value)
     {
-        const response = await fetch('http://localhost:8000/update_user_data/arr_show_hero_info.'+String(index)+'/'+String(value));
+        const response = await fetch(URL + '/update_user_data/arr_show_hero_info.'+String(index)+'/'+String(value));
         const res = await response.json()
     }
 
     async function statistics(index)
     {
-        const response = await fetch('http://localhost:8000/update_user_data/statistics.id_show/'+String(index));
+        const response = await fetch(URL + '/update_user_data/statistics.id_show/'+String(index));
         const res = await response.json()
     }
 
     async function teamSummary(team, ui, value)
     {
-        const response = await fetch('http://localhost:8000/update_user_data/summary.'+String(team)+'.settings.show_ui.'+String(ui)+'/'+String(value));
+        const response = await fetch(URL + '/update_user_data/summary.'+String(team)+'.settings.show_ui.'+String(ui)+'/'+String(value));
         const res = await response.json()
     }
 

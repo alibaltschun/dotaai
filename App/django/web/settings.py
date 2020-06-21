@@ -65,8 +65,13 @@ WSGI_APPLICATION = 'web.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'djongo',
+        'CLIENT': {
+            'name': 'dota2ggai',
+            'host': 'mongodb+srv://admin:PmMC2N8qIH0io6yc@cluster0-pj0ht.gcp.mongodb.net/test?retryWrites=true&w=majority',
+            # 'user': 'admin',
+            # 'password': 'PmMC2N8qIH0io6yc'
+        }
     }
 }
 
@@ -113,4 +118,9 @@ STATICFILES_DIRS = (
 
 STATIC_URL = "/staticfiles/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
- 
+
+REST_FRAMEWORK = {
+  'DEFAULT_AUTHENTICATION_CLASSES': (
+    'rest_framework_jwt.authentication.JSONWebTokenAuthentication',
+  ),
+}

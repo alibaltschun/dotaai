@@ -5,7 +5,7 @@ import json
 
 BASE = (os.path.dirname(os.path.realpath(__file__)))
 
-MODEL_PATH = BASE + '/../model/select_hero'
+MODEL_PATH = BASE + '/../model/select_hero/'
 model = load_learner(MODEL_PATH)
 
 

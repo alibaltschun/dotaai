@@ -115,6 +115,27 @@ def check_timer(screen_width, screen_height,
                     update_ui()
                     play("outpost", voice_type="alert")
 
+            if minutes[-1:] == "8":
+
+                minute = int(minutes)+1
+                index_exp = int(minute / 10)
+
+                print(index_exp)
+                if index_exp > len(OUTPOST_EXP):
+                    index_exp = int(len(OUTPOST_EXP) - 1)
+
+                print(index_exp)
+                # play alert rune in 20 seconds
+                if seconds == "20":
+                    generate_ui([
+                        "Capture outpost before {}:00".format(str(minute)),
+                        "each heros in team will get {} EXP if we have outpost".format(OUTPOST_EXP[index_exp]),
+                        "EXP outpost not stacked",
+                        "Capture both OP to make enemy did not have bonus EXP"
+                    ])
+                    update_ui()
+                    play("outpost", voice_type="alert")
+
             # play alert for stacking
             elif minutes != "0" and seconds == "40":
                 generate_ui(["Stack a jungle creep"])

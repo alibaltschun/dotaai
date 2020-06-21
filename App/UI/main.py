@@ -3,10 +3,13 @@ import win32con
 import win32gui
 from cefpython3 import cefpython as cef
 import sys
+import os
+import time
 
+BASE = (os.path.dirname(os.path.realpath(__file__)))
 
-URL = "http://localhost:8000/"
-
+with open(BASE + "/url.txt", "r") as file:
+    URL = file.read()
 
 class MyWindow:
 
@@ -73,3 +76,8 @@ class MyWindow:
 def plot():
     _ = MyWindow()
     win32gui.PumpMessages()
+
+
+if __name__ == '__main__':
+    plot()
+    input("Press something to exit")

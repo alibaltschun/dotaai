@@ -4,7 +4,6 @@ from .features.ui import check_ui
 from .utils.screen import get_screen_information
 from .UI.gameplay import generate_ui as generate_ui_gameplay
 from .UI.main import plot
-from .local_server.main import app as server
 import os
 import time
 import json
@@ -29,10 +28,6 @@ def __update_data_ui__(ui):
     data["have_update"] = 1
     data["ui"] = ui
     __save_user_data__(data)
-
-
-def __local_server__():
-    server.run()
 
 
 def __ui__():
@@ -66,7 +61,7 @@ def __ui_menu__(screen_width, screen_height):
 
 
 def __change_ui__(screen_width, screen_height, ui=None):
-
+    print(1)
     if ui is None:
         ui = ui = check_ui(screen_width, screen_height)
 
@@ -78,6 +73,9 @@ def __change_ui__(screen_width, screen_height, ui=None):
     if ui == "drafting":
         __update_data_ui__(ui)
         __drafting__(screen_width, screen_height)
+
+    __update_data_ui__('drafting')
+    __drafting__(screen_width, screen_height)
     # if ui == "menu":
     #     __update_data_ui__(ui)
     #     __ui_menu__(screen_width, screen_height)
@@ -149,6 +147,7 @@ def __drafting__(screen_width, screen_height):
 
 
 def create_app(menu):
+    print(menu)
     screen_width, screen_height = get_screen_information()
 
     if menu == "ai":
@@ -156,6 +155,3 @@ def create_app(menu):
 
     if menu == "ui":
         __ui__()
-
-    if menu == "server":
-        __local_server__()

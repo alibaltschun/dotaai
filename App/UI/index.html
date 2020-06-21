@@ -55,7 +55,13 @@ style="background-color: transparent;"
 background-repeat:no-repeat;
 background-position:top;
 >
-    <a id="btn_toast0" class="btn btn-info invisible" onclick="toastr.info('instagram : dota2.gg.ai');"></a>
+    <a id="btn_toast0" class="btn btn-info invisible" onclick="toastr.info('Capture outpost before 50:00');"></a>
+         
+    <a id="btn_toast1" class="btn btn-info invisible" onclick="toastr.info('each heros in team will get 1150 EXP if we have outpost');"></a>
+         
+    <a id="btn_toast2" class="btn btn-info invisible" onclick="toastr.info('EXP outpost not stacked');"></a>
+         
+    <a id="btn_toast3" class="btn btn-info invisible" onclick="toastr.info('Capture both OP to make enemy did not have bonus EXP');"></a>
              
     <!-- JQuery -->
     <script type="text/javascript" src="./mdb//js/jquery.js"></script>
@@ -69,6 +75,24 @@ background-position:top;
             function CallButton0(){
             
                 document.getElementById("btn_toast0").click();
+
+        }
+        setTimeout("CallButton1()",1000)
+            function CallButton1(){
+            
+                document.getElementById("btn_toast1").click();
+
+        }
+        setTimeout("CallButton2()",1500)
+            function CallButton2(){
+            
+                document.getElementById("btn_toast2").click();
+
+        }
+        setTimeout("CallButton3()",2000)
+            function CallButton3(){
+            
+                document.getElementById("btn_toast3").click();
 
         }
         async function checkUpdate()

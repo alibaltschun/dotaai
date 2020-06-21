@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Dota 2 AI by ali baltschun</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="./mdb/css/bootstrap.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="./mdb//css/mdb.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="./mdb//css/style.css" rel="stylesheet"><style>
+    .md-toast-message{
+        color: aliceblue;  
+    }
+
+
+    #toast-container>:hover {
+        -webkit-box-shadow: 0 0 0 0rem transparent;
+        box-shadow: 0 0 0 0rem transparent;
+    }
+
+    .md-toast-info{
+        /* background-color: gray; */
+        background-image:none !important;
+
+    }
+
+    .md-toast{
+        box-shadow: 0 0 0 0rem transparent !important; 
+    }
+
+    
+    .md-toast-top-right {
+        top: 128px;
+        left: 12px
+    }    
+</style>
+</head>
+
+<!-- <body 
+style="background-color: transparent;
+background-image: url('./../assets/img/temp/2.png');
+background-repeat:no-repeat;
+background-position:top;
+"
+> -->
+
+<body 
+style="background-color: transparent;"
+background-repeat:no-repeat;
+background-position:top;
+>
+    <a id="btn_toast0" class="btn btn-info invisible" onclick="toastr.info('instagram : dota2.gg.ai');"></a>
+             
+    <!-- JQuery -->
+    <script type="text/javascript" src="./mdb//js/jquery.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="./mdb//js/popper.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="./mdb//js/bootstrap.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="./mdb//js/mdb.js"></script>   <script type="text/javascript"> 
+        setTimeout("CallButton0()",500)
+            function CallButton0(){
+            
+                document.getElementById("btn_toast0").click();
+
+        }
+        async function checkUpdate()
+        {
+            const response = await fetch('http://localhost:5000/html_update');
+            const res = await response.json()
+            // res = "0"
+            console.log("x")
+            if( res == "1"){
+                location.reload();
+            }else{
+                setTimeout(() => {
+                    checkUpdate()
+                }, 1000);
+            }
+        }
+        checkUpdate();
+
+    </script>
+        
+</body>
+
+</html>
